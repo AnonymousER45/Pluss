@@ -1,0 +1,67 @@
+{% load static %}
+
+<div class="main">
+    <div class="top-head">
+    <div class="container-fluid">
+      <div class="th-wrap">
+          <div class="th-nav-wrap">
+            <a href="javascript:void(0)" class="th-menu"><i class="material-icons">menu</i></a>
+                <div class="th-nav" id="myTopnav">
+                  <ul class="thn-links">
+                      <li class="thn-main"><a href="{% url 'index' %}">Home</a> </li>
+                        <li class="thn-main"><a href="{% url 'Category2' %}">Stationary</a> 
+                        </li>
+                        <li class="thn-main"><a href="{% url 'Category2' %}">Notebooks</a>
+                        </li>
+                        <li class="thn-main"><a href="javscript:void(0)">8-10th</a>
+                          <ul class="thn-subnav">
+                                <li><a href="{% url 'Category1' %}">8 th </a></li>
+                                  <li><a href="{% url 'Category1' %}">9 th</a></li>
+                                  <li><a href="{% url 'Category1' %}">10 th</a></li>
+                            </ul>
+                        </li><li class="thn-main"><a href="javscript:void(0)">11-12 th</a>
+                          <ul class="thn-subnav">
+                                <li><a href="{% url 'Category1' %}">11</a></li>
+                                  <li><a href="{% url 'Category1' %}">12</a></li>
+                          </ul>
+                        </li>
+                        <li class="thn-main"><a href="{% url 'Category2' %}">Story Books</a>
+                        <li class="thn-main"><a href="{% url 'Category2' %}">Biography Books</a>
+                        <li class="thn-main"><a href="#">My order</a>
+                        <li class="thn-main"><a href="{% url 'wishlist' %}">My Whishlist</a>
+                        <li class="thn-main"><a href="#">my Account</a>
+                        <li class="thn-main"><a href="#">Settings</a>
+                        <li class="thn-main"><a href="{% url 'policies' %}">Privacy Policy</a>
+                        <li class="thn-main"><a href="{% url 'aboutus' %}">Customer Support</a>
+                    </ul>
+                </div>
+          </div>
+          <div class="th-logo">
+              <a href="#"><img src="{% static 'imgs/logo.png' %}" alt="Bookso" title="Bookso"></a>
+            </div>
+            <div class="th-search th-search-desk">
+              <form>
+                  <div class="th-search-wrap">
+                        <input type="text" name="Search" class="ths-text">
+                        <input type="submit" value="Search" name="search" class="ths-btn">
+                    </div>
+                </form>
+            </div>
+            <a href="#" class="th-login">Login/Signup</a>
+            <a href="#" class="th-cart">
+              <img src="{% static 'imgs/cart.png' %}" alt="Cart" title="Cart">
+                <span>0</span>
+            </a>
+            <div class="th-search th-search-mob">
+              <form>
+                  <div class="th-search-wrap">
+                        <input type="text" name="Search" class="ths-text">
+                        <input type="submit" value="Search" name="search" class="ths-btn">
+                    </div>
+                </form>
+            </div>
+      </div>
+      </div>
+    </div>
+
+  
