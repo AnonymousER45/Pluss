@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+<!-- Font Awesome -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--Font-->
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+<!--Css-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}" />
+<!-- Custom StyleSheet -->
+<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+<title>Bookso - Ecommerce Website</title>
+{% endblock %}
+{% block content %}
+
+<div class="content-wrap">
+  <div class="login-wrapper">
+    <div class="container-fluid">
+
+      <div class="lw-forms">
+        <div class="lw-wrap" id="lw-login-form">
+          <div class="lw-left">
+            <p class="lw-title">Login</p>
+            <p>Get access to Your Cart, Wishlist, Orders And Recommendations by logging into Bookso</p>
+          </div>
+          <div class="lw-right">
+            <form method="POST">
+              {% csrf_token %}
+              <div class="col-xs-12">
+                <input type="text" name="username" placeholder="Email / Phone Number">
+              </div>
+              <div class="col-xs-12">
+                <input id="password-field" type="password" name="password" placeholder="Enter Password">
+                <span toggle="#password-field" class="fa fa-eye-slash fa-fw field-icon toggle-password"></span>
+                <a href="#" class="forgot-passwd-link">Forgot Passowrd?</a>
+              </div>
+              <div class="col-xs-12">
+                <p class="term-condition-link">By Continuing, you Agree to the <a href="#">Privacy Policy</a> & <a
+                    href="#">Terms and Conditions</a></p>
+              </div>
+              <div class="col-xs-12 login-button">
+                <input type="submit" name="login" value="Login">
+              </div>
+            </form>
+            {% for message in messages %}
+            <p id="message">{{message}}</p>
+            {% endfor %}
+            <p class="login-option">Or</p>
+            <h3 class="reg-here">You don't have an Account? <a href="{% url 'register' %}">Register here</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#" id="scroll" style="display: none;"><img src="imgs/back-to-top.png" alt="Back to Top"
+      title="Back to Top"></a>
+</div>
+
+{% endblock %}

@@ -2,19 +2,19 @@
 <footer>
         <div class="container-fluid">
             <div class="col-xs-12 col-sm-6 col-md-3">
-                <span class="footer-title">Bookso</span>
+                <span class="footer-title"> Pluscrown</span>
                 <ul class="footer-links">
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Return and Refund Policy</a></li>
+                    <li><a href="{% url 'aboutus' %}">About us</a></li>
+                    <li><a href="{% url 'policies' %}">Terms and Conditions</a></li>
+                    <li><a href="{% url 'policies' %}">Privacy Policy</a></li>
+                    <li><a href="{% url 'policies' %}" >Return and Refund Policy</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-2">
                 <span class="footer-title">Help</span>
                 <ul class="footer-links">
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="{% url 'aboutus' %}">Contact us</a></li>
+                    <li><a href="{% url 'aboutus' %}">FAQ's</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-2">
@@ -57,33 +57,8 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'slick/slick.js' %}"></script>
   <script src="{% static 'scripts/custom.js' %}"></script>
-  <script>
-console.log('working');
-if(localStorage.getItem('cart') == null){
-var cart = {};
-}
-else
-{
-cart = JSON.parse(localStorage.getItem('cart'));
-document.getElementById('cart').innerHTML = Object.keys(cart).length;
-}
-$('.cart').click(function(){
-console.log('clicked');
-var idstr = this.id.toString();
-console.log(idstr);
-if (cart[idstr] !=undefined){
-cart[idstr] = cart[idstr] + 1;
-}
-else
-{
-cart[idstr] = 1;
-}
-console.log(cart);
-localStorage.setItem('cart', JSON.stringify(cart));
-document.getElementById('cart').innerHTML = Object.keys(cart).length;
-});
-</script>
 </main>
 </body>
 </html>
