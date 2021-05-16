@@ -27,7 +27,7 @@ def registerPage(request):
             Customer.Cust_Name = username
             Customer.phone_number = phone
             Customer.pincode = pincode
-            Customer.set_password(form.password1)
+            Customer.set_password(raw_password)
             Customer.save()
             
             return redirect('Login')

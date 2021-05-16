@@ -4,11 +4,7 @@ from .models import Customer
 
 
 class CustomerCreationForm(UserCreationForm):
-    terms=forms.BooleanField()
-    class Meta:
+  class Meta:
         model = Customer
-        fields = ["username","email","phone_number", "password", "password2","pincode","terms"]
+        feilds = "__all__"
         exclude = ()
-        widgets = {
-      'password': forms.PasswordInput()
-         }

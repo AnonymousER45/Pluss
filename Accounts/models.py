@@ -10,12 +10,9 @@ Address_type = (
 # Custom User Which Can Login using Email address and password
 class Customer(AbstractUser):
     phone_number = models.IntegerField(null=True, blank=True)
-    Cust_Name = models.CharField(max_length=20)
-    password = models.CharField(max_length=64)
     # email address is Unique for every user
     email = models.EmailField(_('email address'), unique=True)
-    pincode = models.IntegerField(null=True,blank=True)
-    
+       
     USERNAME_FIELD = 'email'   # uses Email  field to Login
     REQUIRED_FIELDS = ['username']
 

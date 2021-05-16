@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('Accounts/', include('Accounts.urls')),
     path('',include('Ecom.urls')),
+    path('django/api/',include ('Api.urls')),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

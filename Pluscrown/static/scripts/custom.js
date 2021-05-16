@@ -10,7 +10,8 @@ $(document).ready(function(){
 		$('body').toggleClass('menu-active');
 	});
 	
-	$('.thn-main').click(function(){
+	$('.thn-main').click(function(e){
+		e.stopPropagation();
 		$(this).children('.thn-subnav').toggleClass('active');
 	});
 	

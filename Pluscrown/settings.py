@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # Framework,
     'rest_framework',
+    'Api',
 
 ]
 
