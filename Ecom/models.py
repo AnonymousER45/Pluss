@@ -158,9 +158,10 @@ class CartProduct(models.Model):
     Product = models.ForeignKey(Product, on_delete=models.CASCADE) 
     product_quan = models.IntegerField(default=1) 
 
+    is_binding = models.BooleanField(default=False)
     gift_message = models.CharField(max_length=255,default="  ") 
     is_gift = models.BooleanField(default=False)
-    is_binding = models.BooleanField(default=False)
+
     gift_from = models.CharField(max_length=20,default="  ") 
     gift_box = models.BooleanField(default=False) 
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE) 

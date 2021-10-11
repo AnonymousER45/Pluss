@@ -1,0 +1,171 @@
+{% extends 'base.html' %} {% load static %} {% block extrahead %}
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!--Css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css'%}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css'%}"/>
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css'%}" />
+  <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+
+
+  <title>PLUSCROWN PRIVATE LIMITED </title>
+   {% endblock %} {% block content %}
+
+<div class="content-wrap">     
+  <div class="container-fluid">
+    <div class="myaccountbox">
+      <br>
+      <div class="cart-title-wrap myaccounttitle ">
+      <h1 class="title"> <img src="{% static 'imgs/profile.png'%}" width="7%" height="7%"> My Account :- </h1>
+      <hr class="ruler1">
+     </div><br>
+     <div class="payment-wrapper">
+      <div class="row">
+        <div class="col-md-3 box">
+          <a href="/myorders">
+          <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/orders.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-10 text-center">
+              <p>My Orders</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        
+        <div class="col-md-3 box">
+          <a href="/personal_info">
+          <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/profile.png'%}" width="120%" height="120%">
+            </div>
+            <div class="col-md-8 col-xs-10 text-center3">
+              <p>Personal Information</p>
+            </div>
+          </div>
+          </a>
+        </div>
+
+        <div class="col-md-3 box">
+          <a href="/addressbook">
+          <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/addressbook.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-10 text-center">
+              <p>Address Book</p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-3 box">
+          <a href="/aboutus">
+            <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/aboutsus.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-10 text-center">
+              <p>About Us</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="col-md-3 box">
+          <a href="/termsandcondition">
+          <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/termsandconditions.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 text-center4">
+              <p>Terms & Conditions</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="col-md-3 box">
+          <a href="/returnandexchange">
+          <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/replacement.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-10 text-center">
+              <p>Return Policy</p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-3 box">
+          <a href="/ordercancelation">
+          <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/ordercancel.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-10 text-center2">
+              <p>Cancelation Policy</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="col-md-3 box">
+          <a href="/faq">
+          <div class="row">
+            <div class="col-md-4 col-xs-3 imgs">
+              <img src="{% static 'imgs/faqs.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-10 text-center">
+              <p>FAQ's</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="col-md-3 box">
+          <a href="{% url 'logout' %}">
+            <div class="row">
+              <div class="col-md-4 col-xs-3 imgs2">
+                &ensp;<img src="{% static 'imgs/logout.png'%}" width="100%" height="100%">
+              </div>
+              <div class="col-md-8 col-xs-10 text-center">
+                <p>Logout</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+     </div>
+    </div>                   
+  </div>
+  <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+</div>
+
+
+
+  <!--Script-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+  <script src="{% static 'scripts/custom.js'%}"></script>
+
+
+ {% endblock %}

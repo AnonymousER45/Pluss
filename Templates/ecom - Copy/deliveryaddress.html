@@ -1,0 +1,142 @@
+{% extends 'base.html' %} {% load static %} {% block extrahead %}
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!--Css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css'%}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css'%}"/>
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css'%}" />
+  <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+
+
+  <title>PLUSCROWN PRIVATE LIMITED </title>
+   {% endblock %} {% block content %}
+   <div class="content-wrap content-wrap-cart">
+      <div class="cart-menu">
+        <ul class="cm-list">
+          <li><a href="#">Order<br> Confirmation</a></li>
+          <li class="active"><a href="#">Address</a></li>
+          <li><a href="#">Payment</a></li>
+        </ul>
+      </div>
+      <div class="cart">
+        <br>
+    <br>
+    <br>
+   <div class="container-fluid">        
+        <div class="address-wrapper">
+          <div class="address-details">
+            <!--<div class="">
+              <lottie-player src="anim/65322delivery.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;margin: auto; position: relative;" loop autoplay></lottie-player>
+            </div> -->
+            <div class="cart-title-wrap">
+            <div class="tab_container" style="background-color: white; width: 100%; margin-left: 15px; padding: 15px; margin-bottom: 104px;border: .75px solid grey;">
+              <h1 class="title"><img src="{% static 'images/deliverytruck.png' %}" height="5%" width="5%" style="margin-top:-7px;"> Delivery Address :-</h1>
+              <!-- <p class="da-subtitle">We will deliver your Order to this Address <span>(Click on the block containing the address yo want to select)</span></p> -->
+              <hr class="deliverybookruler">
+            
+              <div class="addresses-wrap">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="aw-item">
+                    <div class="row">
+                      <div class="col-md-4" onclick="toggleCheck()">
+                        <input type="checkbox" name="checkbox" id="checkbox" checked="" style="margin: 20px 0 0 10px;">
+                        <img src="{% static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 6px;" >
+                      </div>
+                      <div class="col-md-8  col-xs-10">
+                        <p>
+                          <label class="aw-name">Ohm Chadwick</label>
+                             &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;<a href="#" class="aw-edit"></a> 
+                            <a href="#" class="aw-delete"></a>
+                        </p>
+                        <p class="aw-avail"> Delivery available here.</p>
+                        <p class="aw-add">Plot no. 123, Swati Apt., Youth Section, <span>Near Shani Mandir,Ambernath (West),</span><span>Thane- 421503</span></p>
+                        <p class="aw-phone">Phone: 9323267570</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="aw-item">
+                    <div class="row">
+                      <div class="col-md-4" onclick="toggleCheck1()">
+                        <input type="checkbox" name="checkbox" id="checkbox1" style="margin: 20px 0 0 10px;">
+                        <img src="{% static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 6px;">
+                      </div>
+                      <div class="col-md-8  col-xs-10">
+                        <p>
+                          <label class="aw-name">Ohm Chadwick</label>
+                            &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;<a href="#" class="aw-edit"></a> 
+                            <a href="#" class="aw-delete"></a>
+                        </p>
+                        <p class="aw-notavail"> Delivery  not available here.</p>
+                        <p class="aw-add">Plot no. 123, Swati Apt., Youth Section, <span>Near Shani Mandir,Ambernath (West),</span><span>Thane- 421503</span></p>
+                        <p class="aw-phone">Phone: 9323267570</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br><br>
+              <a href="#" class="confirm-order">Confirm Order</a>
+              <!-- link below button to delivery-address.html -->
+              <a href="#"><img class="cross-modal" src="{% static 'imgs/location-1.png' %}" height="12%" width="12%" style="margin-top: 2px;"></a>
+            </div>
+              
+          </div> 
+        </div>
+        </div>
+      </div>  
+      <!--<div class="services">
+          <div class="container-fluid">
+              <div class="col-xs-12  col-md-4">
+                  <div class="ser-item">
+                      <div class="si-icon">
+                          <img src="imgs/free-shipping.png" width="85%" height="85%" alt=""  itle="">
+                        </div>
+                        <div class="si-txt">
+                          <h2>Free Shipping</h2>
+                            <p>We offer free shipping  for order over Rs. 200.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <div class="ser-item">
+                      <div class="si-icon">
+                          <img src="imgs/24-7-service.png" width="85%" height="85%"alt=""  itle="">
+                        </div>
+                        <div class="si-txt">
+                          <h2>Top - Notch Support</h2>
+                            <p>Any Questions? Our Supportt Team is only a click away.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12  col-md-4">
+                  <div class="ser-item">
+                      <div class="si-icon">
+                          <img src="imgs/secure-payment.png" width="85%" height="85%" alt=""  itle="">
+                        </div>
+                        <div class="si-txt">
+                          <h2>Secure Payments</h2>
+                            <p>Your Payment information is processed Securely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+      <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
+    </div>
+    </div>
+</div>
+
+
+   {% endblock %}

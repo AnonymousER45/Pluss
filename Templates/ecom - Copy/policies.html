@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+    <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+  <!--Css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <title>Bookso - Ecommerce Website</title>
+
+{% endblock %}
+{% block content %}
+
+<div class="content-wrap">
+  <div class="about-wrap">
+   <div class="cart-title-wrap">
+    <h1 class="title">Policies</h1>
+  </div>
+  <div class="payment-wrapper">
+    <ul class="tabs">
+      <li class="active" rel="tab1">Return and Exchange Policy</li>
+      <li rel="tab2">Order Cancellation  Policy</li>
+      <li rel="tab3">Privacy Policy</li>
+      <li rel="tab4" class="tab_last">Terms & Conditions</li>
+    </ul>
+    <div class="tab_container">
+      <h3 class="d_active tab_drawer_heading" rel="tab1">Return and Exchange Policy</h3>
+      <div id="tab1" class="tab_content" style="display: none;">
+        <ul>
+            <li>Pluscrown believe in helping our customers and therefore has a cancellation and return policy. If you have received a defective or wrong product you may request a replacement at   no extra cost and simply can return it. You should inform us within 48 hours receiving the delivery, We will refund the amount within 48hrs after we collect it.</li>
+              <li>If you have recived the product in a bad condition or if the packaging is tempered before delivery, You can refuse to accept the package and return the package to the delivery person.</li>
+              <li>Please make sure that the orignal product tag and packing is intact when sending the product back.</li>
+              <li>Return will be processed only if:
+                <ol>
+                    <li>The product has not been used and has not been altered in any manner.</li>
+                      <li>The product is intact and in saleable conditions.</li>
+                      <li>The product is accompanied by the original invoice of purchase.</li>
+                      <li>"Non-returnable" tagged products cannot be returned.</li>
+                      <li>In certain cases where the seller is unable to process a replacement for any reason whatsoever, A refund will be given.</li>
+                      <li>In case the product was not delivered and you received a delivery confirmation email/SMS, Report the issue within 5 days from the date of delivery confirmation for the seller to investigate. </li>
+                  </ol>
+              </li>
+          </ul>
+      </div>
+
+      <h3 class="tab_drawer_heading" rel="tab2">Order Cancellation  Policy</h3>
+      <div id="tab2" class="tab_content" style="display: none;">
+        <ul>
+            <li>You can cancel your order, Before it is accepted by you.</li>
+              <li>You can cancel your order, Before it is shipped or Dispatched along with a reason for cancelation.</li>
+              <li>Those Who return any product, The amount will be credited automatically in your bank account within 48 hours. Those items which are to be returned or exchanged must be unused.</li>
+          </ul>
+      </div>
+
+      <h3 class="tab_drawer_heading" rel="tab3">Privacy Policy</h3>
+      <div id="tab3" class="tab_content" style="display: none;">
+          <ul>
+              <li>We are very glad that you love our work. Data protection is high priority for the management team of Pluscrown.</li>
+                <li>We always value your trust upon us. We do not share or sell your Personal information to third-party Agencies. We have set the highest standards of secure transactions and   customer information privacy.</li>
+                <li>This Website includes Copyrighted Content, such as text, graphics, logos, icons, images and is property of Pluscrown.</li>
+                <li>What information do we collect from our customers?<br>
+                  When you use our Platform, we collect and store your information which is provided by you during Sign-up and Registraton. In general, you can browse the Platform without any details or revealing any personal information about yourself. Once you Register with us, Our main objective behind this is to provide you safe, efficient and customized shopping experience through. We collect personal information such as
+                    <ul>
+                      <li>Email address</li>
+                        <li>First name and Last name</li>
+                        <li>Phone number</li>
+                        <li>Address, State, Province, ZIP/Postal code, City</li>
+                        <li>Cookies and Usage Data.</li>
+                    </ul>
+                </li>
+                <li>We need your prefered information in order to improve our services and experiences within our Sites.</li>
+                <li>We automatically collect and store certain types of information about you and your activity on Pluscrown, Including information about your interaction with content available through Pluscrown.</li>
+                <li>We use your personal information to communicate with you in relation to Pluscrown (e.g.- by Phone, E-mail, Chats).</li>
+            </ul>
+
+            <div class="collapse-wrap">
+                <button type="button" class="collapsible">Security:</button>
+                <div class="content">
+                    <ul>
+                        <li>We provide strict security standards in order to protect the misuse or changes in the information you provided us.</li>
+                        <li>Whenever you access your account information, we offer the use of a secure server.</li>
+                        <li>When you access our website we provide you with the secure web access.</li>
+                        <li>It is important for you to be aware, against unauthorized access to your password and to your computers, devices and applications.</li>
+                        <li>In order to maintain security, We suggest you not share your registered Passwords, This may result in change of the information provided by you, and may be misused by others.</li>
+                        <li>Once the information is in our database, We do not change it. Only authorized user can make a change.</li>
+                        <li>We work to protect the security of your personal information during transmission by using encryption protocols and software.</li>
+                        <li>Our devices offer security features to protect them against unauthorized access and loss of data.</li>
+                        <li>It is important for you to be aware against unauthorized access in your Account, Computers, devices and applications.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-wrap">
+                <button type="button" class="collapsible">Changes to this Privacy Policy</button>
+                <div class="content">
+                    <p>Please check our Privacy Policy time to time. We may update this Privacy Policy to reflect changes to our information practices.</p>
+                </div>
+            </div>
+
+            <div class="collapse-wrap">
+                <button type="button" class="collapsible">Children's Privacy</button>
+                <div class="content">
+                    <ul>
+                      <li>Our Service does not address anyone under the age of 18.</li>
+                        <li>We do not collect personally identifiable information from anyone under the age of 18.</li>
+                        <li>Queries<br>
+                          If you have a query, issue, concern, or complaint in usage of your personal information under this Privacy Policy, please contact us or E-mail us.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+      </div>
+
+      <h3 class="tab_drawer_heading" rel="tab4">Terms & Conditions</h3>
+      <div id="tab4" class="tab_content" style="display: none;">
+          <ul>
+              <li>All applicable terms and regulations is according to information technology act 2000.</li>
+                <li>By accessing this website you are agreeing to be bound by these Web Terms and Conditions. </li>
+                <li>We request you to read this carefully.</li>
+                <li>You can visit website and services. However, downloading or modifying any portion of the website is strictly prohibited, And you can not make duplicate or copies.</li>
+                <li>All rights, including copyright and the trademark "Pluscrown" in this website are owned by or licensed to Pluscrown PRIVATE LIMITED.</li>
+                <li>All our communication would be conducted by e-mails or by posting notices and messages on the website.</li>
+                <li>If you believe that your intellectual property rights have been unfairly used which gives rise to security concerns, please contact us for the correct information or inquiry.</li>
+                <li>The website is available only to those who can legally contract under applicable law. If you are under 18, you are prohibited from using purchasing contracting from this website.</li>
+            </ul>
+
+
+            <img src="{% static 'imgs/plus-crown.png'%}" height="30%" width="30%" style="float: right;padding: 10px;">
+      </div>
+
+   </div>
+ </div>
+</div>
+</div>
+<a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
+</div>
+
+{% endblock %}
