@@ -8,13 +8,12 @@
 
                         <div class="tab_container tab_container_white">
                             <div id="tab1" class="tab_content">
-                                <br>
-                                <br>
-                                <h2 class="title-center" style="margin-left:-475px;margin-top:-29px;"><img src="{% static 'imgs/orders.png'%}" width="50px" height="50px"> My Orders :-</h2>
+                            <br>
+                                <h2 class="title-center" style="text-align:left"><img src="{% static 'imgs/orders.png'%}" width="50px" height="50px"> My Orders :-</h2>
                                 <hr class="orderruler">
                                 <div class="selectoption-button">
-                                    <div class="input-group">
-                                        <select class="custom-select" id="inputGroupSelect04">
+                                    <div class="input-grou" style="text-align:right;">
+                                        <select class="custom-select" id="inputGroupSelect04" style="margin-left: 0;">
 
                                             <option selected>Monthly</option>
                                             <option value="1">Quaterly</option>
@@ -25,7 +24,7 @@
                                     </div>
                                 </div>
                   
-                              {% for order in orders %}   
+                               {% for order in orders %}   
                                 <div class="filled-orders">
                                     <div class="fo-item">
                                         <p class="order-number">Order ID : {{order.id}}</p>
@@ -51,5 +50,8 @@
                             </div>
                         </div>
                         <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+                    </div>
+                    </div>
+                    </div>
                     </div>
 {% endblock %}

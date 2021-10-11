@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$(".th-nav").css("top", $(".top-head").height());
 
 	$('.th-menu').click(function(e){
+		console.log('hello')
 		e.stopPropagation();
 		$(this).toggleClass('active');
 		$('.th-nav').toggleClass('active');

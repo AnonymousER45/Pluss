@@ -43,7 +43,7 @@
                     <img src="{{ item.Product.img.url }}">
                     </figure>
                   </div>
-                  <div class="ci-name-quantity">
+                  <div class="ci-name-quantity" style="padding:0">
                     <div class="ci-name"><p style="font-size: 22px;"><a href="#">{{ item.Product.title }}</a></p></div>
                     <p class="wl-price">Rs {{ item.Product.price }} <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
                     <div class="ci-quantity">
@@ -55,27 +55,39 @@
                     </div>
                     <form class="select-gift">
                       {% if item.is_gift %}
-                        <input type="checkbox" name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift1" onclick="giftchange{{ forloop.counter }}()" checked=true>
-                        <label for="selectgift">
-                          Send this item as a Gift{{ forloop.counter }}
-                        </label>
-                        <div id="gift{{ forloop.counter }}" style="display:none;margin-top: -48px; margin-left: 200px;">
-                          <img class="" src="{%static 'imgs/giftOutline.png' %}" width="15%" height="20%">
-                        </div>
-                        <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal" style="display:block;margin-top: -48px; margin-left: 200px;">
-                          <img class="" src="{%static 'imgs/gift.png'%}"width="15%" height="20%" >
+                        <div style="display:flex;align-items:center;">
+                          <div style="margin-right: 10px">
+                              <label >
+                              <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift1" onclick="giftchange{{ forloop.counter }}()" checked=true>
+                                Send this item as a Gift{{ forloop.counter }}
+                              </label>
+                            </div>
+                          <div>
+                          <div id="gift{{ forloop.counter }}" >
+                            <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">
+                          </div>
+                          <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal" >
+                            <img class="" src="{%static 'imgs/gift.png'%}" height="50px" >
+                            </div>
+                          </div>
                         </div>
                       {% else %}
-                        <input type="checkbox" name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift{{ forloop.counter }}" onclick="giftchange{{ forloop.counter }}()">
-                        <label for="selectgift">
-                          Send this item as a Giftf{{ forloop.counter }}{{ forloop.counter }}
-                        </label>
-                        <div id="gift{{ forloop.counter }}" style="margin-top: -48px; margin-left: 200px;">
-                          <img class="" src="{%static 'imgs/giftOutline.png' %}" width="15%" height="20%">
+                       <div style="display:flex;align-items:center;">
+                          <div style="margin-right: 10px">
+                            <label >
+                            <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift{{ forloop.counter }}" onclick="giftchange{{ forloop.counter }}()">
+                              Send this item as a Giftf{{ forloop.counter }}{{ forloop.counter }}
+                            </label>
+                          </div>
+                          <div>
+                        <div id="gift{{ forloop.counter }}" >
+                          <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">
                         </div>
-                        <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal{{ forloop.counter }}" style="display:none;margin-top: -48px; margin-left: 200px;">
-                          <img class="" src="{%static 'imgs/gift.png'%}"width="15%" height="20%" >
+                        <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal{{ forloop.counter }}" style="display:none;">
+                          <img class="" src="{%static 'imgs/gift.png'%}" height="50px" >
+                          </div>
                         </div>
+                          </div>
                       {% endif %}
                      
                       <!-- <div style="margin-top: -40px;margin-left: 180px;">
@@ -86,9 +98,12 @@
                       </div> -->
                     </form>
                     <hr class="ruler">
+                       <div style="display:flex;align-items:center;justify-content:space-between">
+
                     <label onclick="wishList({{item.Product.id}})">Add to WishList</label>
                     <div class="ci-remove">
-                      <a href="{{request.path}}" class="ci-remove-link"><img src="{%static 'imgs/bin.png'%}" width="18%" height="18%" onclick="deleteItemFromCart({{user.id}},{{item.Product.id}},this)"></a>
+                      <a href="{{request.path}}" class="ci-remove-link"><img src="{%static 'imgs/bin.png'%}" height="20px" onclick="deleteItemFromCart({{user.id}},{{item.Product.id}},this)"></a>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -353,7 +368,7 @@
                     <p class="total-amt">Rs. {{cart_total_price}}</p>
                   </div>
                 </div>
-                <div class="order-confirm">
+                <div class="order-confirm" style="text-align:center">
                    <a href="/myaddressbook" onclick="createOrder({{user.id}})" class="confirm-order">Confirm Order</a>
                 </div>
               </div>
@@ -364,7 +379,7 @@
 
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="coupon-modal">
   <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="margin:15px">
       <div class="modal-header">
         <h4 class="modal-title">Apply Coupons
           <button type="button" class="close cross-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

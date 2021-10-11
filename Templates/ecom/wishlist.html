@@ -1,30 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extrahead %}
-    <!-- Font Awesome -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--Font-->
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-
-
-  <!--Css-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
-  <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-
-  <title>Bookso - Ecommerce Website</title>
 
 {% endblock %}
 {% block content %}
 
+        <div class="main">
+
   <div class="content-wrap">
-    <div class="wishlist">
+    <div class="wishlis">
       <div class="container-fluid">
-        <div class="wishlist-wrapper" style="width: 79%; margin-left: -81px; margin-bottom:15px;">
+        <div class="wishlist-wrapper" >
+              <div class="tab_container tab_container_white">
+
+                   <div id="tab1" class="tab_content">
+                             
           <h1 class="title"> <img src="{% static 'images/checklist.png'%}" height="7%" width="7%" style="margin-top:-20px; margin-bottom:5px;">   Wishlist:-</h1> 
           
           <div class="wishlist-table">
@@ -40,8 +30,8 @@
                   <p class="wl-title"> <a href="{% url 'Ecom:Productdetails' item.Product.id %}">{{ item.Product.title }}</a></p>
                   <p class="wl-price">Rs {{ item.Product.price }}  <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
                   <div class="wl-btn-wrap">
-                    <a href="#" class="btn-wl-move" onclick="moveToCart({{item.Product.id}})">Move to Cart</a>
-                    <a href="#" class="btn-wl-delete" onclick="deleteFromWishlist({{item.Product.id}})">Delete</a>
+                    <a href="#" class="btn-wl-move" style="float:unset" onclick="moveToCart({{item.Product.id}})">Move to Cart</a>
+                    <a href="#" class="btn-wl-delete"  onclick="deleteFromWishlist({{item.Product.id}})">Delete</a>
                   </div>
                 </div>
               </div>
@@ -98,9 +88,12 @@
               </div>
             </div> -->
           </div>
+          </div>
+          </div>
         </div>
       </div>
   </div>
+</div>
 </div>
 <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
 </div>

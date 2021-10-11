@@ -1,5 +1,7 @@
-hr {
-  border-bottom: 1px solid #47366f;
+hr,
+.privacyruler {
+  border: 0 !important;
+  border-bottom: 1px solid #47366f !important;
 }
 
 .content-wrap {
@@ -43,11 +45,15 @@ ol {
   left: 0;
 }
 
-.cu-phone, .cu-add, .cu-mail, .cu-whatsapp {
+.cu-phone,
+.cu-add,
+.cu-mail,
+.cu-whatsapp {
   padding-left: 45px;
 }
 
-.empty-cart, .empty-wishlist {
+.empty-cart,
+.empty-wishlist {
   margin: 100px auto 30px;
 }
 
@@ -99,6 +105,29 @@ ol {
   margin-left: 19px;
 }
 
-.btn-wl-move, .btn-wl-move:focus {
+.btn-wl-move,
+.btn-wl-move:focus {
   font-size: 14px;
+}
+
+.slick-slider {
+  padding: 5px;
+}
+
+@media (max-width: 600px) {
+  .wishlist-table-item {
+    flex-direction: column;
+  }
+
+  .btn-wl-move, .btn-wl-move:focus {
+    margin: unset;
+  }
+
+  .wl-desc {
+    padding-left: 0 !important;
+  }
+}
+.modal-header .close {
+  margin-top: -15px;
+  padding-top: 15px;
 }/*# sourceMappingURL=new_style.css.map */
