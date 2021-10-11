@@ -1,25 +1,90 @@
-{% extends 'base.html' %} {% load static %} {% block extrahead %}
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'base.html' %} {% load static %}  {% block content %}
+<div class="content-wrap">
+                <div class="cart-menu">
+                    <ul class="cm-list">
+                        <li><a href="#">Order<br>Confirmation</a></li>
+                        <li><a href="#">Address</a></li>
+                        <li class="active"><a href="#">Payment</a></li>
+                    </ul>
+                </div>
+                <div class="cart">
+                    <div class="container-fluid">
+                        <div class="order-successful-popup">
+                            <!-- <figure>
+              <img src="imgs/order-placed.jpg">
+            </figure>
+            <p class="orde r-success"><span>Order Placed Successfully, Your Order no is E133967347</span></p>-->
+                            <br>
+                            <br>
 
-  <!-- Font Awesome -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--Font-->
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+                            <h3>Select the Payment Mode for Placing Order :-</h3>
+                            <img src="{% static 'imgs/payments.png'%}" style="max-width:350px;padding: 5%; padding-bottom:-10px">
+                            <div class="button">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <div>
+                                            <a href="#" class="button">
+                                                <button class="btn btn-css">
+                                                    <img src="{% static 'imgs/online payment.jpeg'%}" width="20%" height="20%">&nbsp;&nbsp; Online Payment
+                                                </button>
+                                            </a>
+                                            <br><br>
+                                            <a class="button" style="margin-bottom:20px;">
+                                                <button class="btn btn-css" data-toggle="modal" data-target="#myModal">
+                                                    <img src="{% static 'imgs/paymentmethod.png'%}" width="20%" height="20%">&nbsp;&nbsp; Cash On Delivery
+                                                </button>
+                                            </a>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  <!--Css-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css'%}"/>
-  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css'%}"/>
-  <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="{% static 'css/reset.css'%}" />
-  <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <img src="{% static 'imgs/cod.jpg'%}" width="100%" height="100%">
+                                        <h6 class="text-center"><label>You are willing to pay in cash at the time of delivery.</label></h6>
+                                        <div class="cod-wrap">
+                                            <h3 class="cd-title">Enter Phone Number</h3>
+                                            <form>
+                                                <input type="text" name="phone" placeholder="Enter Phone Number" id="number">
+                                                <input type="checkbox" name="resend"><label class="select-add-type">Resend OTP</label>
+                                                <div class="login-button">
+                                                    <input type="button" name="sendotp" value="Send OTP for Varification" onclick="showOTP()">
+                                                </div>
+                                            </form>
 
-  <title>Bookso - Ecommerce Website</title>
-{% endblock %} {% block content %}
+                                            <div class="otp-wrap" id="otp" style="display: none">
+                                                <h3 class="cd-title">Enter OTP for New Phone Number</h3>
+                                                <form>
+                                                    <input type="text" name="otp" placeholder="Enter otp-wrap">
+                                                    <div class="login-button">
+                                                        <input type="submit" name="otp" value="Proceed">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <div class="content-wrap">
+                    </div>
+                </div>
+                <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+            </div>
+    {% comment %} <div class="content-wrap">
       <div class="cart-menu">
         <ul class="cm-list">
           <li><a href="/mycart">Order<br>Confirmation</a></li>
@@ -136,7 +201,7 @@
     </div>
 
 
-</div>
+</div> {% endcomment %}
 
 
   <!--Script-->
@@ -203,10 +268,10 @@
     }
 
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="{% static 'slick/slick.min.js'%}"></script>
-  <script src="{% static 'scripts/custom.js'%}"></script>
+  <script src="{% static 'scripts/custom.js'%}"></script> {% endcomment %}
 {% endblock %}

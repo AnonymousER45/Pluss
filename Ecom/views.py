@@ -362,7 +362,7 @@ def returnandexchange(request):
     return render(request,'ecom/returnandexchange.html')
 
 def faq(request):
-    return render(request,'ecom/faqs.html')
+    return render(request,'ecom/faq.html')
 
 def privacy(request):
     return render(request,'ecom/privacy.html')

@@ -1,23 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block extrahead %}
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Font Awesome -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--Font-->
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-
-  <!--Css-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css'%}"/>
-  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css'%}"/>
-  <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="{% static 'css/reset.css'%}" />
-  <link rel="stylesheet" href="{% static 'css/style.css'%}" />
-
-  <title>Bookso - Ecommerce Website</title>
-{% endblock %} {% block content %}
+{% extends 'base.html' %}  {% block content %}
 
     <div class="content-wrap">
       <div class="cart-menu">
@@ -44,13 +25,4 @@
       
     
 </div>
-
-  <!--Script-->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
- <script type="text/javascript" src="{%static 'slick/slick.min.js'%}"></script>
-  <script src="{%static 'scripts/custom.js'%}"></script>
 {% endblock %}

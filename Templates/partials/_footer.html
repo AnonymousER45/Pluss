@@ -59,8 +59,13 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="{% static 'slick/slick.min.js' %}">
   </script><script type="text/javascript" src="{% static 'slick/slick.js' %}"></script>
+  <script>
+            $(document).ready(function(){
+                console.log($('.top-head').height());
+                $('.content-wrap').css('margin-top',($('.top-head').height())+ 'px')
+            })
+    </script>
+
   <script src="{% static 'scripts/custom.js' %}"></script>
 
-</body>
-</html>
 

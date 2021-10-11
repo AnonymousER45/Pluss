@@ -1,44 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block extrahead %}
-    <!-- Font Awesome -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--Font-->
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-
-  
-  <!--Css--> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
-  <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  
-  <title>Bookso - Ecommerce Website</title>
-
-{% endblock %}
 {% block content %}
+<div class="content-wrap">
+                <div class="cart">
+                    <div class="container-fluid">
 
-    <div class="content-wrap">
-      <div class="cart">
-        <div class="container-fluid">        
-          
-          <div class="not-found-popup">
-            <h3> ------- Error 404 -------</h3>
-            <p>Sorry, Page not Found</p>
-
-            <a href="#" class="gobac-beg">Go back to the beginning</a>
-            <figure>
-              <img src="imgs/order-placed.jpg">
-            </figure>
-          </div>
-        </div>
-      </div>  
-      <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
-    </div>
-
+                        <div class="not-found-popup">
+                            <!-- style="margin-left:240px;width:540px; height:500px; -->
+                            <h3>Error 404</h3>
+                            <p>Sorry, Page not Found</p>
+                            <figure>
+                                <img width="100%" style="max-width: 300px;" class="rounded" src="{% static 'imgs/order-placed.jpg' %}">
+                            </figure>
+                            <a href="#" class="gobac-beg">Go back to PLUSCROWN ZONE</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
+            </div>
 {% endblock %}
 
    

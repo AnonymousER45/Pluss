@@ -1,177 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block extrahead %}
-    <!-- Font Awesome -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--Font-->
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-
-
-  <!--Css-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
-  <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-
-  <title>PLUSCROWN</title>
-
-{% endblock %}
 {% block content %}
-<div class="content-wrap"> 
-  <!-- <div class="about-wrap">
-   <div class="cart-title-wrap">
-    <h1 class="title">Contact Us</h1>
-    <br>
-  </div> -->
-  <div class="payment-wrapper">
-    <!-- <ul class="tabs">
-      <li class="active" rel="tab1">Contact Us</li>
-      <li rel="tab2">FAQ</li>
-      <li rel="tab3" class="tab_last">About Us</li>
-    </ul> -->
-    <div class="tab_container" style="background-color: white;">
-      <!-- <h3 class="d_active tab_drawer_heading" rel="tab1">Contact Us</h3> -->
+<div class="main">
+            <div class="content-wrap">
+                <div class="payment-wrapper">
+                    <div class="tab_container" style="background-color: white;">
+                   
+                        <div id="tab1" class="tab_content contact-us" style="display: block;">
+                                <div class="">
+                                    <h1 class="title"><img src="{% static 'images/contact.png' %}" height="41px" width="45px"> Contact Us :-</h1>
+                                    <hr style="margin-top: .75rem;">
+                                </div>
+                                <p class="cu-phone"><a href="tel:9960622176"><b>9960622176</a></p>
+                                <p class="cu-add"><span>627,Dream House kansai section</span><span>Ambernath (E), 421501</span><span>District</span></p>
+                                <p class="cu-mail"><a href="mailto:Pluscrown58@Gmail.com">Pluscrown58@gmail.com</a></p>
+                                <p class="cu-whatsapp"><a href="tel:9960622176">9960622176</a></p></b>
+                                <img src="{% static 'imgs/2530832.jpg' %}" height="90%" width="90%" style="float: right;padding: 10px;">
+                                <img src="{% static 'imgs/whitebglogo.jpeg' %}" height="30%" width="30%" style="float: right;padding: 10px; margin-top: -81px; margin-bottom: -24px;">
+                            </div>
 
-     <div id="tab1" class="tab_content contact-us" style="display: block;">
-      <div class="about-wrap" style="margin-bottom:8px;">
-   <div class="cart-title-wrap">
-    <h1 class="title"><img src="{% static 'images/contact.png' %}" height="41px" width="45px">         Contact Us :-</h1>
-    <hr class="contactruler">
-    <br>
-  </div>
-       <p class="cu-phone"><a href="tel:9960622176"><b>9960622176</a></p>
-       <p class="cu-add"><span>627,Dream House kansai section</span><span>Ambernath (E), 421501</span><span>District</span></p>
-       <p class="cu-mail"><a href="mailto:Pluscrown58@Gmail.com">Pluscrown58@gmail.com</a></p>
-       <p class="cu-whatsapp"><a href="tel:9960622176">9960622176</a></p></b>
-       <img src="{% static 'imgs/2530832.jpg' %}" height="90%" width="90%" style="float: right;padding: 10px;">
-       <img src="{% static 'imgs/whitebglogo.jpeg' %}" height="30%" width="30%" style="float: right;padding: 10px; margin-top: -81px; margin-bottom: -24px;">
-     </div>
-
-     <!--  <h3 class="tab_drawer_heading" rel="tab2">FAQ</h3>
-      <div id="tab2" class="tab_content" style="display: none;">
-        <div class="collapse-wrap">
-          <button type="button" class="collapsible">Why you should open account in Pluscrown?</button>
-          <div class="content">
-            <p>You can shop easily by visiting our website, But we recommend creating an account on pluscrown. With minimun details required. You can keep the track of your wishlist, receive the daily updates, offers and discounts justy for you.</p>
-          </div>
-        </div>  
-        <div class="collapse-wrap">
-          <button type="button" class="collapsible">How do you pay at Pluscrown, Payment process in Pluscorwn.</button>
-          <div class="content">
-            <p>There are many ways you can make payments and you can trust our payment getways system. You can also opt. for cash on delivery method, We also accepts visa card, debit and credit cards.</p>
-          </div>
-        </div>  
-        <div class="collapse-wrap">
-          <button type="button" class="collapsible">what are the delivery charges.</button>
-          <div class="content">
-           <p>Delivery charges are same for all products if you buy products worth Rs.300, You will not have to pay shipping charges and If you purchase the product less than 300rs then you have to pay a delivery fee of Rs.40.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">What is the estimated delivery time (ETA).</button>
-         <div class="content">
-           <p>We will thrive to deliver your product within 2 working days.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">How you can track your orders and check the status.</button>
-         <div class="content">
-           <p>Once you login in to your account, You can check the order you want to track and then select view order to see details after that click on track shipment.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible"> How can I Cancel my order?</button>
-         <div class="content">
-           <p>You can cancel your order within 48hrs after placing it. Go to my orders select the product and click on cancel order option.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible"> If I receive a defective or wrong item, Then How do I return it?</button>
-         <div class="content">
-           <p>If you receive a defective or wrong product, You will go to your account and select the order you want to return and just click return option, We will collect the product from you.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">How can I contact Pluscrown Customer Support?</button>
-         <div class="content">
-           <p>You can find our contact details on our Contact Us page, Along with the Customer Support no.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">Which products are not eligible for return policy?</button>
-         <div class="content">
-           <p>Products that are less than Rs 200 are not eligible for returns.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">How can I bulk order products for Corporate sectors?</button>
-         <div class="content">
-           <p>You can write to "email to be inserted" for your Corporate order requirements.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">I missed the delivery of my order today. What should I do?</button>
-         <div class="content">
-           <p>Your order will be delivered within next day of your current delivery date, I you missed it.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible"> I missed the delivery of my order today. What should I do?</button>
-         <div class="content">
-           <p>Your order will be delivered within next day of your current delivery date, I you missed it.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">What should I do if my order is approved but hasn't been shipped yet?</button>
-         <div class="content">
-           <p>We send orders within 1-2 business days before the delivery date so that they can reach you on time. If your order has not been sent within time, Then you can contact our Customer Support.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">How do I know my order has been confirmed?</button>
-         <div class="content">
-           <p>An confirmation e-mail & SMS will be sent to your registered mobile no. once you've successfully placed your order. We'll also let you know as soon as we ship the product to you along with the tracking Id. You can track the order from My Orders tab.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">Why do I need to enter my pincode?</button>
-         <div class="content">
-           <p>By knowing your pincode, We can easily deliver product to your location, And you can find out whether particular product delivery is available at your location or not.</p>
-         </div>
-       </div>
-       <div class="collapse-wrap">
-         <button type="button" class="collapsible">What about the Refunds If product is returned?</button>
-         <div class="content">
-           <p>You will receive the refund amount within 48hrs, As soon as we collect the product from you.</p>
-         </div>
-       </div>
-      </div> -->
-
-      <!--  <h3 class="tab_drawer_heading" rel="tab3">About Us</h3>
-       <div id="tab3" class="tab_content" style="display: none;">
-         <p>Pluscrown is an e-commerce web portal where we thrive to provide educational related materials and stationary from local retailers and suppliers for the sutdents to have easy access to educational  products.</p>
-         <p>We provide all stream books for 11th & 12th stds.</p>
-         <p>we deliver books at your door steps.</p>
-         <p>If you are facing any trouble finding any books then you Contact Us or mail us.</p>
-         <p>We strive to achieve customer satisfaction by completing easy user-friendly website, Quick and user-friendly payment methods and easy tracking options.  Thanks for visiting our website. </p>
-       </div> -->
-   </div>
- </div>
-</div>
-</div>
-<a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
-</div>
-</div>
-
-
-<!--Script-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-<script src="scripts/custom.js"></script>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
+        </div>
 {% endblock %}
