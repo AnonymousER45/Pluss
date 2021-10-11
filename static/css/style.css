@@ -757,6 +757,7 @@
             .prosliders .slick-slide {
                 /* padding-left: 2px;
     padding-right: 2px; */
+    padding: 8px;
             }
             
             .ap-item {

@@ -1,16 +1,4 @@
 {% extends 'base.html' %} {% load static %} {% block extrahead %}
-<!-- Font Awesome -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<!--Font-->
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-
-<!--Css-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}" />
-<!-- Custom StyleSheet -->
-<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <title>PLUSCRWON </title>
 
 {% endblock %} {% block content %}
@@ -63,6 +51,11 @@
                     </div>
 
                     </div>
+                    <style>
+                    .prosliders .slick-slide {
+                        padding: 8px;
+                    }
+                    </style>
                 <div class="prosliders">
                     <div class="ap-item">
                         <a href="{% url 'Ecom:Productdetails' product1.0.id  %}">
