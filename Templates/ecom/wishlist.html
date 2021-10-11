@@ -7,30 +7,55 @@
   <!--Font-->
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
 
-  
-  <!--Css--> 
+
+  <!--Css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
   <!-- Custom StyleSheet -->
   <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  
+
   <title>Bookso - Ecommerce Website</title>
 
 {% endblock %}
 {% block content %}
 
-  <div class="content-wrap">    
+  <div class="content-wrap">
     <div class="wishlist">
-      <div class="container-fluid"> 
-        <div class="wishlist-wrapper">
-          <h1 class="title">Wishlist</h1>  
+      <div class="container-fluid">
+        <div class="wishlist-wrapper" style="width: 79%; margin-left: -81px; margin-bottom:15px;">
+          <h1 class="title"> <img src="{% static 'images/checklist.png'%}" height="7%" width="7%" style="margin-top:-20px; margin-bottom:5px;">   Wishlist:-</h1> 
+          
           <div class="wishlist-table">
-            <div class="wishlist-table-item">
+            {% if wishlist %}
+              {% for item in wishlist %}
+              <div class="wishlist-table-item">
+                <div class="ci-img">
+                  <figure>
+                  <img src="{{ item.Product.img.url }}">
+                  </figure>
+                </div>
+                <div class="wl-desc">
+                  <p class="wl-title"> <a href="{% url 'Ecom:Productdetails' item.Product.id %}">{{ item.Product.title }}</a></p>
+                  <p class="wl-price">Rs {{ item.Product.price }}  <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
+                  <div class="wl-btn-wrap">
+                    <a href="#" class="btn-wl-move" onclick="moveToCart({{item.Product.id}})">Move to Cart</a>
+                    <a href="#" class="btn-wl-delete" onclick="deleteFromWishlist({{item.Product.id}})">Delete</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% else %}
+            <!-- <h1 class="ec-title">Your Wishlist is Empty</h2> -->
+              <div class="wishlist-table-item"></div>
+                <p class="ec-txt">Your Wishlist is Empty</p>
+              </div>
+            {% endif %}
+            <!-- <div class="wishlist-table-item">
               <div class="ci-img">
                 <figure>
-                <img src="imgs/alchemist.jpeg">
+                <img src="{% static 'imgs/alchemist.jpeg'%}">
                 </figure>
               </div>
               <div class="wl-desc">
@@ -45,7 +70,7 @@
             <div class="wishlist-table-item">
               <div class="ci-img">
                 <figure>
-                <img src="imgs/alchemist.jpeg">
+                <img src="{% static 'imgs/alchemist.jpeg'%}">
                 </figure>
               </div>
               <div class="wl-desc">
@@ -60,7 +85,7 @@
             <div class="wishlist-table-item">
               <div class="ci-img">
                 <figure>
-                <img src="imgs/alchemist.jpeg">
+                <img src="{% static 'imgs/alchemist.jpeg'%}">
                 </figure>
               </div>
               <div class="wl-desc">
@@ -71,15 +96,46 @@
                   <a href="#" class="btn-wl-delete">Delete</a>
                 </div>
               </div>
-            </div>
-          </div>   
-        </div>      
+            </div> -->
+          </div>
+        </div>
       </div>
   </div>
-
 </div>
-</div>      
 <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
 </div>
- 
+<script>
+  function moveToCart(product_id){
+      user_id = document.getElementById('user_id').value
+      $.ajax({
+          type: 'POST',
+          url: '/django/api/add_to_cart/',
+          data: { 
+              "id": user_id,
+              "product_id": product_id
+          },
+          success: function(msg){
+              console.log('Item Moved to Cart');
+              deleteFromWishlist(product_id);
+              window.location = '/mycart'
+          }
+      });
+    }
+  function deleteFromWishlist(product_id){
+    user_id = document.getElementById('user_id').value
+      $.ajax({
+          type: 'POST',
+          url: '/django/api/remove_from_wishlist/',
+          data: { 
+              "id": user_id,
+              "product_id": product_id
+          },
+          success: function(msg){
+              console.log('Item Deleted from wishlist');
+              window.location = '/wishlist'
+          }
+      });
+  }
+</script>
+
 {% endblock %}

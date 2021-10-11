@@ -1,29 +1,30 @@
 {% load static %}
+
 <footer>
         <div class="container-fluid">
             <div class="col-xs-12 col-sm-6 col-md-3">
-                <span class="footer-title"> Pluscrown</span>
+                <span class="footer-title">PLUSCROWN</span>
                 <ul class="footer-links">
-                    <li><a href="{% url 'aboutus' %}">About us</a></li>
-                    <li><a href="{% url 'policies' %}">Terms and Conditions</a></li>
-                    <li><a href="{% url 'policies' %}">Privacy Policy</a></li>
-                    <li><a href="{% url 'policies' %}" >Return and Refund Policy</a></li>
+                    <li><a href="/aboutus"><img src="{% static 'images/about.png'%}" height="12%" width="12%">    About us</a></li>
+                    <li><a href="/termsandcondition"><img src="{% static 'images/terms.png' %}" height="12%" width="12%" >  Terms and Conditions</a></li>
+                    <li><a href="/privacy"><img src="{% static 'images/shield.png' %}" height="10%" width="10%" >   Privacy Policy</a></li>
+                    <li><a href="/returnandexchange"><img src="{% static 'images/return.png' %}" height="10%" width="10%" style=" padding-bottom: 14px;" >  Return and Refund Policy</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-2">
                 <span class="footer-title">Help</span>
                 <ul class="footer-links">
-                    <li><a href="{% url 'aboutus' %}">Contact us</a></li>
-                    <li><a href="{% url 'aboutus' %}">FAQ's</a></li>
+                    <li><a href="/contactus"><img src="{% static 'images/contact.png' %}" height="15%" width="18%" style=" padding-bottom: 4px;"> Contact us</a></li>
+                    <li><a href="/faq"><img src="{% static 'images/faq.png' %}" height="15%" width="18%"> FAQ's</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-2">
                 <span class="footer-title">Follow us</span>
                 <ul class="footer-links">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Linkedin</a></li>
+                    <li><a href="#"><img src="{% static 'images/facebook.png' %}" height="15%" width="15%" style=" padding-bottom: 4px;">  Facebook</a></li>
+                    <li><a href="https://www.instagram.com/pluscrown/"><img src="{% static 'images/instagram.png'%}" height="15%" width="15%" style=" padding-bottom: 4px;">  Instagram</a></li>
+                    <li><a href="#"><img src="{% static 'images/twitter.png' %}" height="15%" width="15%" style=" padding-bottom: 4px;">  Twitter</a></li>
+                    <li><a href="#"><img src="{% static 'images/linkedin.png' %}" height="15%" width="15%" style=" padding-bottom: 4px;">  Linkedin</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-5">
@@ -36,19 +37,19 @@
                     </form>
                  </div>
                  <div class="footer-download-optoins">
-                    <span class="footer-title">Download the Booksoo App available Now !</span>	
+                    <span class="footer-title">Download the Pluscrown App available Now !</span>  
                     <div class="fdc-items">
-                        <a href="#"><img src="{% static 'imgs/download-on-google-play.png' %}" alt="" title=""></a>
-                        <a href="#"><img src="{% static 'imgs/download-on-app-store.png' %}" alt="" title=""></a>
+                        <a href="#"><img src="{% static 'imgs/download-on-google-play.png'%}" alt="" title=""></a>
+                        <a href="#"><img src="{% static 'imgs/download-on-google-play.png'%}" alt="" title=""></a>
                     </div>
                  </div>
             </div>
         </div>
         <div class="footer-copyright">
-			<p>Copyright &copy; 2021-2022 Booksoo Pvt. Ltd. </p>
+      <p>Copyright &copy; 2021-2022 PLUSCROWN PRIVATE LIMITED </p>
         </div>
     </footer>
-    </div>
+</div>
 
 
   <!--Script-->
@@ -56,10 +57,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'slick/slick.js' %}"></script>
+  <script type="text/javascript" src="{% static 'slick/slick.min.js' %}">
+  </script><script type="text/javascript" src="{% static 'slick/slick.js' %}"></script>
   <script src="{% static 'scripts/custom.js' %}"></script>
-</main>
+
 </body>
 </html>
 

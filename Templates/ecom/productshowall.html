@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+ <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Font-->
+      <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <!--Css-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <title>PLUSCROWN</title>
+
+{% endblock %}
+{% block content %}
+<div class="content-wrap">
+  
+
+  <div class="product-filter">
+    <ul id="myBtnContainer" class="pf-wrap">
+      
+    <div class="container-fluid">
+              
+   
+      {% for i in product %}
+                  <div class="filterDiv filter1" style="display:flex;">
+
+                    <div class="ap-item" style=" width: 260px; margin-bottom: 5px;">
+                        <a href="{% url 'Ecom:Productdetails' i.id  %}">
+                        <figure class="ap-img">
+                            <img src="{{ i.img.url }}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                            <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">30% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival ap-trending">Trending</span>
+                        <a href="#" class="product-add-wishtlist"></a>
+                    </div>
+            </div>      
+      {% endfor %}
+         
+    </div>
+  </div>
+ <a href="#" id="scroll" style="display: none;"><img src="imgs/back-to-top.png" alt="Back to Top" title="Back to Top"></a>
+</div>
+
+
+<!--Script-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="scripts/custom.js"></script>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("pf-item");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+{% endblock %}

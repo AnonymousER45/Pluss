@@ -2,22 +2,23 @@
 $(document).ready(function(){
 	$(".content-wrap").css("padding-top", $(".top-head").height());
 	$(".th-nav").css("top", $(".top-head").height());
-	
+
 	$('.th-menu').click(function(e){
 		e.stopPropagation();
 		$(this).toggleClass('active');
 		$('.th-nav').toggleClass('active');
 		$('body').toggleClass('menu-active');
 	});
-	
+
 	$('.thn-main').click(function(e){
 		e.stopPropagation();
 		$(this).children('.thn-subnav').toggleClass('active');
 	});
-	
-	$('body').click(function(){
+
+	$('body').click(function(e){
 		$('this').removeClass('menu-active');
-		$('.th-nav').removeClass('active');		
+		$('.th-nav').removeClass('active');
+		$('.thn-subnav').removeClass('active');
 	});
 });
 
@@ -32,10 +33,10 @@ $(function(){
 	if(nav <= 0){
 		//do nothing
 	} else {
-		var offset = $('.top-head').offset().top;	
-		
+		var offset = $('.top-head').offset().top;
+
 		var sticky = function(){
-			var sticky = $(window).scrollTop(); 
+			var sticky = $(window).scrollTop();
 			if (sticky > offset) {
 				$('.top-head').addClass('sticky');
 			}
@@ -43,10 +44,10 @@ $(function(){
 				$('.top-head').addClass('sticky');
 			}
 		}
-		
+
 		sticky();
 		$(window).scroll(function(){
-			sticky();	
+			sticky();
 		});
 	}
 });
@@ -54,7 +55,7 @@ $(function(){
 
 
 $(document).ready(function(){
-	var maxL = 28;
+	var maxL = 22;
 	$('.ap-title').each(function () {
 		var text = $(this).text();
 		if(text.length > maxL) {
@@ -65,12 +66,12 @@ $(document).ready(function(){
 			.append($('<div class="hidden" />').html('end'));
 		}
 	});
-	
+
 });
 
 
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 	var minVal = 1, maxVal = 20; // Set Max and Min values
 // Increase product quantity on cart page
 $(".increaseQty").on('click', function(){
@@ -130,7 +131,7 @@ $(document).ready(function(){
 		adaptiveHeight: true,
 		autoplay: true,
 	});
-	
+
 	$('.prosliders').slick({
 		dots: false,
 		arrows: true,
@@ -166,7 +167,43 @@ $(document).ready(function(){
 		// instead of a settings object
 		]
 	});
-	
+
+	$('.complete-combos').slick({
+		dots: false,
+		arrows: true,
+		infinite: false,
+		speed: 300,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		autoplay: true,
+		responsive: [
+		{
+			breakpoint: 1200,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+			}
+		},
+		{
+			breakpoint: 768,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+			}
+		},
+		{
+			breakpoint: 600,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			}
+		}
+		// You can unslick at a given breakpoint now by adding:
+		// settings: "unslick"
+		// instead of a settings object
+		]
+	});
+
 	 // tabbed content
     // http://www.entheosweb.com/tutorials/css/tabs.asp
     $(".tab_content").hide();
@@ -176,8 +213,8 @@ $(document).ready(function(){
     $("ul.tabs li").click(function() {
 
     	$(".tab_content").hide();
-    	var activeTab = $(this).attr("rel"); 
-    	$("#"+activeTab).fadeIn();		
+    	var activeTab = $(this).attr("rel");
+    	$("#"+activeTab).fadeIn();
 
     	$("ul.tabs li").removeClass("active");
     	$(this).addClass("active");
@@ -185,12 +222,13 @@ $(document).ready(function(){
     	$(".tab_drawer_heading").removeClass("d_active");
     	$(".tab_drawer_heading[rel^='"+activeTab+"']").addClass("d_active");
     	$('.prosliders').slick('setPosition');
+    	$('.complete-combos').slick('setPosition');
     });
     /* if in drawer mode */
     $(".tab_drawer_heading").click(function() {
 
     	$(".tab_content").hide();
-    	var d_activeTab = $(this).attr("rel"); 
+    	var d_activeTab = $(this).attr("rel");
     	$("#"+d_activeTab).fadeIn();
 
     	$(".tab_drawer_heading").removeClass("d_active");
@@ -199,10 +237,11 @@ $(document).ready(function(){
     	$("ul.tabs li").removeClass("active");
     	$("ul.tabs li[rel^='"+d_activeTab+"']").addClass("active");
     	$('.prosliders').slick("setPosition", 0);
+    	$('.complete-combos').slick("setPosition", 0);
     });
 
 
-	/* Extra class "tab_last" 
+	/* Extra class "tab_last"
 	   to add border to right side
 	   of last tab */
 	   $('ul.tabs li').last().addClass("tab_last");
@@ -212,15 +251,17 @@ $(document).ready(function(){
 $(window).resize(function(){
 	$("ul.tabs li").click(function() {
 		$('.prosliders').slick("setPosition", 0);
+		$('.complete-combos').slick("setPosition", 0);
 	});
 });
 
-$(document).ready(function(){	
+$(document).ready(function(){
 	$('.product-add-wishtlist').click(function () {
 		$(this).toggleClass('wishlisted');
-	 });
-
-});
+		})
+	});
+	$('.product-add-wishtlist wishlisted').click(function () {
+	});
 
 // $(function(){
 // 	$('.lw-list a').click(function(){
@@ -234,7 +275,7 @@ $(document).ready(function(){
 // 	$('.login-btn').click(function(){
 // 		$('#lw-signup-form').css('left','200%');
 // 		$('#lw-login-form').css('left','0');
-// 	});	
+// 	});
 // 	$('.reg-here a').click(function(){
 // 		$('.signup-btn').trigger("click");
 // 	});
@@ -242,16 +283,16 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 	var divHeight = $('.product-details .content').height();
 	if(divHeight > 199){
 		$('.product-details .content').after('<div class="show-more"><a href="javascript:void(0)">Show more</a></div>');
 	}
 	$(".show-more a").on("click", function() {
-    var $this = $(this); 
+    var $this = $(this);
     var $content = $this.parent().prev("div.content");
-    var linkText = $this.text().toUpperCase();    
-    
+    var linkText = $this.text().toUpperCase();
+
     if(linkText === "SHOW MORE"){
         linkText = "Show less";
         $content.addClass("showContent", 400);
@@ -266,18 +307,18 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){ 
-	$(window).scroll(function(){ 
-		if ($(this).scrollTop() > 100) { 
-			$('#scroll').fadeIn(); 
-		} else { 
-			$('#scroll').fadeOut(); 
-		} 
-	}); 
-	$('#scroll').click(function(){ 
-		$("html, body").animate({ scrollTop: 0 }, 600); 
-		return false; 
-	}); 
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('#scroll').fadeIn();
+		} else {
+			$('#scroll').fadeOut();
+		}
+	});
+	$('#scroll').click(function(){
+		$("html, body").animate({ scrollTop: 0 }, 600);
+		return false;
+	});
 
 	$(".toggle-password").each(function(){
 		$(this).click(function() {
@@ -292,7 +333,7 @@ $(document).ready(function(){
 	});
 });
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 	var coll = document.getElementsByClassName("collapsible");
 	var i;
 
@@ -309,7 +350,7 @@ $(document).ready(function(){
 	}
 });
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 	$('#cod').click(function(){
 		$('.cod-wrap').slideToggle();
 	})
@@ -318,21 +359,21 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){ 
+$(document).ready(function(){
 	$('.digit-group').find('input').each(function() {
 		$(this).attr('maxlength', 1);
 		$(this).on('keyup', function(e) {
 			var parent = $($(this).parent());
-			
+
 			if(e.keyCode === 8 || e.keyCode === 37) {
 				var prev = parent.find('input#' + $(this).data('previous'));
-				
+
 				if(prev.length) {
 					$(prev).select();
 				}
 			} else if((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
 				var next = parent.find('input#' + $(this).data('next'));
-				
+
 				if(next.length) {
 					$(next).select();
 				} else {
@@ -365,3 +406,88 @@ var items = $(".filled-orders .fo-item");
         }
     });
 });
+
+// Gift Modal
+$('#gift-modal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+
+// confirm-order-modal
+$('#confirm-order-modal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+
+// confirm-order-modal
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+
+// confirm-order-modal
+$('#myModal1').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+
+// checkbox
+function toggleCheck(){
+	var x = document.getElementById("checkbox").checked;
+	if(x == true){
+		document.getElementById("checkbox").checked = false;
+	}else{
+		document.getElementById("checkbox").checked = true;
+	}
+}
+
+function toggleCheck1(){
+	var x = document.getElementById("checkbox1").checked;
+	if(x == true){
+		document.getElementById("checkbox1").checked = false;
+	}else{
+		document.getElementById("checkbox1").checked = true;
+	}
+}
+document.querySelectorAll('.product-add-wishtlist').forEach(item => {
+	item.addEventListener('click', function(){
+		if (window.location.href == window.location.origin+'/' || window.location.href == window.location.origin+'/#')
+		{
+			product_id = Number(item.parentNode.firstElementChild.href.split('/').slice(-1));
+		}
+		else{
+			product_id = window.location.href.split('/').slice(-1)[0].replace('#','');
+		}
+		user_id = document.getElementById("user_id").value;
+
+		if (item.className === 'product-add-wishtlist wishlisted'){
+			removeFromWishList();
+		}
+		else{
+			addToWishList();
+		}
+		function addToWishList(){
+			$.ajax({
+				type: 'POST',
+				url: '/django/api/add_to_wishlist/',
+				data: {
+					"product_id": product_id,
+					  "id": user_id, 
+				},
+				success: function(data){
+				  alert("Item added to wishlist");
+				}
+			});
+		}
+		function removeFromWishList(){
+			$.ajax({
+				type: 'POST',
+				url: '/django/api/remove_from_wishlist/',
+				data: {
+					"product_id": product_id,
+					"id": user_id, 
+				},
+				success: function(data){
+				  alert("Item Removed to wishlist");
+				}
+			});
+		}
+		
+	})
+  })

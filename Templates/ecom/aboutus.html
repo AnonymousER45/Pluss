@@ -7,33 +7,34 @@
   <!--Font-->
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
 
-  
-  <!--Css--> 
+
+  <!--Css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
   <!-- Custom StyleSheet -->
   <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  
-  <title>Bookso - Ecommerce Website</title>
+
+  <title>PLUSCROWN</title>
 
 {% endblock %}
 {% block content %}
 
 <div class="content-wrap"> 
   <div class="about-wrap">
-   <div class="cart-title-wrap">
-    <h1 class="title">Customer Help</h1>
-  </div>
-  <div class="payment-wrapper">
-    <ul class="tabs">
+   <!-- <div class="cart-title-wrap">
+    <h1 class="title">About Us</h1>
+    <br>
+  </div> -->
+  <div class="payment-wrapper" style="background-color: white;">
+    <!-- <ul class="tabs">
       <li class="active" rel="tab1">Contact Us</li>
       <li rel="tab2">FAQ</li>
       <li rel="tab3" class="tab_last">About Us</li>
-    </ul>
+    </ul> -->
     <div class="tab_container">
-      <h3 class="d_active tab_drawer_heading" rel="tab1">Contact Us</h3>
+      <!-- h3 class="d_active tab_drawer_heading" rel="tab1">Contact Us</h3>
      <div id="tab1" class="tab_content contact-us" style="display: block;">
        <p class="cu-phone"><a href="tel:9960622176">9960622176</a></p>
        <p class="cu-add"><span>627,Dream House kansai section</span><span>Ambernath (E), 421501</span><span>District</span></p>
@@ -56,7 +57,7 @@
           </div>
         </div>  
         <div class="collapse-wrap">
-        	<button type="button" class="collapsible">what are the delivery charges.</button>
+          <button type="button" class="collapsible">what are the delivery charges.</button>
           <div class="content">
            <p>Delivery charges are same for all products if you buy products worth Rs.300, You will not have to pay shipping charges and If you purchase the product less than 300rs then you have to pay a delivery fee of Rs.40.</p>
          </div>
@@ -139,21 +140,30 @@
            <p>You will receive the refund amount within 48hrs, As soon as we collect the product from you.</p>
          </div>
        </div>
-      </div>
+      </div> -->
 
-       <h3 class="tab_drawer_heading" rel="tab3">About Us</h3>
+       <!-- <h3 class="tab_drawer_heading" rel="tab3">About Us</h3> -->
        <div id="tab3" class="tab_content" style="display: none;">
+
+        <div class="cart-title-wrap">
+    <h1 class="title"><img src="{% static 'imgs/aboutsus.png' %}" height="50px" width="50px" style="padding-top: -2px;"> About Us :-</h1>
+    <hr class="aboutruler">
+    <br>
+  </div>
+  <div class="conentstatic">
          <p>Pluscrown is an e-commerce web portal where we thrive to provide educational related materials and stationary from local retailers and suppliers for the sutdents to have easy access to educational  products.</p>
          <p>We provide all stream books for 11th & 12th stds.</p>
          <p>we deliver books at your door steps.</p>
          <p>If you are facing any trouble finding any books then you Contact Us or mail us.</p>
          <p>We strive to achieve customer satisfaction by completing easy user-friendly website, Quick and user-friendly payment methods and easy tracking options.  Thanks for visiting our website. </p>
+         </div>
+           <img src="{% static 'images/logo.png'%}" height="30%" width="30%" style="float: right; padding: 8px;padding-bottom: 14px;">
        </div>
    </div>
  </div>
 </div>
 </div>
-<a href="#" id="scroll" style="display: none;"><img src="imgs/back-to-top.png" alt="Back to Top" title="Back to Top"></a>
+<a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
 </div>
 
 {% endblock %}
