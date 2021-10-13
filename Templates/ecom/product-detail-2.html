@@ -40,20 +40,20 @@
                                 <div class="product-desc-wrap">
                                     <h3 class="sp-tile">Special Price : </h3>
                                     <span class="product-price"><b>Rs.{{ product.price }}</b> &emsp;<strike>Rs.{{ product.mrp }}</strike></span>
-                                    <span class="product-offer">&emsp;({{ product.discount_per }}% off)</span>
+                                    <span class="product-offer" style="font-size:19px;">&emsp;({{ product.discount_per }}% off)</span>
                                     <p class="product-terms">Price inclusive of all Taxes</p>
 
-
+                                    {% if product.isBindable %}
                                     <hr >
                                     <div>
-                                     {% if product.isBindable %}
+                                     
                                         <form style="display: flex;align-items:center">
                                             <label class="add-book">Add Book Binding </label><input style="height: 25px;width: 25px;margin-bottom:12px" type="checkbox">
                                         </form>
                                         {% endif%}
                                     </div>
                                 </div>
-                        <hr>
+                               <hr>
                                 <div class="product-details">
                                     <h2 class="product-title">Details :-</h2>
                                     <p>Publishing date: {{ product.pub_date }}</p>
@@ -86,7 +86,7 @@
               <h2 class="title">Similar Products :-</h2>
             </div>
             <div class="col-sm-2 col-12">
-              <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+              <a href="/showall" class="btn-view-all  ml-auto">Show All</a>
             </div>
           </div>
             <div class="prosliders">
@@ -99,10 +99,14 @@
                     </a>
                     <div class="ap-desc">
                         <a href="{% url 'Ecom:Productdetails' products.0.id  %}" class="ap-title">{{ products.0.title }}</a>
-                        <p class="ap-price">{{ products.0.price }}  <strike>{{ products.0.mrp }}</strike> <span class="product-offer">{{ products.0.discount_per }}% off</span></p>
+                        <p class="ap-price">{{ products.0.price }}  <strike>{{ products.0.mrp }}</strike> <span class="product-offer">({{ products.0.discount_per }}% off)</span></p>
                     </div>
                     <span class="ap-new-arrival">New</span>
-                    <a href="#" class="product-add-wishtlist"></a>
+                    {% if product.0.id  in wishprod_ids %}
+                        <a href="#" class="product-add-wishtlist wishlisted"></a>
+                    {% else %}
+                        <a href="#" class="product-add-wishtlist"></a>
+                    {% endif %}
                 </div>
 
                 {% for i in products|slice:"1:" %}
@@ -114,10 +118,14 @@
                     </a>
                     <div class="ap-desc">
                         <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
-                        <p class="ap-price">{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}%</span></p>
+                        <p class="ap-price">{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">({{i.discount_per}}% off)</span></p>
                     </div>
                     <span class="ap-new-arrival">New</span>
-                    <a href="#" class="product-add-wishtlist"></a>
+                    {% if i.id  in wishprod_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                    {% else %}
+                        <a href="#" class="product-add-wishtlist"></a>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
@@ -131,7 +139,7 @@
               <h2 class="title">Recently Viewed :-</h2>
             </div>
             <div class="col-sm-2 col-12">
-              <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+              <a href="/showall" class="btn-view-all  ml-auto">Show All</a>
             </div>
           </div>
             <div class="prosliders">
@@ -144,14 +152,14 @@
                     </a>
                     <div class="ap-desc">
                         <a href="{% url 'Ecom:Productdetails' products.0.id  %}" class="ap-title">{{ products.0.title }}</a>
-                        <p class="ap-price">{{ products.0.price }}  <strike>{{ products.0.mrp }}</strike> <span class="product-offer">{{ products.0.discount_per }}% off</span></p>
+                        <p class="ap-price">{{ products.0.price }}  <strike>{{ products.0.mrp }}</strike> <span class="product-offer">({{ products.0.discount_per }}% off)</span></p>
                     </div>
                     <span class="ap-new-arrival">New</span>
                     {% if product.0.id  in wishprod_ids %}
-                            <a href="#" class="product-add-wishtlist wishlisted"></a>
-                        {% else %}
+                        <a href="#" class="product-add-wishtlist wishlisted"></a>
+                    {% else %}
                         <a href="#" class="product-add-wishtlist"></a>
-                        {% endif %}
+                    {% endif %}
                 </div>
 
                 {% for i in products|slice:"1:" %}
@@ -163,21 +171,21 @@
                     </a>
                     <div class="ap-desc">
                         <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
-                        <p class="ap-price">{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}%</span></p>
+                        <p class="ap-price">{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">({{i.discount_per}}% off)</span></p>
                     </div>
                     <span class="ap-new-arrival">New</span>
                     {% if i.id  in wishprod_ids %}
                             <a href="#" class="product-add-wishtlist wishlisted"></a>
-                        {% else %}
+                    {% else %}
                         <a href="#" class="product-add-wishtlist"></a>
-                        {% endif %}
-                          </div>
+                    {% endif %}
+                    </div>
                 {% endfor %}
             </div>
         </div>
     </div>
 
-        <a href="#" id="scroll" style="display: none;"><img src="imgs/back-to-top.png" alt="Back to Top" title="Back to Top"></a>
+        <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
     </div>
   
 <script>
@@ -187,8 +195,8 @@
             url: '/django/api/add_to_cart/',
             data: { 
                 "id": user_id,
-                "product_id": product_id
-                "is_binding": false
+                "product_id": product_id,
+                "is_binding": "False"
             },
             success: function(msg){
                 console.log('Item Added to Cart');

@@ -100,7 +100,7 @@
                     <hr class="ruler">
                        <div style="display:flex;align-items:center;justify-content:space-between">
 
-                    <label onclick="wishList({{item.Product.id}})">Add to WishList</label>
+                    <label onclick="addToWishlistFunction({{ user.id }},{{ product.id }})">Add to WishList</label>
                     <div class="ci-remove">
                       <a href="{{request.path}}" class="ci-remove-link"><img src="{%static 'imgs/bin.png'%}" height="20px" onclick="deleteItemFromCart({{user.id}},{{item.Product.id}},this)"></a>
                     </div>
@@ -442,7 +442,21 @@
 
     function wishList(product_id){
       window.location = '/mycart'
-      addToWishList(product_id)
+      addToWishList(product_id);
+    }
+
+    function addToWishlistFunction(user_id,product_id){
+        $.ajax({
+            type: 'POST',
+            url: '/django/api/add_to_wishlist/',
+            data: { 
+                "id": user_id,
+                "product_id": product_id,
+            },
+            success: function(msg){
+                console.log('Item Added to wishlist');
+            }
+        });
     }
     function deleteItemFromCart(user_id,product_id,element){
       confirm('Are you sure you want to delete this?');
@@ -519,7 +533,7 @@
           gift_box = true;
         }
       }
-
+    }
       /*
       $.ajax({
             type: 'POST',
@@ -541,16 +555,7 @@
             }
         });
         */
-    }
+    
   </script>
 
-
-  <!--Script-->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="{%static 'slick/slick.min.js'%}"></script>
-  <script src="{%static 'scripts/custom.js'%}"></script>
 {% endblock %}

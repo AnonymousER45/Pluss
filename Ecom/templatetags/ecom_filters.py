@@ -26,4 +26,4 @@ def get_img(products_text):
 
 @register.filter(name='plusdays')
 def plus_days(value):
-    return value + datetime.timedelta(days=7)
+    return str(value + datetime.timedelta(days=7))

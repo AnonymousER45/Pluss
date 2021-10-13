@@ -1076,13 +1076,13 @@ def place_order(request):
     total_products = 0
     status = 1
     products = ""
-    giftby = ""
-    giftmsg = ""
+    giftby = " "
+    giftmsg = " "
     for item in query_set:
         order_total = order_total + item.Product.price * item.product_quan + item.Product.bind_price
         total_products = total_products + 1
-        giftby = item.gift_from + " :;"+ giftby
-        giftmsg = item.gift_message + ":;" + giftmsg
+        giftby = item.gift_from 
+        giftmsg = item.gift_message
         products = item.Product.title + ":" + \
             str(item.Product.price) +":"+str(item.Product.img) + ", " + products
 

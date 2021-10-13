@@ -22,7 +22,7 @@
     <div class="content-wrap content-wrap-cart">
       <div class="cart-menu">
         <ul class="cm-list">
-          <li><a href="#">Order<br> Confirmation</a></li>
+          <li><a href="/mycart">Order<br> Confirmation</a></li>
           <li class="active"><a href="#">Address</a></li>
           <li><a href="#">Payment</a></li>
         </ul>
@@ -81,7 +81,7 @@
                             &ensp; &ensp; &ensp;<a href="#" class="aw-edit"></a> 
                             <a href="#" class="aw-delete"></a>
                         </p>
-                        <p class="aw-notavail"> Delivery  not available here.</p>
+                        <p class="aw-notavail"> Delivery    not av ailable here.</p>
                         <p class="aw-add">Plot no. 123, Swati Apt.,<span>Near Shani Mandir,Ambernath (West),</span><span>Thane- 421503</span></p>
                         <p class="aw-phone">Phone: 9323267570</p>
                       </div>
@@ -160,6 +160,7 @@
       let gift_message = 'hhhvj'
       let gift_from = 'jhv'
       let code = 'First100'
+      let payment_mode = '1'
       $.ajax({
             type: 'POST',
             url: '/django/api/place_order/',

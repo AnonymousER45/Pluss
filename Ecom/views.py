@@ -18,6 +18,10 @@ def Index(request):
 
     ban = Banner.objects.all()
     param ={'product1': products1,'product2': products2,'product3': products3,'product4': products4,'product5': products5,'product6': products6,'banner':ban,}
+    if request.user.is_authenticated:
+        wishlisted = wishlisted_ids(request.user)
+        param['wishlisted_ids'] = wishlisted 
+         
     return render(request,'ecom/index.html',param)
 
 def Category1(request,myid):
@@ -42,6 +46,7 @@ def Category1(request,myid):
     helping3 = Product.objects.filter(Category=category,subCategory=23,medium="Hindi")
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'combo1':combos1,'combo2':combos2,'combo3':combos3,'textbook1':textbook1,'textbook2':textbook2,'textbook3':textbook3,'digest1':digest1,'digest2':digest2,'digest3':digest3,'set1':set1,'set2':set2,'set3':set3,'helping1':helping1,'helping2':helping2,'helping3':helping3}
+ 
     return render(request,'ecom/product-listing-2.html',param)
 
 def Category2(request,myid):
@@ -63,6 +68,7 @@ def Category2(request,myid):
     helping3 = Product.objects.filter(Category=category,subCategory=23,medium="Arts")
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'combo1':combos1,'combo2':combos2,'combo3':combos3,'textbook1':textbook1,'textbook2':textbook2,'textbook3':textbook3,'digest1':digest1,'digest2':digest2,'digest3':digest3,'helping1':helping1,'helping2':helping2,'helping3':helping3}
+    
     return render(request,'ecom/product-listing-1.html',param)
 
 
@@ -74,6 +80,7 @@ def Category3(request,myid):
     Prod4 = Product.objects.filter(Category=6,subCategory=29)
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'Prod1':Prod1,'Prod2':Prod2,'Prod3':Prod3,'Prod4':Prod4,}
+
     return render(request,'ecom/product-listing-3.html',param)
 
 def Category4(request,myid):
@@ -86,6 +93,7 @@ def Category4(request,myid):
     Prod5 = Product.objects.filter(Category=category2,subCategory=25)
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'Prod1':Prod1,'Prod2':Prod2,'Prod3':Prod3,'Prod4':Prod4,'Prod5':Prod5,}
+    
     return render(request,'ecom/product-listing-4.html',param)
 
 def Category5(request,myid):
@@ -100,6 +108,7 @@ def Category5(request,myid):
     Prod7 = Product.objects.filter(Category=9,subCategory=21)
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'Prod1':Prod1,'Prod2':Prod2,'Prod3':Prod3,'Prod4':Prod4,'Prod5':Prod5,'Prod6':Prod6,'Prod7':Prod7,}
+
     return render(request,'ecom/product-listing-5.html',param)
 
 def Category6(request,myid):
@@ -118,6 +127,7 @@ def Category6(request,myid):
     helping3 = Product.objects.filter(Category=category,subCategory=23,medium="Third Year")
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'textbook1':textbook1,'textbook2':textbook2,'textbook3':textbook3,'digest1':digest1,'digest2':digest2,'digest3':digest3,'helping1':helping1,'helping2':helping2,'helping3':helping3}
+
     return render(request,'ecom/product-listing-6.html',param)
 
 def Category7(request,myid):
@@ -139,6 +149,7 @@ def Category7(request,myid):
     helping3 = Product.objects.filter(Category=category,subCategory=23,medium="Third Year")
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'combo1':combos1,'combo2':combos2,'combo3':combos3,'textbook1':textbook1,'textbook2':textbook2,'textbook3':textbook3,'digest1':digest1,'digest2':digest2,'digest3':digest3,'helping1':helping1,'helping2':helping2,'helping3':helping3}
+    
     return render(request,'ecom/product-listing-7.html',param)
 
 def Category8(request,myid):
@@ -160,6 +171,7 @@ def Category8(request,myid):
     helping3 = Product.objects.filter(Category=category,subCategory=23,medium="Third Year")
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'combo1':combos1,'combo2':combos2,'combo3':combos3,'textbook1':textbook1,'textbook2':textbook2,'textbook3':textbook3,'digest1':digest1,'digest2':digest2,'digest3':digest3,'helping1':helping1,'helping2':helping2,'helping3':helping3}
+    
     return render(request,'ecom/product-listing-8.html',param)
 
 def Category9(request,myid):
@@ -181,6 +193,7 @@ def Category9(request,myid):
     helping3 = Product.objects.filter(Category=category,subCategory=23,medium="Third Year")
     cats = Category.objects.filter(id=myid)
     param ={'cat': cats,'combo1':combos1,'combo2':combos2,'combo3':combos3,'textbook1':textbook1,'textbook2':textbook2,'textbook3':textbook3,'digest1':digest1,'digest2':digest2,'digest3':digest3,'helping1':helping1,'helping2':helping2,'helping3':helping3}
+
     return render(request,'ecom/product-listing-9.html',param)
 
 def Productdetails(request,id): 
@@ -258,11 +271,23 @@ def myorders(request):
         context['orders'] = qs
     return render(request,'ecom/myorders.html',context)
 
-def orders_details(request):
+def orders_details(request,order_id):
     context = {}
     if request.user:
-        qs = EcomOrder.objects.filter(id=254)
+        qs = EcomOrder.objects.filter(id=order_id).first()
         context['orders'] = qs
+        # context['productname'] = 
+        products_list = []
+        products = qs.products.split(',')
+        products.remove("")
+        for prod in products:
+            name = prod.split(':')[0]
+            price = prod.split(':')[1]
+            
+            imagelink = "/media/uploads/" + prod.split(':')[-1]
+            products_list.append({"name":name,"price":price,"image":imagelink})
+        print(products_list)
+        context['products_list']= products_list
     return render(request,'ecom/order-details.html',context)
 
 
@@ -287,6 +312,7 @@ def mycart(request):
         context['cart_total_savings'] = cart_total_mrp - cart_total_price
         context['cart_count'] = query_set.count()
         return render(request,'ecom/mycart.html',context=context)
+    
     return render(request,'ecom/empty-cart.html')
 
 
@@ -327,6 +353,7 @@ def showall(request):
     med = a[4:]
     products = Product.objects.filter(Category=cat,subCategory=subcat)
     param ={'product':products}
+    
     return render(request,'ecom/productshowall.html',param)
  
 
@@ -377,4 +404,14 @@ def personal_info(request):
     return render(request,'ecom/personal-info.html')
 
 
-
+def wishlisted_ids(user):
+    wishprod_ids = [] 
+    user = Customer.objects.filter(email=user).first() 
+    qs_wish = user.wishlist_set.first() 
+    wish_products = qs_wish.wishlistproduct_set.all() 
+     
+    for prod in wish_products: 
+        wishprod_ids.append(prod.Product.id) 
+        
+    print(wishprod_ids)
+    return wishprod_ids

@@ -2,7 +2,7 @@
     
    <div class="content-wrap">
                 <div class="container-fluid">
-                    <p><a href="#" class="back-order-link">Back to Orders</a></p>
+                    <p><a href="/myorders" class="back-order-link">Back to Orders</a></p>
                     <div class="order-details-wrap">
                         <div class="order-details-left">
                             <div class="order-items">
@@ -10,36 +10,43 @@
                                     <div class="ds-content">
                                         <div>
                                             <div class="do-title">
-                                                <h2 class="cd-title">{{ order.get_order_status_display }}</h2>
+                                                <h2 class="cd-title">{{ orders.get_order_status_display }}</h2>
                                             </div>
-                                             {% if order.order_completed %}
-                                                <p>Delivered on {{order.date_of_delivery | date}} <a href="#" class="invoice-link">Invoice</a> </p>
+                                             {% if orders.order_completed %}
+                                                <p>Delivered on {{orders.date_of_delivery | date}} <a href="#" class="invoice-link">Invoice</a> </p>
                                               {% else %}
                                                   <p>To be Delivered on {{order.date_of_delivery}} </p>
                                               {% endif %}
                                         </div>
-                                        <a href="#" class="return-exchange">Return / Exchange</a>
+                                        <a href="#" class="btn return-exchange disabled" role="button" aria-disabled="true">Return / Exchange</a>
                                     </div>
                                     <div class="ds-add-nm">
                                         <p>Shipping to</p>
-                                        <p class="user-nm">Chadwick</p>
+                                        <p class="user-nm">{{orders.contact_name}}</p>
                                     </div>
                                 </div>
-                                <div class="return-status">
+                                {% for item in products_list %}
+                                <div class="return-status"> 
                                     <div class="rs-img">
                                         <span>
-                                            <img src="{{ order.products | img }}" alt="" title="">
+                                            <img src="{{ item.image }}" alt="" title="">
                                         </span>
                                     </div>
                                     <div class="rs-content">
-                                        <p class="rs-title"><a href="#">{{ order.products | product_names }}</a></p>
-                                        <p><strong>{{ order.order_price}}</strong></p>
+                                        
+                                        <p class="rs-title"><a href="#">{{ item.name }}</a></p>
+                                        <p><strong>{{ item.price}}</strong></p>
 
-                                        <p class="rs-date">Return / Exchange available till {{order.date_of_delivery | plusdays }} <a href="#">Details</a></p>
+                                        <p class="rs-date"> Return / Exchange available till {{orders.date_of_delivery | plusdays }} <a href="#">Details</a></p>
+                                        
                                     </div>
+                                    
                                 </div>
+                                <hr>
+                                {% endfor %}
                             </div>
-                            <div class="order-items">
+                            
+                            {% comment %} <div class="order-items">
                                 <div class="del-status-wrap">
                                     <div class="ds-content">
                                         <div>
@@ -68,25 +75,25 @@
                                         <p class="rs-date">Return / Exchange window closed on Saturday, 10 March. <a href="#">Details</a></p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                         <div class="order-details-right">
                             <div class="del-order-status">
                                 <div class="do-details">
-                                    <p class="do-id">Order ID : #000{{order.id}}</p>
-                                    <p>Order Placed {{order.date_of_ordering | date}}</p>
+                                    <p class="do-id">Order ID : #000{{orders.id}}</p>
+                                    <p>Order Placed {{orders.date_of_ordering | date}}</p>
                                     <p>Paid on cash on delivery </p>
                                 </div>
                                 <div class="do-total">
-                                    <p>Order Total : Rs {{order.order_price}} </p>
+                                    <p>Order Total : Rs {{orders.order_total}} </p>
                                 </div>
                             </div>
                             <div class="del-order-status">
                                 <div class="do-details">
                                     <p class="do-id">Delivered To : </p>
-                                    <p class="user-nm">{{order.contact_name}}</p>
-                                    <p>{{order.address}}</p>
-                                    <p>Phone - <strong>{{order.contact_no}}</strong></p>
+                                    <p class="user-nm">{{orders.contact_name}}</p>
+                                    <p>{{orders.address}}</p>
+                                    <p>Phone - <strong>{{orders.contact_no}}</strong></p>
                                 </div>
                             </div>
                         </div>

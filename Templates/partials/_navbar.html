@@ -69,7 +69,7 @@
                         <li class="thn-main"><a href="/wishlist">My Whishlist</a>
                         <li class="thn-main"><a href="/myaccount">My Account</a>
                         <hr class="nav-hr">
-                        <li class="thn-main"><a href="/policies">Privacy Policy</a>
+                        <li class="thn-main"><a href="/privacy">Privacy Policy</a>
                         <li class="thn-main"><a href="/aboutus">Contact Us</a>
                         <li class="thn-main"><a href="{% url 'logout' %}" data-toggle="modal" data-target="#myModal">Logout</a>
                     </ul>
@@ -87,7 +87,7 @@
                 </form>
             </div>
             {% if user.is_authenticated %}
-              <a href="#" class="th-login"> HEY {{ user.username }}</a>   
+              <a href="/myaccount" class="th-login"> HEY {{ user.username }}</a>   
             {% else %}
             <a href="{% url 'login' %}" class="th-login">Login/Signup</a>
             {% endif %}
