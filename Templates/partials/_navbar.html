@@ -71,7 +71,7 @@
                         <hr class="nav-hr">
                         <li class="thn-main"><a href="/privacy">Privacy Policy</a>
                         <li class="thn-main"><a href="/aboutus">Contact Us</a>
-                        <li class="thn-main"><a href="{% url 'logout' %}" data-toggle="modal" data-target="#myModal">Logout</a>
+                        <li class="thn-main"><a onclick="return confirm('Are you sure?')" href="{% url 'logout' %}" data-toggle="modal" data-target="#myModal">Logout</a>
                     </ul>
                 </div>
        		</div>

@@ -1306,7 +1306,9 @@
                 border-top: none;
                 clear: both;
                 width: 100%;
-                overflow: auto;
+                overflow: hidden;
+                border-radius: 15px;
+                box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
             }
             
             .tab_container_white {
@@ -2592,7 +2594,7 @@
             }
             
             .custom-select {
-                width: 108px;
+                width: 135px;
                 height: 36px;
                 border-radius: 9px;
                 background-color: #fff;
@@ -3291,9 +3293,9 @@
             .rs-img {
                 width: 25%;
                 box-sizing: border-box;
-                height: 180px;
-                border-right: 1px solid #b5aaaa;
-                border-left: 1px solid #b5aaaa;
+                height: 190px;
+                border: 1px solid #b5aaaa;
+                padding: 5px;
                 text-align: center;
             }
             
@@ -4197,7 +4199,7 @@
                     /* padding-left: 0; */
                 }
                 .ci-img {
-                    width: 50%;
+                    width: 135px;
                     text-align: center;
                     border-radius: 7px;
                     border: 1px solid rgba(112, 112, 112, 0.07);
@@ -4445,10 +4447,16 @@
                     font-size: 20px;
                 }
                 .th-logo img {
-                    margin-left: -71px;
+                   
+    margin-left: unset;
+    position: relative;
+    left: 55px;
+    height: 45px;
+    top: -5px;
+
                 }
                 .th-cart img {
-                    margin-left: 268px;
+                    /* margin-left: 268px; */
                     margin-top: 3px;
                 }
                 .th-cart span {
@@ -4465,8 +4473,8 @@
                 }
                 .th-login {
                     font-size: 14px;
-                    margin-top: -56px;
-                    margin-left: 246px;
+                    margin-top: -80px;
+                    margin-left: 253px;
                 }
                 .cc-img img {
                     max-width: 275px;

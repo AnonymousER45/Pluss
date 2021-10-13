@@ -220,7 +220,7 @@
                   class="close cross-modal"
                   data-dismiss="modal"
                   aria-label="Close"
-                  style="margin-top: -10px"
+                  {% comment %} style="margin-top: -10px" {% endcomment %}
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -239,7 +239,7 @@
                     text-align: center;
                   "
                 />
-                <div class="gift-odrder">
+                <div class="gift-odrder" style="padding-top:0px">
                   <h2 class="cd-title" style="font-size:18px;margin-bottom:15px">Add Gift Message :-</h2>
                   <form class="gift-msg">
                     <textarea name="gift_message{{forloop.counter}}" placeholder="Type Your Message"></textarea>
@@ -388,7 +388,7 @@
           <div class="cart-coupon">
             <form>
               <input type="text" name="Coupon" placeholder="Type the Coupon Code">
-              <input type="submit" name="Apply" value="Apply">
+              <input type="submit" name="Apply" value="Apply" data-dismiss="modal">
             </form>
             <p class="coupon-status">No Coupon Applied Yet</p>
           </div>
