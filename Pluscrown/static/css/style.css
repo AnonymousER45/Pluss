@@ -279,6 +279,18 @@
                 -webkit-transform: rotate(45deg);
                 /* z-index: 4; */
             }
+            .dropdown-arrow-up {
+                margin-top: 8px;
+                border: solid #FFFFFF;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                position: absolute;
+                right: 21px;
+                padding: 4px;
+                transform: rotate(225deg);
+                -webkit-transform: rotate(225deg);
+                /* z-index: 4; */
+            }
             /*	END For dropdown arrow	*/
             /*	Hr in nav code		*/
             
@@ -995,7 +1007,7 @@
             
             .offer-banner {
                 margin-top: 24px;
-                margin-bottom: 66px;
+                margin-bottom: 24px;
                 position: relative;
             }
             

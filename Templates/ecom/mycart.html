@@ -240,7 +240,7 @@
                   "
                 />
                 <div class="gift-odrder">
-                  <h2 class="cd-title" style="font-size:18px">Add Gift Message :-</h2>
+                  <h2 class="cd-title" style="font-size:18px;margin-bottom:15px">Add Gift Message :-</h2>
                   <form class="gift-msg">
                     <textarea name="gift_message{{forloop.counter}}" placeholder="Type Your Message"></textarea>
                     <input type="text" name="from{{forloop.counter}}" placeholder="From:" />
@@ -262,11 +262,8 @@
                       Add Gift bag / Box <span>Charges - 30rs</span>
                     </label>
                   </form>
-                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<a
-                    href="#"
-                    class="save-details"
-                    >Save Details</a
-                  >
+                  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                  <a href="#" class="save-details" data-dismiss="modal">Save Details</a>
                 </div>
               </div>
             </div>
@@ -402,6 +399,10 @@
 </div>
 
   <script>
+
+  function save_details() {
+    $('')
+  }
     
     function giftchange1(){
       var check1 = document.getElementById('selectgift1');
