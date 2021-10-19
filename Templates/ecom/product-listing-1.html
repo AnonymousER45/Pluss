@@ -40,7 +40,7 @@
                           <div class="container-fluid">
                               <div class="row">
                                  <div class="col-sm-10 col-12 ">
-                                     <h2 class="title">Complete Combos :-</h2>
+                                     <h2 class="title d-flex">Complete Combos :-</h2>
                                  </div>
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
@@ -86,15 +86,14 @@
                         </div>
                         <div class="all-products">
                            <div class="container-fluid">
-                              <div class="row">
+                           <div class="row">
                                  <div class="col-sm-10 col-12 ">
-                                     <h2 class="title">TextBook :-</h2>
+                                     <h2 class="title d-flex"> TextBooks :-</h2>
                                  </div>
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
                               </div>
-                           
                               <div class="prosliders">
                                  <div class="ap-item">
                                     <a href="{% url 'Ecom:Productdetails' textbook1.0.id  %}">
@@ -133,7 +132,7 @@
                            <div class="container-fluid">
                               <div class="row">
                                  <div class="col-sm-10 col-12 ">
-                                     <h2 class="title">Digest :-</h2>
+                                     <h2 class="title d-flex">Digest :-</h2>
                                  </div>
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
@@ -175,7 +174,7 @@
                               </div>
                            </div>
                         </div>
-                        <!---<div class="all-products">
+                        {% comment %} <div class="all-products">
                            <div class="container-fluid">
                               <div class="row">
                                  <div class="col-sm-10 col-12 ">
@@ -218,7 +217,7 @@
                                  {% endfor %}
                               </div>
                            </div>
-                        </div>--->
+                        </div> {% endcomment %}
                         <div class="all-products">
                            <div class="container-fluid">
                               <div class="row">
@@ -228,6 +227,7 @@
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
+                                 &nbsp;
                               </div>
                               <div class="prosliders">
                                  <div class="ap-item">
@@ -239,7 +239,7 @@
                                     <div class="ap-desc">
                                        <a href="#" class="ap-title">{{ helping1.0.title }}</a>
                                        <!--<p class="ap-title">-blue</p>-->
-                                       <p class="ap-price">Rs.{{ helping1.0.price }} <strike>{{ helping1.0.mrp }}</strike> <span class="product-offer">{{ helping1.0.discount_per }}% off</span></p>
+                                       <p class="ap-price">R  s.{{ helping1.0.price }} <strike>{{ helping1.0.mrp }}</strike> <span class="product-offer">{{ helping1.0.discount_per }}% off</span></p>
                                     </div>
                                     <span class="ap-new-arrival">New</span>
                                     <a href="#" class="product-add-wishtlist wishlisted"></a>
@@ -404,7 +404,7 @@
                               </div>
                            </div>
                         </div>
-                                                <!---<div class="all-products">
+                           {% comment %} <div class="all-products">
                            <div class="container-fluid">
                               <div class="row">
                                  <div class="col-sm-10 col-12 ">
@@ -447,7 +447,7 @@
                                  {% endfor %}
                               </div>
                            </div>
-                        </div>--->
+                        </div> {% endcomment %}
                         <div class="all-products">
                            <div class="container-fluid">
                               <div class="row">
@@ -457,6 +457,7 @@
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
+                                 &nbsp;
                               </div>
                               <div class="prosliders">
                                  <div class="ap-item">
@@ -505,6 +506,7 @@
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
+                                 &nbsp;
                               </div>
                               &nbsp;
                             <div class="complete-combos">
@@ -521,7 +523,7 @@
                                   </div>
                                 </a>
                                 <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                                <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                <a href="#" class="cc-add-wishtlist wishlisted"></a>
                               </div>
                               {% for i in combo1|slice:"1:" %}
                               <div class="cc-item">
@@ -538,7 +540,7 @@
                                   </div>
                                 </a>
                                 <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                                <a href="#" class="product-add-wishtlist"></a>
+                                <a href="#" class="cc-add-wishtlist"></a>
                               </div>
                               {% endfor %}
                             </div>
@@ -552,6 +554,7 @@
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
+                                 &nbsp;
                               </div>
                               <div class="prosliders">
                                  <div class="ap-item">
@@ -596,6 +599,7 @@
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
+                                 &nbsp;
                               </div>
                               <div class="prosliders">
                                  <div class="ap-item">
@@ -631,7 +635,7 @@
                               </div>
                            </div>
                         </div>
-                                               <!---<div class="all-products">
+                           {% comment %} <div class="all-products">
                            <div class="container-fluid">
                               <div class="row">
                                  <div class="col-sm-10 col-12 ">
@@ -674,7 +678,7 @@
                                  {% endfor %}
                               </div>
                            </div>
-                        </div>--->
+                        </div> {% endcomment %}
                         <div class="all-products">
                            <div class="container-fluid">
                               <div class="row">
@@ -684,6 +688,7 @@
                                  <div class="col-sm-2 col-12">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
+                                 &nbsp;
                               </div>
                               <div class="prosliders">
                                  <div class="ap-item">

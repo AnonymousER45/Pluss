@@ -9,7 +9,7 @@
                                     <p class="lw-title">Request for books</p>
                                     <p>Here you can request for books that are not available or found in Pluscrown Application and Website</p>
                                     <div class="reviewimg">
-                                        <img src="imgs/reviews.png" style="float:center ; padding-top : 40px" width="80%" height="40%">
+                                        <img src="{% static 'imgs/reviews.png'%}" style="float:center ; padding-top : 40px" width="80%" height="40%">
                                     </div>
                                 </div>
                                 <div class="lw-right">
@@ -20,11 +20,19 @@
                                         <div class="col-xs-12 login-button">
                                             <select>
                                                 <option>Book Type</option>
+                                                <option>TextBook</option>
+                                                <option>Reference Book</option>
+                                                <option>Study Material</option>
+                                                <option>Novel</option>
                                             </select>
                                         </div>
                                         <div class="col-xs-12 login-button">
                                             <select>
                                                 <option>Book Related To</option>
+                                                <option>State Board</option>
+                                                <option>CBSE Board</option>
+                                                <option>Entrance Exam</option>
+                                                <option>Others</option>
                                             </select>
                                         </div>
                                         <div class="col-xs-12 login-button">

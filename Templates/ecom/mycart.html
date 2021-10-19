@@ -84,7 +84,7 @@
                           <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">
                         </div>
                         <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal{{ forloop.counter }}" style="display:none;">
-                          <img class="" src="{%static 'imgs/gift.png'%}" height="50px" >
+                          <img class="" src="{%static 'imgs/gift.png'%}" height="30px" >
                           </div>
                         </div>
                           </div>
@@ -318,7 +318,9 @@
       </div>
       <div class="modal-body">
         <div class="order-details">
+                <hr style="margin-top: -34px;">
                 <h2 class="cd-title">Order Details</h2>
+                <hr style="margin-top: 1px;">
                 <div>
                   <div class="cd-item">
                     <p>Cart Total</p>
@@ -341,12 +343,6 @@
                     <p class="gift-charges">Rs 0</p>
                   </div>
                 </div>
-                <div class="order-total">
-                  <div class="cd-item">
-                    <p>Amount</p>
-                    <p class="total-cart-price">Rs {{ cart_total_price }}</p>
-                  </div>
-                </div>
                 <div class="coupon-box" data-toggle="modal" data-target="#coupon-modal">
                   <!-- <h2 class="cd-title">Apply Coupon</h2>
                   <form>
@@ -358,15 +354,16 @@
                   <label style="margin-left: 2%;">Apply Coupons</label>
                   <img src="{% static 'imgs/forwardicon.png' %}" class="forward" width="8%" height="8%">
                 </div>
-                <div class="cd-item">
+                {% comment %} <div class="cd-item">
                   <p>Coupon savings</p>
                   <p>- Rs 0</p>
-                </div>
+                </div> {% endcomment %}
                 <div class="order-total">
                   <div class="cd-item">
                     <p class="total-amt">Total Amount</p>
                     <p class="total-amt">Rs. {{cart_total_price}}</p>
                   </div>
+                  <hr style="margin-top: 1px;">
                 </div>
                 <div class="order-confirm" style="text-align:center">
                    <a href="/myaddressbook" onclick="createOrder({{user.id}})" class="confirm-order">Confirm Order</a>

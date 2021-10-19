@@ -15,7 +15,8 @@
 
                    <div id="tab1" class="tab_content">
                              
-          <h1 class="title"> <img src="{% static 'images/checklist.png'%}" height="7%" width="7%" style="margin-top:-20px; margin-bottom:5px;">   Wishlist:-</h1> 
+          <h1 class="title" style="margin-bottom:10px;"> <img src="{% static 'images/checklist.png'%}" height="5%" width="5%" style="margin-top:-20px; margin-bottom:-4px;">  Wishlist:- &nbsp;
+          </h1> 
           
           <div class="wishlist-table">
             {% if wishlist %}
@@ -36,57 +37,13 @@
                 </div>
               </div>
               {% endfor %}
-            {% else %}
+            {% comment %} {% else %}
             <!-- <h1 class="ec-title">Your Wishlist is Empty</h2> -->
               <div class="wishlist-table-item"></div>
                 <p class="ec-txt">Your Wishlist is Empty</p>
-              </div>
+              </div> {% endcomment %}
             {% endif %}
-            <!-- <div class="wishlist-table-item">
-              <div class="ci-img">
-                <figure>
-                <img src="{% static 'imgs/alchemist.jpeg'%}">
-                </figure>
-              </div>
-              <div class="wl-desc">
-                <p class="wl-title">The Alchemist By Paul Coelho</p>
-                <p class="wl-price">Rs 320  <strike>Rs 375</strike>  <span class="wl-off">1% Off</span></p>
-                <div class="wl-btn-wrap">
-                  <a href="#" class="btn-wl-move">Move to Cart</a>
-                  <a href="#" class="btn-wl-delete">Delete</a>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist-table-item">
-              <div class="ci-img">
-                <figure>
-                <img src="{% static 'imgs/alchemist.jpeg'%}">
-                </figure>
-              </div>
-              <div class="wl-desc">
-                <p class="wl-title">The Alchemist By Paul Coelho</p>
-                <p class="wl-price">Rs 320  <strike>Rs 375</strike>  <span class="wl-off">1% Off</span></p>
-                <div class="wl-btn-wrap">
-                  <a href="#" class="btn-wl-move">Move to Cart</a>
-                  <a href="#" class="btn-wl-delete">Delete</a>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist-table-item">
-              <div class="ci-img">
-                <figure>
-                <img src="{% static 'imgs/alchemist.jpeg'%}">
-                </figure>
-              </div>
-              <div class="wl-desc">
-                <p class="wl-title">The Alchemist By Paul Coelho</p>
-                <p class="wl-price">Rs 320  <strike>Rs 375</strike>  <span class="wl-off">1% Off</span></p>
-                <div class="wl-btn-wrap">
-                  <a href="#" class="btn-wl-move">Move to Cart</a>
-                  <a href="#" class="btn-wl-delete">Delete</a>
-                </div>
-              </div>
-            </div> -->
+            
           </div>
           </div>
           </div>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %}  {% block content %}
+<div class="content-wrap">
+                <div class="cart" style="margin-bottom: 14px;margin-top: 5px;">
+                    <div class="container-fluid">
+                        <div class="cart">
+                            <div class="container-fluid">
+                                <div class="cart-wrap">
+                                    <div class="cart-title-wrap">
+                                        <h1 class="title"> <img src="{% static 'images/checklist.png'%}" height="7%" width="7%"> My Wishlist :-</h1>
+                                    </div>
+                                    <div class="empty-wishlist">
+                                        <figure>
+                                            <img src="{% static 'images/wishlist-empty.png'%}" width=50% height=50% style="margin-top: -90px;" alt="" title="">
+                                        </figure>
+                                        <span class="ec-title">You have no items in Your wishlist</span>
+                                        <br>
+                                        <br>
+                                        <a href="#" class="continue-shopping">Continue shopping</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="scroll" style="display: none;"><img src="imgs/back-to-top.png" alt="Back to Top" title="Back to Top"></a>
+        </div>
+{% endblock %}

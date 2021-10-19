@@ -42,21 +42,26 @@
               <h1 class="title"><img src="{%static 'images/deliverytruck.png'%}" height="5%" width="5%" style="margin-top:-7px;"> Delivery Address :-</h1>
               <!-- <p class="da-subtitle">We will deliver your Order to this Address <span>(Click on the block containing the address yo want to select)</span></p> -->
               <hr class="deliverybookruler">
-            
+              <br>
+              <br>
               <div class="addrsses-wrap">
               <div class="row">
                 {% for address in addresses %}
                 <div class="col-md-6">
                   <div class="aw-item">
                     <div class="row">
+
                       <div class="col-md-4" onclick="toggleCheck()">
+                        <div style="text-align:center">
                         <input type="checkbox" class="chk" name="checkbox" id="checkbox{{address.id}}"{% if address.isdeafault %}checked{% endif %} {% if address.addpincode == 421501 or   address.addpincode == 421502  or address.addpincode == 421505 %} {% else %}disabled checked=flase  {% endif %} style="margin: 20px 0 0 10px;">
-                        <img src="{%static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 30px;" >
+                        <img src="{% static 'imgs/building.png' %}" width="100%" style="margin-top: 6px;max-height: 250px;max-width:250px" >
+                        {% comment %} <img src="{%static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 30px;" > {% endcomment %}
+                      </div>
                       </div>
                       <div class="col-md-8  col-xs-10">
                         <p>
                           <label class="aw-name">{{address.name}}</label>
-                             &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;<a href="#" class="aw-edit"></a> 
+                             &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;<a href="#" class="aw-edit"></a>&ensp; 
                             <a href="#" class="aw-delete"></a>
                         </p>
                         <p class="aw-avail">{% if address.addpincode == 421501 or address.addpincode == 421502  or address.addpincode == 421505 %} <p class="aw-avail">Delivery available here.</p> {% else %}  <p class="aw-notavail"> Delivery  not available here.</p> {% endif %}
@@ -72,13 +77,16 @@
                   <div class="aw-item">
                     <div class="row">
                       <div class="col-md-4" onclick="toggleCheck1()">
+                         <div style="text-align:center">
                         <input type="checkbox" name="checkbox" id="checkbox1"  disabled style="margin: 20px 0 0 10px;">
-                        <img src="{%static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 6px;">
+                        {% comment %} <img src="{%static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 6px;"> {% endcomment %}
+                        <img src="{% static 'imgs/building.png' %}" width="100%" style="margin-top: 6px;max-height: 250px;max-width:250px" >
+                      </div>
                       </div>
                       <div class="col-md-8  col-xs-10">
                         <p>
                           <label class="aw-name">Ohm Chadwick</label>
-                            &ensp; &ensp; &ensp;<a href="#" class="aw-edit"></a> 
+                             &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp;<a href="#" class="aw-edit"></a>&ensp; 
                             <a href="#" class="aw-delete"></a>
                         </p>
                         <p class="aw-notavail"> Delivery    not av ailable here.</p>
@@ -89,8 +97,10 @@
                   </div>
                 </div>
               </div>
-              <br><br>
-              <a href="#" class="confirm-order" onclick="confirmOrder()">Confirm Order</a>
+              <div style="text-align:center;margin-top: 15px">
+                <a href="#" class="confirm-order" onclick="confirmOrder()">Confirm Order</a>
+              </div>
+              
               <!-- link below button to delivery-address.html -->
               <a href="#"><img class="cross-modal" src="{%static 'imgs/location-1.png'%}" height="12%" width="12%" style="margin-top: 2px;"></a>
             </div>

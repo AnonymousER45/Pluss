@@ -9,28 +9,36 @@
                 <div class="th-nav" id="myTopnav">
                     <ul class="thn-links">
                       <li class="thn-main"><a href="/">Home</a> </li>
-                      <hr style="margin: 5px;">
-                        <li class="thn-main"><a href="/category4/8 ">Notebooks / Stationary  </a>
+                      <hr style="margin: 5px; border-color:#fff !important;">
+                        <li class="thn-main"><a href="/category10/8 ">Sc hool Zone</a>
                         </li>
-                        <li class="thn-main"><a href="javscript:void(0)">5-10th class<i class="dropdown-arrow-down"></i></a>
+                        <li class="thn-main"><a href="javscript:void(0)">5-7th class<i class="dropdown-arrow-down"></i></a>
                           <ul class="thn-subnav">
-                            <li><a href="/category1/11">5 th</a></li>
-                            <li><a href="/category1/12">6 th</a></li>
-                            <li><a href="/category1/13">7 th</a></li>
-                            <li><a href="/category1/1">8 th</a></li>
-                            <li><a href="/category1/2">9 th</a></li>
-                            <li><a href="/category1/5">10 th</a></li>
-                            <hr class="nav-hr">
+                            <li><a href="/category1/11">5th Standard</a></li>
+                            <li><a href="/category1/12">6th Standard</a></li>
+                            <li><a href="/category1/13">7th Standard</a>
+                            <hr style="border-color:#fff !important;"></li>
                             </ul>
-                        </li><li class="thn-main"><a href="javscript:void(0)">11-12th class<i class="dropdown-arrow-down"></i></a>
+                        </li>
+                        <li class="thn-main"><a href="javscript:void(0)">8-10th class<i class="dropdown-arrow-down"></i></a>
                           <ul class="thn-subnav">
-                                <li><a href="/category2/3">11th</a></li>
-                                  <li><a href="/category2/4">12 th</a></li>
-                                  <hr class="nav-hr">
+                            <li><a href="/category1/1">8th Standard</a></li>
+                            <li><a href="/category1/2">9th Standard</a></li>
+                            <li><a href="/category1/5">10th Standard</a>
+                            <hr style="border-color:#fff !important;"></li>
+                            </ul>
+                        </li>
+                        <li class="thn-main"><a href="javscript:void(0)">11-12th class<i class="dropdown-arrow-down"></i></a>
+                          <ul class="thn-subnav">
+                                <li><a href="/category2/3">11th Standard</a></li>
+                                  <li><a href="/category2/4">12th Standard</a>
+                                  <hr style="border-color:#fff !important;"></li>
                           </ul>
                         </li>
-                        <li class="thn-main"><a href="/category3/6">Neet /Jee / Mh-Cet</a>
-                        <li class="thn-main"><a href="/category5/10">Story / Biography Books</a>
+                        <li class="thn-main"><a href="/category3/6">Neet /Jee / Mh-Cet</a></li>
+                        <li class="thn-main"><a href="/category4/8 ">Notebooks / Stationary  </a>
+                        <hr style="border-color:#fff !important;"></li>
+                        {% comment %} <li class="thn-main"><a href="/category5/10">Story / Biography Books</a>
                           <li class="thn-main"><a href="javscript:void(0)"> Science Stream <i class="dropdown-arrow-down"></i></a>
                             <ul class="thn-subnav">
                               <li><a href="/category6/14"> BSC IT</a></li>
@@ -60,23 +68,23 @@
                               <li><a href="/category8/28"> BA </a></li>
                               <hr class="nav-hr">
                             </ul>
-                          </li>
+                          </li> {% endcomment %}
                         <li class="thn-main"><a href="/requestbook">Request a Book</a>
-                        <hr class="nav-hr">
+                        <hr style="border-color:#fff !important;">
                         </li>
 
-                        <li class="thn-main"><a href="/myorders">My order</a>
-                        <li class="thn-main"><a href="/wishlist">My Whishlist</a>
+                        <li class="thn-main"><a href="/myorders">My order</a></li>
+                        <li class="thn-main"><a href="/wishlist">My Whishlist</a></li>
                         <li class="thn-main"><a href="/myaccount">My Account</a>
-                        <hr class="nav-hr">
+                        <hr style="border-color:#fff !important;"></li>
                         <li class="thn-main"><a href="/privacy">Privacy Policy</a>
-                        <li class="thn-main"><a href="/aboutus">Contact Us</a>
+                        <li class="thn-main"><a href="/contactus">Contact Us</a>
                         <li class="thn-main"><a href="{% url 'logout' %}" data-toggle="modal" data-target="#myModal">Logout</a>
                     </ul>
                 </div>
        		</div>
         	<div class="th-logo">
-            	<a href="{% url 'Ecom:index' %}"><img src="{% static 'imgs/logo.png' %}" alt="PLUSCROWN" title="PLUSCROWN"></a>
+            	<a href="{% url 'Ecom:index' %}"><img src="{% static 'images/logo.jpeg' %}" alt="PLUSCROWN" title="PLUSCROWN"></a>
           	</div>
             <div class="th-search th-search-desk">
             	<form>

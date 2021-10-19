@@ -21,8 +21,8 @@
                   <div class="aw-item">
                     <div class="row">
                       <div class="col-md-4" onclick="toggleCheck()">
-                        <input type="checkbox" name="checkbox" id="checkbox"  style="height:25px;width:25px;">
                         <div style="text-align:center">
+                        <input type="checkbox" name="checkbox" id="checkbox"  style="height:25px;width:25px;">
                         <img src="{% static 'imgs/building.png' %}" width="100%" style="margin-top: 6px;max-height: 250px;max-width:250px" >
                       </div>
 
@@ -68,9 +68,9 @@
                   </div>
                 </div> {% endcomment %}
               </div>
-              <div style="text-align:center;margin-top: 15px">
+              {% comment %} <div style="text-align:center;margin-top: 15px">
                 <a href="#" class="confirm-order">Confirm Order</a>
-              </div>
+              </div> {% endcomment %}
               <!-- link below button to delivery-address.html -->
               <a href="#"><img class="cross-modal" src="{% static 'imgs/location-1.png' %}" height="12%" width="12%" style="margin-top: 2px;"></a>
             </div>

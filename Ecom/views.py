@@ -196,6 +196,17 @@ def Category9(request,myid):
 
     return render(request,'ecom/product-listing-9.html',param)
 
+def Category10(request,myid):
+    combos1 = Product.objects.filter(Category=1,subCategory=13)
+    cats = Category.objects.filter(id=myid)
+    param ={'cat': cats,'combo1':combos1}
+
+    return render(request,'ecom/schoolcomboview.html',param)
+
+def schoolzonelistview(request):
+    return render(request,'ecom/schoolzonelistview.html')
+
+
 def Productdetails(request,id): 
     product=Product.objects.filter(id=id) 
     products = Product.objects.filter(Category=1) 
@@ -217,8 +228,6 @@ def Productdetails(request,id):
          
     return render(request,'ecom/product-detail-2.html',param)
 
-def cart(request):
-    return render(request,'ecom/empty-cart.html')
 
 def wishlist(request):
     Context = {}
@@ -227,7 +236,9 @@ def wishlist(request):
         qs = WishlistProduct.objects.filter(userx=user_id)
         if qs.exists():
             Context['wishlist'] = qs
-    return render(request,'ecom/wishlist.html',Context)
+            return render(request,'ecom/wishlist.html',Context)
+        else :
+            return render(request,'ecom/empty-wishlist.html')
 
 def aboutus(request):
     return render(request,'ecom/aboutus.html')

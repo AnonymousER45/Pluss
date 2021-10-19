@@ -62,17 +62,20 @@
                                         <img src="{% static 'imgs/cod.jpg'%}" width="100%" height="100%">
                                         <h6 class="text-center"><label>You are willing to pay in cash at the time of delivery.</label></h6>
                                         <div class="cod-wrap">
-                                            <h3 class="cd-title">Enter Phone Number</h3>
+                                            <div style="padding-right:5px;padding-left:40px;width:400px;padding-top:10px;"> 
+                                            <h3 class="cd-title" style="font-size:16px;"><b>Enter Phone Number</b></h3>
                                             <form>
-                                                <input type="text" name="phone" placeholder="Enter Phone Number" id="number">
-                                                <label>
+                                                
+                                                <input type="text" name="phone" placeholder="Enter Phone Number" id="number" style="width:400px;" >
+                                                <label style="text-align:right padding-left:140px;">
                                                 {% comment %} <input type="checkbox" name="resend"> {% endcomment %}
                                                 Resend OTP</label>
-                                                <div class="login-button">
+                                                <div class="login-button" style=" text-align:center; width:350px;font-size:15px ">
                                                     <input type="button" name="sendotp" value="Send OTP for Verification" onclick="showOTP()">
                                                 </div>
+                                                
                                             </form>
-
+                                            </div>
                                             <div class="otp-wrap" id="otp" style="display: none">
                                                 <h3 class="cd-title">Enter OTP for New Phone Number</h3>
                                                 <form>
