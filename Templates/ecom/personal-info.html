@@ -1,110 +1,12 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="content-wrap">
                 <div class="container-fluid">
-                    <!-- <div class="cart-title-wrap">
-          <h1 class="title">My Account</h1>
-        </div> -->
                     <div class="payment-wrapper">
-                        <!-- <ul class="tabs my-acc-tabs"> 
-            <li class="active" rel="tab1">My Orders</li>
-            <li rel="tab2">Personal Information</li>
-            <li rel="tab3">Address Book</li>
-          </ul> -->
                         <div class="tab_container tab_container_white">
-                            <!-- <h3 class="d_active tab_drawer_heading" rel="tab1">My Orders</h3> 
-            <div id="tab1" class="tab_content">
-              <h2 class="title-center">My Orders</h2>
-              <p class="text-center">Track your orders & view the summary of your past orders</p>
-              <div class="empty-orders">
-                <figure>
-                  <img src="imgs/delivery-icon.png" alt="" title="">
-                </figure>
-                <h3 class="title-red">You haven't placed any order yet!!!</h3>
-                <p>Order section is empty. After placing order, You can track them here.</p>
-              </div>
-              <div class="filled-orders">
-                <div class="fo-item">
-                  <p class="order-number">Order ID : 4863964</p>  
-                  <div>
-                    <a href="#" class="fo-wrap">
-                      <span class="fo-img">
-                        <img src="imgs/fc-1.jpg" alt="" title="">
-                      </span>
-                      <span class="fo-del-status">
-                        <p class="fods-title">Delivered</p>
-                        <p>Delivered on <span>08 March 2020</span></p>
-                      </span>
-                    </a>
-                  </div>
-                  <div>
-                    <a href="#" class="fo-wrap">
-                      <span class="fo-img">
-                        <img src="imgs/alchemist.jpeg" alt="" title="">
-                      </span>
-                      <span class="fo-del-status">
-                        <p class="fods-title">Delivered</p>
-                        <p>Delivered on <span>03 March 2020</span></p>
-                      </span>
-                    </a> 
-                  </div>       
-                </div>
-                <div class="fo-item">
-                  <p class="order-number">Order ID : 4638744</p>  
-                  <div>
-                    <a href="#" class="fo-wrap">
-                      <span class="fo-img">
-                        <img src="imgs/fc-1.jpg" alt="" title="">
-                      </span>
-                      <span class="fo-del-status">
-                        <p class="fods-title">Delivered</p>
-                        <p>Delivered on <span>07 March 2020</span></p>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <div class="fo-item fo-item-return">
-                  <p class="order-number">Order ID : 3698458</p>  
-                  <div>
-                    <a href="#" class="fo-wrap">
-                      <span class="fo-img">
-                        <img src="imgs/shopping.png" alt="" title="">
-                      </span>
-                      <span class="fo-del-status">
-                        <p class="fods-title">Return Complete</p>
-                        <p>Returned on <span>12 January 2020</span></p>
-                      </span>
-                    </a>
-                    <div class="return-order-details">
-                      <div>
-                        <p>Total Refund Amount</p>
-                        <p class="refund-date-price">Refund has been initiated on 12th January 2022</p>
-                      </div>
-                      <div>
-                        <p class="refund-date-price">Rs 425</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <a href="#" class="fo-wrap">
-                      <span class="fo-img">
-                        <img src="imgs/fc-2.jpg" alt="" title="">
-                      </span>
-                      <span class="fo-del-status">
-                        <p class="fods-title">Return and Refund Complete</p>
-                        <p>Returned on <span>12 January 2020</span><br>
-                          Refund successful on <span>20th January 2020</span>
-                        </p>
-                      </span>
-                    </a>                    
-                  </div>
-                </div>
-              </div>
-              
-            </div>  -->
                             <!--Personal Information -->
                             <!-- <h3 class="d_active tab_drawer_heading" rel="tab2">Personal Information :-</h3>  -->
                             <div id="tab2" class="tab_content">
-                                <h2 class="title-left" style="margin-top: 14px; margin-bottom:14px;"><img src="imgs/secure-payment.png" height="30px" width="30px"> Personal Information :-</h2>
+                                <h2 class="title-left" style="margin-top: 14px; margin-bottom:14px;"><img src="{% static 'imgs/secure-payment.png'%}" height="30px" width="30px"> Personal Information :-</h2>
 
                                 <hr class="presonalinforuler">
                                 <br>
