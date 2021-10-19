@@ -55,21 +55,24 @@
                             <!-- Modal content-->
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <div>
+                                    <div >
                                         <div style="text-align:right">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                         <img src="{% static 'imgs/cod.jpg'%}" width="100%" height="100%">
                                         <h6 class="text-center"><label>You are willing to pay in cash at the time of delivery.</label></h6>
                                         <div class="cod-wrap">
-                                            <div style="padding-right:5px;padding-left:40px;width:400px;padding-top:10px;"> 
+                                            <div  style="max-width: 400px;margin: 20px auto;"> 
                                             <h3 class="cd-title" style="font-size:16px;"><b>Enter Phone Number</b></h3>
                                             <form>
                                                 
-                                                <input type="text" name="phone" placeholder="Enter Phone Number" id="number" style="width:400px;" >
-                                                <label style="text-align:right padding-left:140px;">
-                                                {% comment %} <input type="checkbox" name="resend"> {% endcomment %}
-                                                Resend OTP</label>
+                                                <input type="text" name="phone" placeholder="Enter Phone Number" id="number" >
+                                                <div style="text-align: right;">
+
+                                                    <label >
+                                                        {% comment %} <input type="checkbox" name="resend"> {% endcomment %}
+                                                        Resend OTP</label>
+                                                    </div>
                                                 <div class="login-button">
                                                     <input type="button" name="sendotp" value="Send OTP for Verification" onclick="generateOtp()">
                                                 </div>
@@ -194,14 +197,14 @@
                      </div>
                     <div class="modal-body">
                         <div class="otp-wrap">
-                                    <h3 class="cd-title">Enter OTP for New Phone Number</h3>
-                                    <form>
-                                        <input class="otp-input" type="text" name="otp" placeholder="Enter otp-wrap" >
-                                        <a href="#"><div class="login-button sendotp-button " onclick="verifyOTP()">
-                                            Proceed
-                                        </div></a>
-                                    </form>
-                                </div>
+                            <h3 class="cd-title">Enter OTP for New Phone Number</h3>
+                            <form>
+                                <input class="otp-input" type="text" name="otp" placeholder="Enter otp-wrap" >
+                                <a href="#"><div class="login-button sendotp-button " onclick="verifyOTP()">
+                                    Proceed
+                                </div></a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

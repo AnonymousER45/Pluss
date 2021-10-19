@@ -29,8 +29,21 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
  
+  <script>
+    $(document).ready(function(){
+      $('#preloader').fadeOut();
+        $('.main').fadeIn();
+    })
+  </script>
 </head>
-<body>
+<body >
+<div id="preloader" style="min-height:100vh">
+  <div style="display: flex;align-items:center;justify-content:center;min-height:100vh">
+    <div style="text-align: center;">
+    Preloader Logo
+    </div>
+  </div>
+</div>
 <!--navbar -->
 	{% include 'partials/_navbar.html' %}
     <input type="hidden" id="user_id" value="{{user.id}}"/>

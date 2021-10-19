@@ -23,58 +23,57 @@
         </div>
             
                 <div class="product-filter">
-                    <ul id="myBtnContainer" class="pf-wrap">
-                <div class="container-fluid">
-                 <div class="combo-wrap">
-                          <div class="container-fluid">
+                  <div class="container-fluid">
+                    <div class="combo-wrap">
+                        <div class="container-fluid">
                               <div class="row">
-                                 <div class="col-sm-10 col-12 ">
-                                     <h2 class="title d-flex">Complete Combos :-</h2>
-                                 </div>
-                                 <div class="col-sm-2 col-12">
-                                    <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
-                                 </div>
-                              </div>
-                              &nbsp;
-                           <div class="complete-combos">
-                              <div class="cc-item">
-                                <a href="{% url 'Ecom:Productdetails' combo1.0.id  %}" class="cc-link">
-                                  <div class="cc-img">
-                                    <span>
-                                      <img src="{{ combo1.0.img.url}}" alt="" title="">
-                                    </span>
-                                  </div>
-                                  <div class="cc-txt">
-                                    <p>{{ combo1.0.title }}</p>
-                                    <span> &emsp;&emsp; {{ combo1.0.price }} &emsp;<strike>{{ combo1.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
-                                  </div>
-                                </a>
-                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                                <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                              </div>
-                              {% for i in combo1|slice:"1:" %}
-                              <div class="cc-item">
-                                <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
-                                  <div class="cc-img">
-                                    <span>
-                                      <img src="{{ i.img.url}}" alt="" title="">
-                                    </span>
-                                  </div>
-
-                                  <div class="cc-txt">
-                                    <p>{{ i.title }}</p>
-                                    <span> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
-                                  </div>
-                                </a>
-                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                                <a href="#" class="cc-add-wishtlist"></a>
-                              </div>
-                              {% endfor %}
+                                <div class="col-sm-10 col-xs-10 ">
+                                    <h2 class="title d-flex">Complete Combos :-</h2>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                  <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                </div>
                             </div>
+                            &nbsp;
+                          <div class="complete-combos">
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo1.0.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ combo1.0.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+                                <div class="cc-txt">
+                                  <p>{{ combo1.0.title }}</p>
+                                  <span> &emsp;&emsp; {{ combo1.0.price }} &emsp;<strike>{{ combo1.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                            </div>
+                            {% for i in combo1|slice:"1:" %}
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ i.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+
+                                <div class="cc-txt">
+                                  <p>{{ i.title }}</p>
+                                  <span> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              <a href="#" class="cc-add-wishtlist"></a>
+                            </div>
+                            {% endfor %}
                           </div>
                         </div>
-               </div>
-               </div>
+                      </div>
+                  </div>
+                </div>
                </div>
                <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
             </div>

@@ -115,6 +115,7 @@
             .main {
                 overflow: hidden;
                 position: relative;
+                display: none;
             }
             
             .top-head {
@@ -772,6 +773,7 @@
             .prosliders .slick-slide {
                 /* padding-left: 2px;
     padding-right: 2px; */
+    padding: 5px;;
             }
             
             .ap-item {
@@ -942,6 +944,7 @@
                 padding: 1px 14px;
                 float: right !important;
                 white-space: nowrap;
+                margin-top:10px;
             }
             /*===== Home Slider =====*/
             
@@ -4386,6 +4389,10 @@
                 }
                 .title {
                     font-size: 20px;
+                }
+                .btn-view-all,
+                .btn-view-all:focus {
+                    margin-top: unset;
                 }
                 .text-center p {
                     font-size: 14px;
