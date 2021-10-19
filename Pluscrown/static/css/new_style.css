@@ -119,7 +119,8 @@ ol {
     flex-direction: column;
   }
 
-  .btn-wl-move, .btn-wl-move:focus {
+  .btn-wl-move,
+.btn-wl-move:focus {
     margin: unset;
   }
 
@@ -130,4 +131,21 @@ ol {
 .modal-header .close {
   margin-top: -15px;
   padding-top: 15px;
+}
+
+@media (max-width: 500px) {
+  .th-logo {
+    max-width: 70%;
+    width: 100%;
+    position: relative;
+    top: unset;
+  }
+
+  .th-login {
+    margin-left: 40px;
+  }
+
+  .th-logo img {
+    margin-left: unset;
+  }
 }/*# sourceMappingURL=new_style.css.map */

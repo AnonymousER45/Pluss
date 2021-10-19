@@ -70,8 +70,8 @@
                                                 <label style="text-align:right padding-left:140px;">
                                                 {% comment %} <input type="checkbox" name="resend"> {% endcomment %}
                                                 Resend OTP</label>
-                                                <div class="login-button" style=" text-align:center; width:350px;font-size:15px ">
-                                                    <input type="button" name="sendotp" value="Send OTP for Verification" onclick="showOTP()">
+                                                <div class="login-button">
+                                                    <input type="button" name="sendotp" value="Send OTP for Verification" onclick="generateOtp()">
                                                 </div>
                                                 
                                             </form>
@@ -227,6 +227,8 @@
                 "number": number, 
             }, 
             success: function(msg){ 
+                document.getElementById("otp").style.display = "block";
+                //document.getElementById("number").disabled = "true";
                 alert('Otp sent'); 
             },
             error: function(msg){

@@ -281,6 +281,19 @@
                 -webkit-transform: rotate(45deg);
                 /* z-index: 4; */
             }
+            
+            .dropdown-arrow-up {
+                margin-top: 8px;
+                border: solid #FFFFFF;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                position: absolute;
+                right: 21px;
+                padding: 4px;
+                transform: rotate(225deg);
+                -webkit-transform: rotate(225deg);
+                /* z-index: 4; */
+            }
             /*	END For dropdown arrow	*/
             /*	Hr in nav code		*/
             
@@ -997,7 +1010,7 @@
             
             .offer-banner {
                 margin-top: 24px;
-                margin-bottom: 66px;
+                margin-bottom: 24px;
                 position: relative;
             }
             
@@ -1296,7 +1309,9 @@
                 border-top: none;
                 clear: both;
                 width: 100%;
-                overflow: auto;
+                overflow: hidden;
+                border-radius: 15px;
+                box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
             }
             
             .tab_container_white {
@@ -2582,7 +2597,7 @@
             }
             
             .custom-select {
-                width: 108px;
+                width: 135px;
                 height: 36px;
                 border-radius: 9px;
                 background-color: #fff;
@@ -4191,7 +4206,7 @@
                     /* padding-left: 0; */
                 }
                 .ci-img {
-                    width: 50%;
+                    width: 135px;
                     text-align: center;
                     border-radius: 7px;
                     border: 1px solid rgba(112, 112, 112, 0.07);
@@ -4439,10 +4454,14 @@
                     font-size: 20px;
                 }
                 .th-logo img {
-                    margin-left: -71px;
+                    margin-left: unset;
+                    position: relative;
+                    left: 55px;
+                    height: 45px;
+                    top: -5px;
                 }
                 .th-cart img {
-                    margin-left: 268px;
+                    /* margin-left: 268px; */
                     margin-top: 3px;
                 }
                 .th-cart span {
@@ -4459,8 +4478,8 @@
                 }
                 .th-login {
                     font-size: 14px;
-                    margin-top: -56px;
-                    margin-left: 246px;
+                    margin-top: -80px;
+                    margin-left: 253px;
                 }
                 .cc-img img {
                     max-width: 275px;

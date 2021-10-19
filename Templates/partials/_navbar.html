@@ -79,7 +79,7 @@
                         <hr style="border-color:#fff !important;"></li>
                         <li class="thn-main"><a href="/privacy">Privacy Policy</a>
                         <li class="thn-main"><a href="/contactus">Contact Us</a>
-                        <li class="thn-main"><a href="{% url 'logout' %}" data-toggle="modal" data-target="#myModal">Logout</a>
+                        <li class="thn-main"><a onclick="return confirm('Are you sure?')" href="{% url 'logout' %}" data-toggle="modal" data-target="#myModal">Logout</a>
                     </ul>
                 </div>
        		</div>
@@ -114,3 +114,9 @@
       </div>
     </div>
     </div>
+
+    <script>
+    $(document).ready(function(){
+      $('')
+    })
+    </script>

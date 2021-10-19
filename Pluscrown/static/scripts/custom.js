@@ -14,6 +14,7 @@ $(document).ready(function() {
     $('.thn-main').click(function(e) {
         e.stopPropagation();
         $(this).children('.thn-subnav').toggleClass('active');
+        console.log($(this).find('a i').toggleClass('dropdown-arrow-up'));
     });
 
     $('body').click(function(e) {
