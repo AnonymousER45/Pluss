@@ -33,8 +33,8 @@
                       <div style="width:100%">
                         <p>
                           <label class="aw-name">Ohm Chadwick</label>
-                             &ensp; &ensp; &ensp; &ensp; &ensp;<a href="#" class="aw-edit"></a> 
-                            <a href="#" class="aw-delete"></a>
+                             &ensp; &ensp; &ensp; &ensp; &ensp;<a href="/add_address" class="aw-edit"></a> 
+                            <a onclick="return confirm('Are you sure?')" href="#" class="aw-delete"></a>
                         </p>
                         <p class="aw-avail"> Delivery available here.</p>
                         <p class="aw-add">Plot no. 123, Swati Apt., Youth Section, Near Shani Mandir,Ambernath (West), Thane- 421503</p>
@@ -74,7 +74,7 @@
                 <a href="#" class="confirm-order">Confirm Order</a>
               </div> {% endcomment %}
               <!-- link below button to delivery-address.html -->
-              <a href="#"><img class="cross-modal" src="{% static 'imgs/location-1.png' %}" height="12%" width="12%" style="margin-top: 2px;"></a>
+              <a href="/add_address"><img class="cross-modal" src="{% static 'imgs/location-1.png' %}" height="12%" width="12%" style="margin-top: 2px;"></a>
             </div>
               
           </div> 

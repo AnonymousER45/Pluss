@@ -197,9 +197,15 @@ def Category9(request,myid):
     return render(request,'ecom/product-listing-9.html',param)
 
 def Category10(request,myid):
-    combos1 = Product.objects.filter(Category=1,subCategory=13)
+    # myid=35
+    combos1 = Product.objects.filter(Category=myid,subCategory=58)
+    combos2 = Product.objects.filter(Category=myid,subCategory=59)
+    combos3 = Product.objects.filter(Category=myid,subCategory=60)
+    combos4 = Product.objects.filter(Category=myid,subCategory=61)
+    combos5 = Product.objects.filter(Category=myid,subCategory=62)
+    combos6 = Product.objects.filter(Category=myid,subCategory=63)
     cats = Category.objects.filter(id=myid)
-    param ={'cat': cats,'combo1':combos1}
+    param ={'cat': cats,'combo1':combos1,'combo2':combos2,'combo3':combos3,'combo4':combos4,'combo5':combos5,'combo6':combos6,}
 
     return render(request,'ecom/schoolcomboview.html',param)
 
@@ -354,6 +360,8 @@ def myaddressbook(request):
     if request.user:
         query_set = Address.objects.filter(customer_id=request.user)
         context['addresses'] = query_set
+        print(query_set)
+        print("djbjdbcj")
     return render(request,'ecom/myaddressbook2.html',context)
 
 

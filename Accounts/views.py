@@ -169,7 +169,7 @@ def logout_view(request):
     # Log out the user.
     logout(request)
     # Return to homepage.
-    return HttpResponseRedirect(reverse('index'))
+    return redirect('Ecom:index')
     
     
             

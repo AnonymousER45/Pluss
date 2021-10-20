@@ -64,8 +64,8 @@
                           <label class="aw-name">{{address.name}}</label>
                              
                             <span style="padding-right: 1rem;">
-                              <a href="#" class="aw-edit"></a>&ensp; 
-                              <a href="#" class="aw-delete"></a>
+                              <a href="/add_address" class="aw-edit"></a>&ensp; 
+                              <a onclick="return confirm('Are you sure?')" href="#" class="aw-delete"></a>
                             </span>
                         </div>
                         <p class="aw-avail">{% if address.addpincode == 421501 or address.addpincode == 421502  or address.addpincode == 421505 %} <p class="aw-avail">Delivery available here.</p> {% else %}  <p class="aw-notavail"> Delivery  not available here.</p> {% endif %}
@@ -90,10 +90,10 @@
                       <div class="col-md-8  col-xs-10">
                         <p>
                           <label class="aw-name">Ohm Chadwick</label>
-                             &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp;<a href="#" class="aw-edit"></a>&ensp; 
-                            <a href="#" class="aw-delete"></a>
+                             &ensp; &ensp;&ensp; &ensp; &ensp; &ensp;&ensp;<a href="/add_address" class="aw-edit"></a>&ensp; 
+                            <a onclick="return confirm('Are you sure?')" href="#" class="aw-delete"></a>
                         </p>
-                        <p class="aw-notavail"> Delivery not available here.</p>
+                        <p class="aw-notavail"> Delivery no t available here.</p>
                         <p class="aw-add">Plot no. 123, Swati Apt.,<span>Near Shani Mandir,Ambernath (West),</span><span>Thane- 421503</span></p>
                         <p class="aw-phone">Phone: 9323267570</p>
                       </div>
@@ -106,7 +106,7 @@
               </div>
               
               <!-- link below button to delivery-address.html -->
-              <a href="#"><img class="cross-modal" src="{%static 'imgs/location-1.png'%}" height="12%" width="12%" style="margin-top: 2px;"></a>
+              <a href="/add_address"><img class="cross-modal" src="{%static 'imgs/location-1.png'%}" height="12%" width="12%" style="margin-top: 2px;"></a>
             </div>
               
           </div> 

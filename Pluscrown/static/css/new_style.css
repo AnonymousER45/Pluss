@@ -1,151 +1,153 @@
 hr,
 .privacyruler {
-  border: 0 !important;
-  border-bottom: 1px solid #47366f !important;
+    border: 0 !important;
+    border-bottom: 1px solid #47366f !important;
 }
 
 .content-wrap {
-  padding-top: 10px !important;
+    padding-top: 10px !important;
 }
 
 @media screen and (max-width: 440px) {
-  .gobac-beg {
-    font-size: 11px !important;
-  }
+    .gobac-beg {
+        font-size: 11px !important;
+    }
 }
+
 .not-found-popup {
-  padding: 2rem 0rem;
+    padding: 2rem 0rem;
 }
 
 .cancellation-section .title {
-  font-size: 2.5rem;
-  margin-bottom: 0px;
+    font-size: 2.5rem;
+    margin-bottom: 0px;
 }
+
 @media screen and (max-width: 450px) {
-  .cancellation-section .title {
-    font-size: 1.8rem;
-  }
+    .cancellation-section .title {
+        font-size: 1.8rem;
+    }
 }
 
 .order-successful-popup {
-  width: unset;
-  margin: 0px;
-  height: unset;
+    width: unset;
+    margin: 0px;
+    height: unset;
 }
 
 ul,
 ol {
-  padding-left: 0 !important;
+    padding-left: 0 !important;
 }
 
 .cu-phone:before,
 .cu-add:before,
 .cu-mail:before,
 .cu-whatsapp:before {
-  left: 0;
+    left: 0;
 }
 
 .cu-phone,
 .cu-add,
 .cu-mail,
 .cu-whatsapp {
-  padding-left: 45px;
+    padding-left: 45px;
 }
 
 .empty-cart,
 .empty-wishlist {
-  margin: 100px auto 30px;
+    margin: 100px auto 30px;
 }
 
 .payment-wrapper .tab_content {
-  padding-left: 16px;
+    padding-left: 16px;
 }
 
 .myaccountbox {
-  width: unset;
-  margin: 0;
+    width: unset;
+    margin: 0;
 }
 
 .order-successful-popup {
-  width: unset;
-  padding-bottom: 0;
+    width: unset;
+    padding-bottom: 0;
 }
 
 .product-desc-wrap {
-  padding: 0;
+    padding: 0;
 }
 
 .listing-banner {
-  padding-top: 14%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-size: 100% 100%;
-  background-position: center;
-  border: 1px solid #707070;
-  background-repeat: no-repeat;
-  height: unset;
+    padding-top: 14%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-size: 100% 100%;
+    background-position: center;
+    border: 1px solid #707070;
+    background-repeat: no-repeat;
+    height: unset;
 }
 
 .pro-unavailable {
-  padding: 1rem 1rem;
-  font-size: 18px;
+    padding: 1rem 1rem;
+    font-size: 18px;
 }
 
 .pro-notification {
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .ap-item {
-  margin: auto;
+    margin: auto;
 }
 
 .reviewimg {
-  margin-top: 10px;
-  margin-left: 19px;
+    margin-top: 10px;
+    margin-left: 19px;
 }
 
 .btn-wl-move,
 .btn-wl-move:focus {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .slick-slider {
-  padding: 5px;
+    /* padding: 5px; */
 }
 
 @media (max-width: 600px) {
-  .wishlist-table-item {
-    flex-direction: column;
-  }
-
-  .btn-wl-move,
-.btn-wl-move:focus {
-    margin: unset;
-  }
-
-  .wl-desc {
-    padding-left: 0 !important;
-  }
+    .wishlist-table-item {
+        flex-direction: column;
+    }
+    .btn-wl-move,
+    .btn-wl-move:focus {
+        margin: unset;
+    }
+    .wl-desc {
+        padding-left: 0 !important;
+    }
 }
+
 .modal-header .close {
-  margin-top: -17px;
-  padding-top: 15px;
+    margin-top: -17px;
+    padding-top: 15px;
 }
 
 @media (max-width: 500px) {
-  .th-logo {
-    max-width: 70%;
-    width: 100%;
-    position: relative;
-    top: unset;
-  }
+    .th-logo {
+        max-width: 70%;
+        width: 100%;
+        position: relative;
+        top: unset;
+    }
+    .th-login {
+        margin-left: 40px;
+    }
+    .th-logo img {
+        margin-left: unset;
+    }
+}
 
-  .th-login {
-    margin-left: 40px;
-  }
 
-  .th-logo img {
-    margin-left: unset;
-  }
-}/*# sourceMappingURL=new_style.css.map */
+/*# sourceMappingURL=new_style.css.map */

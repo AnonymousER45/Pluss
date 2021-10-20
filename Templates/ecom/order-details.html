@@ -13,7 +13,7 @@
                                                 <h2 class="cd-title">{{ orders.get_order_status_display }}</h2>
                                             </div>
                                              {% if orders.order_completed %}
-                                                <p>Delivered on {{orders.date_of_delivery | date}} <a href="#" class="invoice-link">Invoice</a> </p>
+                                                {% comment %} <p>Delivered on {{orders.date_of_delivery | date}} <a href="#" class="invoice-link">Invoice</a> </p> {% endcomment %}
                                               {% else %}
                                                   <p>To be Delivered on {{order.date_of_delivery}} </p>
                                               {% endif %}

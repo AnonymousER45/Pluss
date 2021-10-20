@@ -38,9 +38,11 @@
 </head>
 <body >
 <div id="preloader" style="min-height:100vh">
-  <div style="display: flex;align-items:center;justify-content:center;min-height:100vh">
+  <div style="display: flex;align-items:center;justify-content:center;min-height:100vh; background: #fff url({% static 'anim/preloader.gif'%}) no-repeat center center;">
     <div style="text-align: center;">
-    Preloader Logo
+      
+    {% comment %} Preloader Logo {% endcomment %}
+    
     </div>
   </div>
 </div>
