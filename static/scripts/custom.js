@@ -14,6 +14,7 @@ $(document).ready(function() {
     $('.thn-main').click(function(e) {
         e.stopPropagation();
         $(this).children('.thn-subnav').toggleClass('active');
+        console.log($(this).find('a i').toggleClass('dropdown-arrow-up'));
     });
 
     $('body').click(function(e) {
@@ -443,16 +444,87 @@ function toggleCheck1() {
         document.getElementById("checkbox1").checked = true;
     }
 }
+
 document.querySelectorAll('.product-add-wishtlist').forEach(item => {
     item.addEventListener('click', function() {
-        if (window.location.href == window.location.origin + '/' || window.location.href == window.location.origin + '/#') {
-            product_id = Number(item.parentNode.firstElementChild.href.split('/').slice(-1));
+        if (!(item.parentNode.firstElementChild.href)) {
+
+            product_id = item.href.split('/').slice(-1)[0].replace('#', '');
+            console.log(product_id);
         } else {
-            product_id = window.location.href.split('/').slice(-1)[0].replace('#', '');
+            product_id = Number(item.parentNode.firstElementChild.href.split('/').slice(-1));
+            console.log("ffgdf");
+            console.log(product_id);
         }
+        // if (window.location.href == window.location.origin + '/' || window.location.href == window.location.origin + '/#') {
+        //     product_id = Number(item.parentNode.firstElementChild.href.split('/').slice(-1));
+        // } else {
+        //     product_id = window.location.href.split('/').slice(-1)[0].replace('#', '');
+        // }
         user_id = document.getElementById("user_id").value;
 
         if (item.className === 'product-add-wishtlist wishlisted') {
+            removeFromWishList();
+        } else {
+            console.log(product_id);
+            addToWishList();
+        }
+
+        function addToWishList() {
+            console.log(product_id);
+            $.ajax({
+                type: 'POST',
+                url: '/django/api/add_to_wishlist/',
+                data: {
+                    "product_id": product_id,
+                    "id": user_id,
+                },
+                success: function(data) {
+                    alert("Item added to wishlist");
+                }
+            });
+        }
+
+        function removeFromWishList() {
+            $.ajax({
+                type: 'POST',
+                url: '/django/api/remove_from_wishlist/',
+                data: {
+                    "product_id": product_id,
+                    "id": user_id,
+                },
+                success: function(data) {
+                    alert("Item Removed to wishlist");
+                }
+            });
+        }
+
+    })
+})
+
+
+$(document).ready(function() {
+    $('.cc-add-wishtlist').click(function() {
+        $(this).toggleClass('wishlisted');
+    })
+});
+$('.cc-add-wishtlist wishlisted').click(function() {});
+
+document.querySelectorAll('.cc-add-wishtlist').forEach(item => {
+    item.addEventListener('click', function() {
+        if (!(item.parentNode.firstElementChild.href)) {
+
+            product_id = item.href.split('/').slice(-1)[0].replace('#', '');
+            console.log(product_id);
+        } else {
+            product_id = Number(item.parentNode.firstElementChild.href.split('/').slice(-1));
+            console.log("ffgdf");
+            console.log(product_id);
+        }
+        user_id = document.getElementById("user_id").value;
+
+        if (item.className === 'cc-add-wishtlist wishlisted') {
+            console.log(product_id);
             removeFromWishList();
         } else {
             addToWishList();

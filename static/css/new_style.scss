@@ -1,5 +1,7 @@
-hr {
-  border-bottom: 1px solid #47366f;
+hr,
+.privacyruler {
+  border: 0 !important;
+  border-bottom: 1px solid #47366f !important;
 }
 
 // 404.html Start
@@ -50,27 +52,30 @@ ol {
   left: 0;
 }
 
-.cu-phone, .cu-add, .cu-mail,.cu-whatsapp {
-    padding-left: 45px;
+.cu-phone,
+.cu-add,
+.cu-mail,
+.cu-whatsapp {
+  padding-left: 45px;
 }
 
-.empty-cart,.empty-wishlist {
-    margin: 100px auto 30px;
+.empty-cart,
+.empty-wishlist {
+  margin: 100px auto 30px;
 }
-
 
 .payment-wrapper .tab_content {
-    padding-left: 16px;
+  padding-left: 16px;
 }
 
 .myaccountbox {
-    width: unset;
-    margin: 0;
+  width: unset;
+  margin: 0;
 }
 
 .order-successful-popup {
-    width: unset;
-    padding-bottom: 0;
+  width: unset;
+  padding-bottom: 0;
 }
 
 .product-desc-wrap {
@@ -94,13 +99,12 @@ ol {
 }
 
 .pro-notification {
-
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
 
 .ap-item {
-  margin:auto;
+  margin: auto;
 }
 
 .reviewimg {
@@ -108,10 +112,46 @@ ol {
   margin-left: 19px;
 }
 
-.btn-wl-move, .btn-wl-move:focus {
+.btn-wl-move,
+.btn-wl-move:focus {
   font-size: 14px;
 }
 
-.slick-slide {
-  padding: 15px !important;
+.slick-slider {
+  padding: 5px;
+}
+
+@media (max-width: 600px) {
+  .wishlist-table-item {
+    flex-direction: column;
+  }
+  .btn-wl-move,
+  .btn-wl-move:focus {
+    margin: unset;
+  }
+  .wl-desc {
+    padding-left: 0 !important;
+  }
+}
+
+.modal-header .close {
+  margin-top: -17px;
+  padding-top: 15px;
+}
+
+@media (max-width: 500px) {
+  .th-logo {
+    max-width: 70%;
+    width: 100%;
+    position: relative;
+    top: unset;
+  }
+
+  .th-login {
+    margin-left: 40px;
+  }
+
+  .th-logo img {
+    margin-left:unset ;
+  }
 }
