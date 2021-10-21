@@ -49,7 +49,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist wishlisted" style="right:230px;"></a>
+                              {% if combo1.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% for i in combo1|slice:"1:" %}
                             <div class="cc-item">
@@ -66,7 +70,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist" style="right:230px;"></a>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% endfor %}
                           </div>
@@ -86,7 +94,7 @@
                             &nbsp;
                           <div class="complete-combos">
                             <div class="cc-item">
-                              <a href="{% url 'Ecom:Productdetails' combo1.0.id  %}" class="cc-link">
+                              <a href="{% url 'Ecom:Productdetails' combo2.0.id  %}" class="cc-link">
                                 <div class="cc-img">
                                   <span>
                                     <img src="{{ combo2.0.img.url}}" alt="" title="">
@@ -98,7 +106,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist wishlisted" style="right:230px;"></a>
+                              {% if combo2.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% for i in combo2|slice:"1:" %}
                             <div class="cc-item">
@@ -115,7 +127,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist" style="right:230px;"></a>
+                                 {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% endfor %}
                           </div>
@@ -147,7 +163,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist wishlisted" style="right:230px;"></a>
+                              {% if combo3.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% for i in combo3|slice:"1:" %}
                             <div class="cc-item">
@@ -164,13 +184,17 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist" style="right:230px;"></a>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% endfor %}
                           </div>
                         </div>
                       </div>
-                  </div>
+                  </div> 
                   <div class="combo-wrap">
                         <div class="container-fluid">
                               <div class="row">
@@ -196,7 +220,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist wishlisted" style="right:240px;"></a>
+                              {% if combo4.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% for i in combo4|slice:"1:" %}
                             <div class="cc-item">
@@ -213,7 +241,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist" style="right:240px;"></a>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% endfor %}
                           </div>
@@ -245,7 +277,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist wishlisted" style="right:240px;"></a>
+                              {% if combo5.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% for i in combo5|slice:"1:" %}
                             <div class="cc-item">
@@ -262,7 +298,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist" style="right:240px;"></a>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% endfor %}
                           </div>
@@ -294,7 +334,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist wishlisted" style="right:240px;"></a>
+                              {% if combo6.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% for i in combo6|slice:"1:" %}
                             <div class="cc-item">
@@ -311,7 +355,11 @@
                                 </div>
                               </a>
                               <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                              <a href="#" class="cc-add-wishtlist" style="right:240px;"></a>
+                                {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
                             {% endfor %}
                           </div>

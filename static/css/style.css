@@ -1583,14 +1583,14 @@
             
             .qtySelector {
                 border: 1px solid #ddd;
-                width: 107px;
+                width: 116px;
                 height: 35px;
                 border-radius: 10px;
             }
             
             .qtySelector .fa {
                 padding: 10px 5px;
-                width: 35px;
+                width: 33px;
                 height: 100%;
                 float: left;
                 cursor: pointer;

@@ -20,9 +20,9 @@
 {% block content %}
 <div class="content-wrap">
     <div class="listing-banner" style="background-image: url({% static 'images/schoolzone.png' %}); margin-left:20px;margin-right:20px;">
-        </div>
+    </div>
             
-                <div class="product-filter">
+            <div class="product-filter">
                    
                 <div class="container-fluid">
 
@@ -32,15 +32,15 @@
 
                                     {% comment %} <select name="zone" onchange="$(this).closest('form').submit()" class="custom-select2" id="inputGroupSelect04" style="margin-left: 0;">
                                         
-                                    <option value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>
+                                    <option value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>form-control
                                     <option value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>Fatima High SChool</option>
                                     <option value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>Fr. agnel Multipurposr School</option>
                                     <option value="3"  {% if request.GET.zone  == "3"%} selected {% endif %}>Gurukul Grand Union School</option>
                                     <option value="4"  {% if request.GET.zone  == "4"%} selected {% endif %}>R.C.T P.M.M Rotary School</option>
                                     <option value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>S.I.E.S High School</option>
                                     <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>6</option>
-                                </select> {% endcomment %}
-                                <select name="zone"  class="form-control" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();$(this).closest('form').submit()'>
+                                    </select>  {% endcomment %}
+                                    <select name="zone"  class="form-control" onfocus='this.size=6;' onblur='this.size=1;' onchange="this.size=1; this.blur(); $(this).closest('form').submit()">
                                     <option value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>
                                     <option value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>Fatima High School</option>
                                     <option value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>Fr.Agnel Multipurpose School</option>
@@ -51,13 +51,11 @@
                                     <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhagini Mandal High School</option>
                                     <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>New Deccan High School</option>
 
-                                </select>
-                            </form>
-
-
+                                   </select>
+                                </form>
                             </div>
-                        </div>
-                        <!-- {{ value|default_if_none:"nothing" }} -->
+                    </div>
+                   <!-- {{ value|default_if_none:"nothing" }} -->
                         
                         {% if request.GET.zone  == "all" %} 
                             <div class="school-banner">
@@ -147,11 +145,10 @@
 
                         
 
-                    </div>
                 </div>
-               <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
             </div>
-
+            <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+</div>
 {% endblock %}
 
                        

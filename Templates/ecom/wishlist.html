@@ -62,7 +62,8 @@
           url: '/django/api/add_to_cart/',
           data: { 
               "id": user_id,
-              "product_id": product_id
+              "product_id": product_id,
+              "is_binding": "False"
           },
           success: function(msg){
               console.log('Item Moved to Cart');
