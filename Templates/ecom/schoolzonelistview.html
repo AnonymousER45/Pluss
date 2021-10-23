@@ -40,99 +40,106 @@
                                     <option value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>S.I.E.S High School</option>
                                     <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>6</option>
                                     </select>  {% endcomment %}
-                                    <select name="zone"  class="form-control" onfocus='this.size=6;' onblur='this.size=1;' onchange="this.size=1; this.blur(); $(this).closest('form').submit()">
-                                    <option value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>
-                                    <option value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>Fatima High School</option>
-                                    <option value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>Fr.Agnel Multipurpose School</option>
-                                    <option value="3"  {% if request.GET.zone  == "3"%} selected {% endif %}>Gurukul Grand Union School</option>
-                                    <option value="4"  {% if request.GET.zone  == "4"%} selected {% endif %}>R.C.T P.M.M Rotary School</option>
-                                    <option value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>S.I.E.S High School</option>
-                                    <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhausaheb Paranjape School</option>
-                                    <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhagini Mandal High School</option>
-                                    <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>New Deccan High School</option>
 
-                                   </select>
+                                    <div style="text-align:center">
+
+                                        <select style="margin:auto;max-width: 300px;" name="zone"  class="form-control" onfocus='this.size=6;' onblur='this.size=1;' onchange="this.size=1; this.blur(); $(this).closest('form').submit()">
+                                            <option style="padding:1rem" value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>
+                                            <option style="padding:1rem" value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>Fatima High School</option>
+                                            <option style="padding:1rem" value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>Fr.Agnel Multipurpose School</option>
+                                            <option style="padding:1rem" value="3"  {% if request.GET.zone  == "3"%} selected {% endif %}>Gurukul Grand Union School</option>
+                                            <option style="padding:1rem" value="4"  {% if request.GET.zone  == "4"%} selected {% endif %}>R.C.T P.M.M Rotary School</option>
+                                            <option style="padding:1rem" value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>S.I.E.S High School</option>
+                                            <option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhausaheb Paranjape School</option>
+                                            <option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhagini Mandal High School</option>
+                                            <option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>New Deccan High School</option>
+                                            
+                                        </select>
+                                    </div>
                                 </form>
                             </div>
                     </div>
                    <!-- {{ value|default_if_none:"nothing" }} -->
                         
                         {% if request.GET.zone  == "all" %} 
-                            <div class="school-banner">
+                        <div class="row">
+
+                            <div class="col-md-6">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
-                                        <a href="/category10/36" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/40.png' %}" alt="" title=""> </a>
+                                    <div class="ob-wrp2">
+                                        <a href="/category10/36" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/40.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="school-banner">
+                            <div class="col-md-6">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
-                                        <a href="/category10/37" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/39.png' %}" alt="" title=""> </a>
+                                    <div class="ob-wrp2">
+                                        <a href="/category10/37" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/39.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="school-banner">
+                            <div class="col-md-6">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
-                                        <a href="/category10/35" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/43.png' %}" alt="" title=""> </a>
+                                    <div class="ob-wrp2">
+                                        <a href="/category10/35" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/43.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="school-banner">
+                            <div class="col-md-6">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
-                                        <a href="/category10/38" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/41.png' %}" alt="" title=""> </a>
+                                    <div class="ob-wrp2">
+                                        <a href="/category10/38" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/41.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="school-banner">
+                            <div class="col-md-6">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
-                                        <a href="/category10/39" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/42.png' %}" alt="" title=""> </a>
+                                    <div class="ob-wrp2">
+                                        <a href="/category10/39" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/42.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {% elif request.GET.zone  == "1" %} 
-                            <div class="school-banner">
+                            <div class="school-banne">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
+                                    <div class="ob-wrp2">
                                     <p>1</p>
-                                        <a href="/category10/36" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/40.png' %}" alt="" title=""> </a>
+                                        <a href="/category10/36" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/40.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                         {% elif request.GET.zone  == "2" %} 
-                            <div class="school-banner">
+                            <div class="school-banne">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
+                                    <div class="ob-wrp2">
                                         <p> 2</p>
                                         <a href="/category10/37" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/39.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                         {% elif request.GET.zone  == "3" %} 
-                            <div class="school-banner">
+                            <div class="school-banne">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
+                                    <div class="ob-wrp2">
                                         <p> 3</p>
                                         <a href="/category10/35" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/43.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                         {% elif request.GET.zone  == "4" %} 
-                            <div class="school-banner">
+                            <div class="school-banne">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
+                                    <div class="ob-wrp2">
                                         <p> 4</p>
                                         <a href="/category10/38" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/41.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                         {% elif request.GET.zone  == "5" %} 
-                            <div class="school-banner">
+                            <div class="school-banne">
                                 <div class="container-fluid">
-                                    <div class="ob-wrap2">
+                                    <div class="ob-wrp2">
                                         <p> 5</p>
                                         <a href="/category10/39" > <img style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/42.png' %}" alt="" title=""> </a>
                                     </div>
