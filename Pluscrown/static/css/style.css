@@ -357,86 +357,100 @@
             .aboutruler {
                 margin-top: 11px;
                 margin-bottom: -21px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .termsruler {
                 margin-top: -11px;
                 margin-bottom: -19px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .privacyruler {
                 margin-top: 9px;
                 margin-bottom: -17px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .replacementruler {
                 margin-top: 8px;
                 margin-bottom: -19px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .orderruler {
                 margin-top: -6px;
                 margin-bottom: 5px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .faqruler {
                 margin-top: 11px;
                 margin-bottom: -28px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .detailsruler {
                 margin-top: 8px;
                 margin-bottom: 14px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .detailsruler1 {
                 margin-top: 9px;
                 margin-bottom: 15px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .detailsruler2 {
                 margin-top: 9px;
                 margin-bottom: 15px;
-                border: 1px solid #47366f;
                 padding-right: 2px;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .presonalinforuler {
                 margin-top: 8px;
                 margin-bottom: -2px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .deliverybookruler {
                 margin-top: 12px;
                 margin-bottom: -12px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .addaddressruler {
                 margin-top: -6px;
                 margin-bottom: 2px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .contactruler {
                 margin-top: 8px;
                 margin-bottom: -6px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .cancelruler {
                 margin-top: 9px;
                 margin-bottom: -18px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .canceltext {
@@ -1052,6 +1066,7 @@
                 width: 100%;
                 display: block;
                 border: 1px solid #707070;
+                max-height: 258px;
                 border-radius: 10px;
             }
             
@@ -1336,10 +1351,10 @@
             .tab_container {
                 border-top: none;
                 clear: both;
-                width: 100%;
+                width: 100% !important;
                 overflow: hidden;
-                border-radius: 15px;
-                box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+                /* border-radius: 15px;
+                box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15); */
             }
             
             .tab_container_white {
@@ -1395,7 +1410,7 @@
             .cm-list li {
                 display: inline-block;
                 list-style-type: none;
-                padding-right: 424px;
+                padding-right: 430px;
                 position: relative;
                 padding-top: 12px;
                 margin-left: 0px;
@@ -1463,7 +1478,8 @@
             .ruler1 {
                 margin-top: -1px;
                 margin-bottom: 2px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .address-wrapper {
@@ -4021,6 +4037,8 @@
                 }
                 .ruler {
                     margin-bottom: -7px;
+                    border: 0 !important;
+                    border-bottom: 1px solid #47366f !important;
                 }
                 .title img {
                     height: 10%;
@@ -4542,31 +4560,36 @@
             .ruler {
                 margin-top: 5px;
                 margin-bottom: 5px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .rulerorder1 {
                 margin-top: -31px;
                 margin-bottom: 5px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .rulerorder2 {
                 margin-top: -6px;
                 margin-bottom: 5px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .rulerorder3 {
                 margin-top: -2px;
                 margin-bottom: -12px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .rulerorder4 {
                 margin-top: -4px;
                 margin-bottom: 15px;
-                border: 1px solid #47366f;
+                border: 0 !important;
+                border-bottom: 1px solid #47366f !important;
             }
             
             .gift-img {

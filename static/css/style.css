@@ -1336,10 +1336,10 @@
             .tab_container {
                 border-top: none;
                 clear: both;
-                width: 100%;
+                width: 100% !important;
                 overflow: hidden;
-                border-radius: 15px;
-                box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+                /* border-radius: 15px;
+                box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15); */
             }
             
             .tab_container_white {

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
+{% comment %} {% block content %}
 <div class="content-wrap">
                 <div class="about-wap">
 
@@ -34,4 +34,39 @@
             </div>
             <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
         </div>
+{% endblock %} {% endcomment %}
+{% block content %}
+<div class="content-wrap"> 
+  <div class="about-wrap">
+   
+  <div class="payment-wrapper">
+    <div class="tab_container" style="background-color: white;padding: 10px;"> 
+      <div id="tab4" class="tab_content" style="display: none;">
+
+          <div class="cart-title-wrap">
+          <h1 class="title"><img src="{% static 'imgs/termsandconditions.png'%}" height="40px" width="40px"style="margin-top:-8px;">         Terms & Conditions :- </h1>
+          <br>
+          <hr class="termsruler">
+    <br>
+  </div>
+          <ul style="padding-left: 34px !important;padding-right:10px;">
+              <li>All applicable terms and regulations is according to information technology act 2000.</li>
+                <li>By accessing this website you are agreeing to be bound by these Web Terms and Conditions. </li>
+                <li>We request you to read this carefully.</li>
+                <li>You can visit website and services. However, downloading or modifying any portion of the website is strictly prohibited, And you can not make duplicate or copies.</li>
+                <li>All rights, including copyright and the trademark "Pluscrown" in this website are owned by or licensed to Pluscrown PRIVATE LIMITED.</li>
+                <li>All our communication would be conducted by e-mails or by posting notices and messages on the website.</li>
+                <li>If you believe that your intellectual property rights have been unfairly used which gives rise to security concerns, please contact us for the correct information or inquiry.</li>
+                <li>The website is available only to those who can legally contract under applicable law. If you are under 18, you are prohibited from using purchasing contracting from this website.</li>
+            </ul>
+            <img src="{% static 'images/logo.png'%}" height="30%" width="30%" style="float: right; padding: 10px;">
+      </div>
+     
+   </div>
+ </div>
+</div>
+</div>
+<a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
+</div>
+
 {% endblock %}
