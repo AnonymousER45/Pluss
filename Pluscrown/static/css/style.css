@@ -258,7 +258,7 @@
                 position: fixed;
                 width: 330px;
                 height: auto;
-                left: -320px;
+                left: -400px;
                 top: 0;
                 bottom: 0;
                 transition: 0.25s all linear;
@@ -523,7 +523,9 @@
                 color: #fff;
                 position: absolute;
                 top: 13px;
-                right: 30px;
+                right: 13px;
+                /* top: 13px; */
+                /* right: 30px; */
                 display: table;
                 background-image: url(../imgs/wishlist.png);
                 background-position: center;
@@ -3638,7 +3640,7 @@
                 padding: 17px 10px 10px;
                 padding-top: 60px;
                 text-decoration: none;
-                margin-right: 10px;
+                /* margin-right: 10px; */
                 /* max-height: 440px;
                 max-width: 440px;
                 padding-left: 20px;
