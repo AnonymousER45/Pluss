@@ -50,16 +50,16 @@
                   <div class="aw-item">
                     <div class="row">
 
-                      <div class="col-md-4">
+                      <div class="col-xs-4">
                         <div style="text-align:center; margin-top: -12px;">
                           <label>
                             <input type="checkbox" class="chk" name="checkbox" id="checkbox{{address.id}}"{% if address.addpincode == 421501 or   address.addpincode == 421502  or address.addpincode == 421505 %} {% else %}disabled {% endif %} style="margin: 20px 0 0 10px; height: 20px;width: 20px;margin-top: 16px;">
-                            <img src="{% static 'imgs/building.png' %}" width="100%" style="margin-top: 6px;max-height: 250px;max-width:250px" >
+                            <img src="{% static 'imgs/building.png' %}" width="100%" style="margin-top: 6px;max-height: 200px;max-width:250px" >
                           </label>
                         {% comment %} <img src="{%static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 30px;" > {% endcomment %}
                       </div>
                       </div>
-                      <div class="col-md-8  col-xs-10">
+                      <div class="col-xs-8  col-xs-10">
                         <div style="display: flex;align-items:center;justify-content:space-between;">
                           <label class="aw-name">{{address.name}}</label>
                              
