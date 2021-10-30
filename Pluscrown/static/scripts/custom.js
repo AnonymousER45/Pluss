@@ -56,7 +56,7 @@ $(function() {
 
 
 $(document).ready(function() {
-    var maxL = 22;
+    var maxL = 18;
     $('.ap-title').each(function() {
         var text = $(this).text();
         if (text.length > maxL) {
@@ -150,7 +150,7 @@ $(document).ready(function() {
                 }
             },
             {
-                breakpoint: 768,
+                breakpoint: 769,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
