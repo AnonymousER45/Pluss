@@ -15,9 +15,8 @@
             </figure>
             <p class="orde r-success"><span>Order Placed Successfully, Your Order no is E133967347</span></p>-->
                             <br>
-                            <br>
-
                             <h3>Select the Payment Mode for Placing Order :-</h3>
+                            <br>
                             <img src="{% static 'imgs/payments.png'%}" width="100%" style="max-width:350px;">
                             <div class="button">
                                 <div class="row">
@@ -25,7 +24,7 @@
                                     <div class="col-md-4">
                                         <div>
                                             <a href="#" class="button">
-                                                <button class="btn btn-css" style="width: 100%;max-width: 300px;">
+                                                <button class="btn btn-css" style="width: 100%;max-width: 300px;" onclick="onlinepayment()">
                                                     <img src="{% static 'imgs/online payment.jpeg'%}" height="40px">&nbsp;&nbsp; Online Payment
                                                 </button>
                                             </a>
@@ -63,18 +62,22 @@
                                         <h6 class="text-center"><label>You are willing to pay in cash at the time of delivery.</label></h6>
                                         <div class="cod-wrap">
                                             <div  style="max-width: 400px;margin: 20px auto;"> 
-                                            <h3 class="cd-title" style="font-size:16px;"><b>Enter Phone Number</b></h3>
+                                            <h3 class="cd-title" style="font-size:16px;"><b>Enter Phone Number :-</b></h3>
                                             <form>
                                                 
                                                 <input type="text" name="phone" placeholder="Enter Phone Number" id="number" >
-                                                <div style="text-align: right;">
-
+                                                <br>
+                                        
+                                                 <div style="text-align: right;">
+                                                    {% comment %}
                                                     <label >
-                                                        {% comment %} <input type="checkbox" name="resend"> {% endcomment %}
-                                                        Resend OTP</label>
+                                                        <input type="checkbox" name="resend"> 
+                                                        Resend OTP</label>{% endcomment %}
+                                                    </div> 
+                                                <div class="login-button" style="padding-top:10px; ">
+                                                    <div style="text-align:center;">
+                                                    <input type="button" name="sendotp" value="Send OTP for Verification" onclick="generateOtp()" style="width: 230px; font-size: 15px; text-align: center;">
                                                     </div>
-                                                <div class="login-button">
-                                                    <input type="button" name="sendotp" value="Send OTP for Verification" onclick="generateOtp()">
                                                 </div>
                                                 
                                             </form>
@@ -230,9 +233,9 @@
                 "number": number, 
             }, 
             success: function(msg){ 
-                document.getElementById("otp").style.display = "block";
+                document.getElementById("otp").style.display = "none";
                 //document.getElementById("number").disabled = "true";
-                alert('Otp sent'); 
+                alert('Otp is not sent'); 
             },
             error: function(msg){
                 alert('Otp is not Send');
@@ -270,6 +273,11 @@
         }); 
     }
 
+    function onlinepayment(){
+        order_id = window.location.href.split('/').slice(-1)[0].replace('#','')
+        window.location = `/orderplaced/${order_id}`
+
+    }
     function completeorder(){
         order_id=242
         $.ajax({ 

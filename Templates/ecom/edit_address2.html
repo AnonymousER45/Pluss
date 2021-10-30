@@ -7,38 +7,39 @@
                         <div class="tab_container tab_container_white">
 
                             <div id="tab3" class="tab_content">
-                                <h2 class="title-left" style=" margin-top:12px;"> <img src="{% static 'imgs/addressbook.png'%}" width="50px" height="50px"> &ensp; Add new Address :- </h2>
+                                <h2 class="title-left" style=" margin-top:12px;"> <img src="{% static 'imgs/addressbook.png'%}" width="50px" height="50px"> &ensp; Edit Address :- </h2>
                                 <br>
                                 <hr class="addaddressruler">
                                 <div class="addresses-wrap">
                                     <div class="delivery-details">
                                         <form class="new-address"> 
-                                            <h5 class="na-title"> &ensp; Contact Info :-</h5>
+                                            <h5 class="na-title"> &ensp;  Contact Info :-</h5>
+                                            <input type="hidden" id="add_id" value="{{add_id}}"/>
                                             <br>
 
                                             <div class="col-xs-12">
-                                                <input type="text" name="name" placeholder="Name" required>
+                                                <input type="text" name="name" placeholder="Name" value="{{address.0.name}}">
                                             </div>
                                             <div class="col-xs-12">
-                                                <input type="text" name="Phone Number" placeholder="Phone Number" required>
+                                                <input type="text" name="Phone Number" placeholder="Phone Number" value="{{address.0.number}}" required>
                                             </div>
                                             <h5 class="na-title"> &ensp; Address Info :-</h5>
                                             <br>
 
                                             <div class="col-xs-12">
-                                                <input type="text" name="locality" placeholder="Locality / Area / street" required>
+                                                <input type="text" name="locality" placeholder="Locality / Area / street" value="{{address.0.line1}}" required>
                                             </div>
                                             <div class="col-xs-12">
-                                                <input type="text" name="flatno" placeholder="Flat no. / Building name " required>
+                                                <input type="text" name="flatno" placeholder="Flat no. / Building name " value="{{address.0.line2}}" required>
                                             </div>
                                             <div class="col-xs-12">
-                                                <input type="text" name="landmark" placeholder="Landmark(Optional)">
+                                                <input type="text" name="landmark" placeholder="Landmark(Optional)"value="jfvbfx">
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
-                                                <input type="text" name="pincode" placeholder="Pincode" required>
+                                                <input type="text" name="pincode" placeholder="Pincode" value="{{address.0.addpincode}}" required>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
-                                                <input type="text" name="city" placeholder="City" required>
+                                                <input type="text" name="city" placeholder="City" value="{{address.0.city}}" required>
                                             </div>
                                             <h5 class="na-title"> &ensp;Type of Address :-</h5>
                                             <br>
@@ -46,7 +47,7 @@
                                                 <div class="row">
                                                     <div class="col-xs-3">
                                                         <label style="white-space: nowrap;"> 
-                                                        <input type="radio" id="Home" name="addresstype" value="home"> Home</label>
+                                                        <input type="radio" id="Home" name="addresstype" value="home" checked> Home</label>
 
                                                     </div>
                                                     <div class="col-xs-3">
@@ -69,7 +70,7 @@
                     </div>-->
                                             <div class="col-xs-12 login-button">
                                               {% comment %}  <input type="submit"  name="saveadd" value="Save Address" class="sub-address"> {% endcomment %}
-                                                 <button  onclick="addaddress({{user.id}})" name="saveadd" value="Save Address" class="sub-address" style="width: 60% !important;">Save Address</button>
+                                                 <button onclick="updateaddress({{user.id}},{{add_id}})"  name="saveadd" value="Save Address" class="sub-address" style="width: 60% !important;">Save Address</button>
                                             </div>
                                         </form>
 
@@ -86,8 +87,7 @@
 
 
 <script>
-    function addaddress(user_id){
-        //alert('Address Added');
+    function updateaddress(user_id,add_id){
         id = user_id
         console.log(id);
         var name = $('[name="name"]').val();
@@ -98,34 +98,39 @@
         console.log(locality);
         var flatno = $('[name="flatno"]').val();
         console.log(flatno);
-        var landmark = $('[name="landmark"]').val();
+         var landmark = $('[name="landmark"]').val();
         console.log(landmark);
-        var pincode = $('[name="pincode"]').val();
+         var pincode = $('[name="pincode"]').val();
         console.log(pincode);
-        //city = $("city").val();
+        city = $("city").val();
         var city = $('[name="city"]').val();
         console.log(city);
         var addtype = "H";
         console.log(addtype);
+        add_id = add_id
+        console.log(add_id)
+        //console.log("sdfdvfdjv")
+        //window.location = `/myaddressbook#`
+        //alert('Address Updated Added');
         $.ajax({
-            type: 'POST',
-            url: '/django/api/add_address/',
+            type: 'PUT',
+            url: '/django/api/update_address/',
             data: 
             { 
-                 "customer_id":id,
-                 "name":name,
-                 "city":city,
-                 "line1":flatno,
-                 "line2":locality,
-                 "line3":" h ",
-                  "addpincode":pincode,
-                  "number":number,
-                  "addtype":"H"
+                "id":add_id,
+                "customer_id":id,
+                "name":name,
+                "city":city,
+                "line1":locality,
+                "line2":flatno,
+                "line3":"  ",
+                "addpincode":pincode,
+                "number":number,
+                "addtype":"H"
             },
             success: function(msg){
-            console.log("address added")
-            alert('Address Added Successfully');
-            window.location = `/myaddressbook`
+            alert('Address Updated Successfully');
+            window.location = `/myaddressbook#`
             }
         });
       //element.parentNode.parentNode.parentNode.parentNode.remove();

@@ -7,38 +7,39 @@
                         <div class="tab_container tab_container_white">
 
                             <div id="tab3" class="tab_content">
-                                <h2 class="title-left" style=" margin-top:12px;"> <img src="{% static 'imgs/addressbook.png'%}" width="50px" height="50px"> &ensp; Add new Address :- </h2>
+                                <h2 class="title-left" style=" margin-top:12px;"> <img src="{% static 'imgs/addressbook.png'%}" width="50px" height="50px"> &ensp; Edit Address :- </h2>
                                 <br>
                                 <hr class="addaddressruler">
                                 <div class="addresses-wrap">
                                     <div class="delivery-details">
-                                        <form class="new-address">
-                                            <h5 class="na-title"> &ensp; Contact Info :-</h5>
+                                        <form class="new-address"> 
+                                            <h5 class="na-title"> &ensp;  Contact Info :-</h5>
+                                            <input type="hidden" id="add_id" value="{{add_id}}"/>
                                             <br>
 
                                             <div class="col-xs-12">
-                                                <input type="text" name="name" placeholder="Name" required>
+                                                <input type="text" name="name" placeholder="Name" value="{{address.0.name}}">
                                             </div>
                                             <div class="col-xs-12">
-                                                <input type="text" name="Phone Number" placeholder="Phone Number" required>
+                                                <input type="text" name="Phone Number" placeholder="Phone Number" value="{{address.0.number}}" required>
                                             </div>
                                             <h5 class="na-title"> &ensp; Address Info :-</h5>
                                             <br>
 
                                             <div class="col-xs-12">
-                                                <input type="text" name="locality" placeholder="Locality / Area / street" required>
+                                                <input type="text" name="locality" placeholder="Locality / Area / street" value="{{address.0.line1}}" required>
                                             </div>
                                             <div class="col-xs-12">
-                                                <input type="text" name="flatno" placeholder="Flat no. / Building name " required>
+                                                <input type="text" name="flatno" placeholder="Flat no. / Building name " value="{{address.0.line2}}" required>
                                             </div>
                                             <div class="col-xs-12">
-                                                <input type="text" name="landmark" placeholder="Landmark(Optional)" value="jfvbfx">
+                                                <input type="text" name="landmark" placeholder="Landmark(Optional)"value="jfvbfx">
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
-                                                <input type="text" name="pincode" placeholder="Pincode" required>
+                                                <input type="text" name="pincode" placeholder="Pincode" value="{{address.0.addpincode}}" required>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
-                                                <input type="text" name="city" placeholder="City" required>
+                                                <input type="text" name="city" placeholder="City" value="{{address.0.city}}" required>
                                             </div>
                                             <h5 class="na-title"> &ensp;Type of Address :-</h5>
                                             <br>
@@ -46,18 +47,18 @@
                                                 <div class="row">
                                                     <div class="col-xs-3">
                                                         <label style="white-space: nowrap;"> 
-                                                        <input type="radio" name="addresstype" value="home" checked> Home</label>
+                                                        <input type="radio" id="Home" name="addresstype" value="home" checked> Home</label>
 
                                                     </div>
                                                     <div class="col-xs-3">
 
                                                         <label style="white-space: nowrap;"> 
-                                                        <input type="radio" name="addresstype" value="office">
+                                                        <input type="radio" id="Office" name="addresstype" value="office">
                                                             Office</label>
                                                     </div>
                                                     <div class="col-xs-3">
                                                         <label style="white-space: nowrap;"> 
-                                                        <input type="radio" name="addresstype" value="others">
+                                                        <input type="radio" id="Other" name="addresstype" value="others">
                                                             Others</label>
 
                                                     </div>
@@ -68,7 +69,8 @@
                       <input type="checkbox" name="deafaultadd"><label class="select-add-type"> Mark as Default Address</label>
                     </div>-->
                                             <div class="col-xs-12 login-button">
-                                                <input type="submit" name="saveadd" value="Save Address" class="sub-address">
+                                              {% comment %}  <input type="submit"  name="saveadd" value="Save Address" class="sub-address"> {% endcomment %}
+                                                 <button onclick="updateaddress({{user.id}},{{add_id}})"  name="saveadd" value="Save Address" class="sub-address" style="width: 60% !important;">Save Address</button>
                                             </div>
                                         </form>
 
@@ -82,4 +84,56 @@
                 </div>
                 <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
             </div>
+
+
+<script>
+    function updateaddress(user_id,add_id){
+        id = user_id
+        console.log(id);
+        var name = $('[name="name"]').val();
+        console.log(name);
+        var number = $('[name="Phone Number"]').val();
+        console.log(number);
+        var locality = $('[name="locality"]').val();
+        console.log(locality);
+        var flatno = $('[name="flatno"]').val();
+        console.log(flatno);
+         var landmark = $('[name="landmark"]').val();
+        console.log(landmark);
+         var pincode = $('[name="pincode"]').val();
+        console.log(pincode);
+        city = $("city").val();
+        var city = $('[name="city"]').val();
+        console.log(city);
+        var addtype = "H";
+        console.log(addtype);
+        add_id = add_id
+        console.log(add_id)
+        //console.log("sdfdvfdjv")
+        //alert('Address Updated Added');
+        $.ajax({
+            type: 'PUT',
+            url: '/django/api/update_address/',
+            data: 
+            { 
+                "id":add_id,
+                "customer_id":id,
+                "name":name,
+                "city":city,
+                "line1":locality,
+                "line2":flatno,
+                "line3":" h ",
+                "addpincode":pincode,
+                "number":number,
+                "addtype":"H"
+            },
+            success: function(msg){
+            alert('Address Updated Successfully');
+            window.location = `/addressbook#`
+            }
+        });
+      //element.parentNode.parentNode.parentNode.parentNode.remove();
+      console.log("Success")
+    } 
+        </script> 
     {% endblock %}

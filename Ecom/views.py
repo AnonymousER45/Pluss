@@ -412,6 +412,20 @@ def showall(request):
     
     return render(request,'ecom/productshowall.html',param)
  
+def comboshowall(request):
+    a = "0102EN"
+    cat = int(a[:2])
+    subcat = int(a[2:4])
+    med = a[4:]
+    products = Product.objects.filter(Category=cat,subCategory=subcat)
+    param ={'product':products}
+    if request.user.is_authenticated:
+        total_items(request)
+        wishlisted = wishlisted_ids(request.user)
+        param['wishlisted_ids'] = wishlisted 
+    
+    return render(request,'ecom/comboshowall.html',param)
+ 
 
 
 def showalldemo(request):
@@ -438,10 +452,38 @@ def orderplaced(request,order_id):
     return render(request,'ecom/orderplaced.html',param)
 
 def add_address(request):
+    # context = {}
+    # if request.method == 'POST':
+    #     try:
+    #         name = request.POST['name']
+    #         email = request.POST['email']
+    #         phone_number = request.POST['phone']
+    #         Password = request.POST['Password']
+    #         if request.POST['pincode']:
+    #             pincode = request.POST['pincode']
+    #     except:
+    #         print("Enter all the required Fields")
+    #         return render(request, 'ecom/add_address.html',context)
+    #     cus = Customer(username=name,email=email,phone_number=phone_number,pincode=pincode)
+    #     cus.set_password(Password)
+    #     cus.save()
+    #     return redirect('login')
+    # return render(request, 'ecom/add_address.html',context)
+
     return render(request,'ecom/add_address.html')
 
-def edit_address(request):
-    return render(request,'ecom/edit_address.html')
+def edit_address(request,id):
+    context = {}
+    if request.user:
+        query_set = Address.objects.filter(id=id)
+        context['address'] = query_set
+        context['add_id'] = id
+        print(query_set)
+        print("djbjdbcj")
+
+    return render(request,'ecom/edit_address2.html',context)
+
+    
 
 def ordercancelation(request):
     return render(request,'ecom/ordercancelation.html')

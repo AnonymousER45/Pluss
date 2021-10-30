@@ -15,21 +15,22 @@
 
                    <div id="tab1" class="tab_content">
                              
-          <h1 class="title" style="margin-bottom:10px;"> <img src="{% static 'images/checklist.png'%}" height="5%" width="5%" style="margin-top:-20px; margin-bottom:-4px;">  Wishlist:- &nbsp;
+          <h1 class="title" style="margin-bottom:23px;"> <img src="{% static 'images/checklist.png'%}" height="5%" width="5%" style="margin-top:-20px; margin-bottom:-4px;">  Wishlist:- &nbsp;
           </h1> 
           
           <div class="wishlist-table">
             {% if wishlist %}
               {% for item in wishlist %}
-              <div class="wishlist-table-item">
+              <div class="wishlist-table-item" style="margin-top: -10px;">
                 <div class="ci-img">
                   <figure>
                   <img src="{{ item.Product.img.url }}">
                   </figure>
                 </div>
                 <div class="wl-desc">
-                  <p class="wl-title"> <a href="{% url 'Ecom:Productdetails' item.Product.id %}">{{ item.Product.title }}</a></p>
+                  <p class="wl-title" style="margin-top: -10px; padding-bottom: 17px;"> <a href="{% url 'Ecom:Productdetails' item.Product.id %}">{{ item.Product.title }}</a></p>
                   <p class="wl-price">Rs {{ item.Product.price }}  <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
+                  <p class="product-terms" style="padding-bottom: 14px;">Price inclusive of all Taxes</p>
                   <div class="wl-btn-wrap">
                     <a href="#" class="btn-wl-move" style="float:unset" onclick="moveToCart({{item.Product.id}})">Move to Cart</a>
                     <a href="#" class="btn-wl-delete"  onclick="deleteFromWishlist({{item.Product.id}})">Delete</a>

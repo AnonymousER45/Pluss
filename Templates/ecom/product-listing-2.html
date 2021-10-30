@@ -43,7 +43,7 @@
                                      <h2 class="title d-flex">Complete Combos :-</h2>
                                  </div>
                                  <div class="col-sm-2 col-xs-2">
-                                    <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                    <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
                                  </div>
                               </div>
                               &nbsp;
@@ -306,11 +306,12 @@
                            </div>
                         </div>
                      </div>
+                     </div>
                      <!-- #tab1 -->
+                     
                      <h3 class="tab_drawer_heading" rel="tab2">Marathi</h3>
                      <div id="tab2" class="tab_content">
-                        <div class="combo-wrap">
-                          <div class="container-fluid">
+                         <div class="container-fluid">
                             <div class="row">
                                  <div class="col-sm-10 col-xs-10 ">
                                      <h2 class="title">Complete Combos :-</h2>
@@ -336,10 +337,9 @@
                                 <span class="ap-new-arrival" style="margin-left:10px;">New</span>
                                 {% if combo2.0.id  in wishlisted_ids %}
                                           <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                                 {% else %}
+                                    {% else %}
                                           <a href="#" class="cc-add-wishtlist "></a>
-                                 {% endif %}
-                              </div>
+                                    {% endif %}
                               </div>
                               {% for i in combo2|slice:"1:" %}
                               <div class="cc-item">
@@ -356,22 +356,21 @@
                                   </div>
                                 </a>
                                 <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                <a href="#" class="cc-add-wishtlist"></a>
                                 {% if i.id  in wishlisted_ids %}
                                           <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                                 {% else %}
+                                    {% else %}
                                           <a href="#" class="cc-add-wishtlist "></a>
-                                 {% endif %}
+                                    {% endif %}
                               </div>
                               {% endfor %}
                             </div>
                           </div>
-                        </div>
-                        
                         <div class="all-products">
                            <div class="container-fluid">
                               <div class="row">
                                  <div class="col-sm-10 col-xs-10 ">
-                                     <h2 class="title">TextBook :-</h2>
+                                     <h2 class="title">TextBoo k :-</h2>
                                  </div>
                                  <div class="col-sm-2 col-xs-2">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
@@ -388,7 +387,7 @@
                                     <div class="ap-desc">
                                        <a href="{% url 'Ecom:Productdetails' textbook2.0.id  %}" class="ap-title">{{ textbook2.0.title }}</a>
                                        <!--<p class="ap-title">-blue</p>-->
-                                       <p class="ap-price">Rs.{{ textbook2.0.price }} <strike>{{ textbook2.0.mrp }}</strike> <span class="product-offer">{{ textbook2.0.discount_per }}% off</span></p>
+                                       <p class="ap-price">Rs.{{ textbook2.0.price }} <strike>{{ textbook2.0.mrp }}</strike> <span class="product-offer">{{ textbook2.0.discount_per }}%% off</span></p>
                                     </div>
                                     <span class="ap-new-arrival">New</span>
                                     {% if textbook2.0.id  in wishlisted_ids %}
@@ -410,14 +409,13 @@
                                        <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
                                     </div>
                                     <span class="ap-new-arrival">New</span>
-                                    {% if i.id  in wishlisted_ids %}
+                                   {% if i.id  in wishlisted_ids %}
                                           <a href="#" class="product-add-wishtlist wishlisted"></a>
                                     {% else %}
                                           <a href="#" class="product-add-wishtlist"></a>
                                     {% endif %}
-                                 </div>
-                                 {% endfor %}
                               </div>
+                              {% endfor %}
                            </div>
                         </div>
                         <div class="all-products">
@@ -444,11 +442,12 @@
                                        <p class="ap-price">Rs.{{ digest2.0.price }} <strike>{{ digest2.0.mrp }}</strike> <span class="product-offer">{{ digest2.0.discount_per }}% off</span></p>
                                     </div>
                                     <span class="ap-new-arrival">New</span>
-                                     {% if digest2.0.id  in wishlisted_ids %}
+                                    {% if digest2.0.id  in wishlisted_ids %}
                                           <a href="#" class="product-add-wishtlist wishlisted"></a>
                                     {% else %}
-                                          <a href="#" class="product-add-wishtlist"></a>
+                                          <a href="#" class="product-add-wishtlist  "></a>
                                     {% endif %}
+                                    
                                  </div>
                                  {% for i in digest2|slice:"1:" %}
                                  <div class="ap-item">
@@ -463,7 +462,7 @@
                                        <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
                                     </div>
                                     <span class="ap-new-arrival">New</span>
-                                     {% if i.id  in wishlisted_ids %}
+                                    {% if i.id  in wishlisted_ids %}
                                           <a href="#" class="product-add-wishtlist wishlisted"></a>
                                     {% else %}
                                           <a href="#" class="product-add-wishtlist"></a>
@@ -542,9 +541,9 @@
                                     </div>
                                     <span class="ap-new-arrival">New</span>
                                     {% if helping2.0.id  in wishlisted_ids %}
-                                          <a href="{% url 'Ecom:Productdetails' helping2.0.id  %}" class="product-add-wishtlist wishlisted"></a>
+                                          <a href="#" class="product-add-wishtlist wishlisted"></a>
                                     {% else %}
-                                          <a href="{% url 'Ecom:Productdetails' helping2.0.id  %}" class="product-add-wishtlist"></a>
+                                          <a href="#" class="product-add-wishtlist  "></a>
                                     {% endif %}
                                  </div>
                                  {% for i in helping2|slice:"1:" %}
@@ -563,15 +562,15 @@
                                     {% if i.id  in wishlisted_ids %}
                                           <a href="#" class="product-add-wishtlist wishlisted"></a>
                                     {% else %}
-                                          <a href="#" class="product-add-wishtlist"></a>
+                                          <a href="#" class="product-add-wishtlist  "></a>
                                     {% endif %}
                                  </div>
-                                 {% endfor %}
+                               {% endfor %}
                               </div>
-                           </div> 
+                           </div>
                         </div>
                      </div>
-                     
+                  </div>
                      <!-- #tab2 -->
                      <h3 class="tab_drawer_heading" rel="tab3">Hindi</h3>
                      <div id="tab3" class="tab_content">
@@ -634,7 +633,7 @@
                            <div class="container-fluid">
                               <div class="row">
                                  <div class="col-sm-10 col-xs-10 ">
-                                     <h2 class="title">TextBook :-</h2>
+                                     <h2 class="title">TextBoo k :-</h2>
                                  </div>
                                  <div class="col-sm-2 col-xs-2">
                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>

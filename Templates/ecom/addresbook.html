@@ -37,11 +37,11 @@
                              
                             <span style="padding-right: 1rem;">
                               <a href="/add_address" class="aw-edit"></a>&ensp; 
-                              <a onclick="return confirm('Are you sure?')" href="#" class="aw-delete"></a>
+                              <a onclick="deleteaddress({{address.id}})" href="#" class="aw-delete"></a>
                             </span>
                         </div>
                         <p class="aw-avail">{% if address.addpincode == 421501 or address.addpincode == 421502  or address.addpincode == 421505 %} <p class="aw-avail">Delivery available here.</p> {% else %}  <p class="aw-notavail"> Delivery  not available here.</p> {% endif %}
-                        <p class="aw-add">{{address.line1}}, <span>{{address.line2}}, </span> <span>{{address.line13}},</span> <span>{{address.city}} - {{address.addpincode}}</span></p>
+                        <p class="aw-add">{{address.line1}}, <span>{{address.line2}}, </span> <span>{{address.line3}},</span> <span>{{address.city}} - {{address.addpincode}}</span></p>
                         <p class="aw-phone">Phone: {{addsress.number}}</p>
 
                       </div>
@@ -67,5 +67,22 @@
     </div>
 </div>
 
-
+<script>
+function deleteaddress(address_id){
+      confirm('Are you sure you want to delete this?');
+      $.ajax({
+            type: 'POST',
+            url: '/django/api/remove_address/',
+            data: { 
+                "add_id": address_id,
+            },
+            success: function(msg){
+            alert('Address Deleted Successfully');
+            location.reload();
+            }
+        });
+      //element.parentNode.parentNode.parentNode.parentNode.remove();
+      console.log("Success")
+    }
+</script>
    {% endblock %}

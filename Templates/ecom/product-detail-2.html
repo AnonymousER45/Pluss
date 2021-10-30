@@ -39,7 +39,6 @@
                                 <a href="#" class="product-share"></a>
                                 <div class="product-desc-wrap">
                                     <h3 class="sp-tile">Special Price : </h3>
-                                    <br>
                                     <span class="product-price"><b>Rs.{{ product.price }}</b> &emsp;<strike>Rs.{{ product.mrp }}</strike></span>
                                     <span class="product-offer" style="font-size:19px;">&emsp;({{ product.discount_per }}% off)</span>
                                     <br>
@@ -65,7 +64,7 @@
                                 </div>
                                 <div class="products-cta">
                                     <a href={{ request.path }} onclick="addToCartFunction({{ user.id }},{{ product.id }})" class="btn-cart">Add to Cart</a> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                                    <a href="/mycart" onclick="addToCartFunction({{ user.id }},{{ product.id }})" class="btn-buy-now">Buy Now</a>
+                                    <a href="/mycart" onclick="buynowFunction({{ user.id }},{{ product.id }})" class="btn-buy-now">Buy Now</a>
                                 </div>
                                 <hr >
                                 <div class="product-details">
@@ -90,6 +89,7 @@
             <div class="col-sm-2 col-12">
               <a href="/showall" class="btn-view-all  ml-auto">Show All</a>
             </div>
+            &nbsp;
           </div>
             <div class="prosliders">
 
@@ -143,6 +143,7 @@
             <div class="col-sm-2 col-12">
               <a href="/showall" class="btn-view-all  ml-auto">Show All</a>
             </div>
+            &nbsp;
           </div>
             <div class="prosliders">
 
@@ -192,6 +193,23 @@
   
 <script>
     function addToCartFunction(user_id,product_id){
+        $.ajax({
+            type: 'POST',
+            url: '/django/api/add_to_cart/',
+            data: { 
+                "id": user_id,
+                "product_id": product_id,
+                "is_binding": "False"
+            },
+            success: function(msg){
+                console.log('Item Added to Cart');
+                location.reload();
+            }
+        });
+        cartNumber = document.getElementsByClassName("th-cart")[0].innerText;
+        document.getElementsByClassName("th-cart")[0].innerText = Number(cartNumber) + 1;
+    }
+    function buynowFunction(user_id,product_id){
         $.ajax({
             type: 'POST',
             url: '/django/api/add_to_cart/',
