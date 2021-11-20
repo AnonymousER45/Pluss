@@ -56,7 +56,7 @@ $(function() {
 
 
 $(document).ready(function() {
-    var maxL = 18;
+    var maxL = 17;
     $('.ap-title').each(function() {
         var text = $(this).text();
         if (text.length > maxL) {
@@ -159,7 +159,7 @@ $(document).ready(function() {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                 }
             }
@@ -178,9 +178,57 @@ $(document).ready(function() {
         slidesToScroll: 1,
         autoplay: false,
         responsive: [{
-                breakpoint: 1200,
+                breakpoint: 1201,
                 settings: {
                     slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 1025,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 769,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+    $('.complete-combos2').slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        responsive: [{
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 1025,
+                settings: {
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                 }
             },

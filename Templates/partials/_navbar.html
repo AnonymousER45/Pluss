@@ -97,9 +97,11 @@
             {% if user.is_authenticated %}
               <div class="auth" style="text-align:center;">
                 <a href="/myaccount" class="th-login"> HEY {{ user.username }}</a>   
+                <div class ="deliver">
                 {% if user.pincode == 421501 or user.pincode == 421502  or user.pincode == 421505 %} <div style="color: green;
-    font-size: 14px;">Delivery available here. {% else %}  <div style= "color: red;
-    font-size: 14px;"> Delivery  not available here.</p> {% endif %}
+    ">Delivery available here. {% else %}  <div style= "color: red;
+    "> Delivery  not available here.</p> {% endif %}
+    </div>
               </div>
               </div>
             {% else %}

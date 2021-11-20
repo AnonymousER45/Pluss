@@ -1,375 +1,402 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extrahead %}
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- Font Awesome -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--Font-->
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-<!--Css-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}" />
-<!-- Custom StyleSheet -->
-<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+ <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Font-->
+      <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <!--Css-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-<title>PLUSCROWN</title>
+  <title>PLUSCROWN</title>
 
 {% endblock %}
 {% block content %}
 <div class="content-wrap">
     <div class="listing-banner" style="background-image: url({{ cat.0.cat_ban.url }});">
-    </div>
-
-    <div class="product-filter">
-        <div class="container-fluid">
-            <div class="combo-wrap">
+        </div>
+            
+              <div class="product-filter">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-10 col-xs-10 ">
-                            <h2 class="title d-flex"> 5 th STD Combos :-</h2>
-                        </div>
-                        <div class="col-sm-2 col-xs-2">
-                            <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
-                        </div>
-                    </div>
-                    &nbsp;
-                    <style>
-                        .cc-item {
-                            padding: 5px;
-                        }
-                    </style>
-                    <div class="complete-combos">
-                        <div class="cc-item">
-                            <a href="{% url 'Ecom:Productdetails' combo1.0.id  %}" class="cc-link">
+                  <div class="combo-wrap">
+                        <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-sm-10 col-xs-10 ">
+                                    <h2 class="title d-flex"> 5 th STD Combos :-</h2>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                  <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
+                                </div>
+                            </div>
+                            &nbsp;
+                            <style> 
+                              .cc-item {
+                                 padding: 5px;
+                              }
+                              </style>
+                          <div class="complete-combos">
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo1.0.id  %}" class="cc-link">
                                 <div class="cc-img">
-                                    <span>
-                                        <img src="{{ combo1.0.img.url}}" alt="" title="">
-                                    </span>
+                                  <span>
+                                    <img src="{{ combo1.0.img.url}}" alt="" title="">
+                                  </span>
                                 </div>
                                 <div class="cc-txt">
-                                    <p>{{ combo1.0.title }}</p>
-                                    <span> &emsp;&emsp; {{ combo1.0.price }} &emsp;<strike>{{ combo1.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
+                                  <p>{{ combo1.0.title }}</p>
+                                  <span> &emsp;&emsp; {{ combo1.0.price }} &emsp;<strike>{{ combo1.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
                                 </div>
-                            </a>
-                            <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                            {% if combo1.0.id in wishlisted_ids %}
-                            <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                            {% else %}
-                            <a href="#" class="cc-add-wishtlist "></a>
-                            {% endif %}
-                        </div>
-                        &emsp;
-                        &emsp;
-                        {% for i in combo1|slice:"1:" %}
-                        <div class="cc-item">
-                            <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if combo1.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            &emsp;
+                            &emsp;
+                            {% for i in combo1|slice:"1:" %}
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
                                 <div class="cc-img">
-                                    <span>
-                                        <img src="{{ i.img.url}}" alt="" title="">
-                                    </span>
-                                </div>
-
-                                <div class="cc-txt">
-                                    <p>{{ i.title }}</p>
-                                    <span> &emsp;&emsp; {{ i.price }} &emsp; <strike>{{ i.mrp }}</strike> &emsp; <span class="product-offer">{{ i.discount_per }}% off</span></span>
-                                </div>
-                            </a>
-                            <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                            {% if i.id in wishlisted_ids %}
-                            <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                            {% else %}
-                            <a href="#" class="cc-add-wishtlist "></a>
-                            {% endif %}
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="combo-wrap">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-10 col-xs-10 ">
-                        <h2 class="title d-flex"> 6 th STD Combos -</h2>
-                    </div>
-                    <div class="col-sm-2 col-xs-2">
-                        <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
-                    </div>
-                </div>
-                &nbsp;
-                <div class="complete-combos">
-                    <div class="cc-item">
-                        <a href="{% url 'Ecom:Productdetails' combo2.0.id  %}" class="cc-link">
-                            <div class="cc-img">
-                                <span>
-                                    <img src="{{ combo2.0.img.url}}" alt="" title="">
-                                </span>
-                            </div>
-                            <div class="cc-txt">
-                                <p>{{ combo2.0.title }}</p>
-                                <span> &emsp;&emsp; {{ combo2.0.price }} &emsp;<strike>{{ combo2.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
-                            </div>
-                        </a>
-                        <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                        {% if combo2.0.id in wishlisted_ids %}
-                        <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                        {% else %}
-                        <a href="#" class="cc-add-wishtlist "></a>
-                        {% endif %}
-                    </div>
-                    {% for i in combo2|slice:"1:" %}
-                    <div class="cc-item">
-                        <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
-                            <div class="cc-img">
-                                <span>
+                                  <span>
                                     <img src="{{ i.img.url}}" alt="" title="">
-                                </span>
-                            </div>
+                                  </span>
+                                </div>
 
-                            <div class="cc-txt">
-                                <p>{{ i.title }}</p>
-                                <span> &emsp;&emsp; {{ i.price }} &emsp; <strike>{{ i.mrp }}</strike> &emsp; <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                <div class="cc-txt">
+                                  <p>{{ i.title }}</p>
+                                  <span style="font-size:17px;"> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
                             </div>
-                        </a>
-                        <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                        {% if i.id in wishlisted_ids %}
-                        <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                        {% else %}
-                        <a href="#" class="cc-add-wishtlist "></a>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="combo-wrap">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-10 col-xs-10 ">
-                    <h2 class="title d-flex">7 th Std Combos :-</h2>
-                </div>
-                <div class="col-sm-2 col-xs-2">
-                    <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
-                </div>
-            </div>
-            &nbsp;
-            <div class="complete-combos">
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' combo3.0.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ combo3.0.img.url}}" alt="" title="">
-                            </span>
+                            {% endfor %}
+                          </div>
                         </div>
-                        <div class="cc-txt">
-                            <p>{{ combo3.0.title }}</p>
-                            <span> &emsp;&emsp; {{ combo3.0.price }} &emsp;<strike>{{ combo3.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
-                        </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if combo3.0.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
-                </div>
-                {% for i in combo3|slice:"1:" %}
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ i.img.url}}" alt="" title="">
-                            </span>
-                        </div>
+                      </div>
+                  {% comment %} </div> {% endcomment %}
+                  <div class="combo-wrap">
+                        <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-sm-10 col-xs-10 ">
+                                    <h2 class="title d-flex"> 6 th STD Combos -</h2>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                  <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
+                                </div>
+                            </div>
+                            &nbsp;
+                          <div class="complete-combos">
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo2.0.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ combo2.0.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+                                <div class="cc-txt">
+                                  <p>{{ combo2.0.title }}</p>
+                                  <span> &emsp;&emsp; {{ combo2.0.price }} &emsp;<strike>{{ combo2.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if combo2.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo2.1.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ combo2.1.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+                                <div class="cc-txt">
+                                  <p>{{ combo2.1.title }}</p>
+                                  <span > &emsp; {{ combo2.1.price }} &emsp;<strike>{{ combo2.1.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.1.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if combo2.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% comment %} {% for i in combo2|slice:"1:" %}
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ i.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
 
-                        <div class="cc-txt">
-                            <p>{{ i.title }}</p>
-                            <span> &emsp;&emsp; {{ i.price }} &emsp; <strike>{{ i.mrp }}</strike> &emsp; <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                <div class="cc-txt">
+                                  <p>{{ i.title }}</p>
+                                  <span> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                 {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% endfor %} {% endcomment %}
+                          </div>
                         </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if i.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
+                      </div>
+                  {% comment %} </div> {% endcomment %}
+                  <div class="combo-wrap">
+                        <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-sm-10 col-xs-10 ">
+                                    <h2 class="title d-flex">7 th Std Combos :-</h2>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                  <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
+                                </div>
+                            </div>
+                            &nbsp;
+                          <div class="complete-combos">
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo3.0.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ combo3.0.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+                                <div class="cc-txt">
+                                  <p>{{ combo3.0.title }}</p>
+                                  <span> &emsp;&emsp; {{ combo3.0.price }} &emsp;<strike>{{ combo3.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if combo3.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% for i in combo3|slice:"1:" %}
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ i.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+
+                                <div class="cc-txt">
+                                  <p>{{ i.title }}</p>
+                                  <span style="font-size:17px;"> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                  {% comment %} </div>  {% endcomment %}
+                  <div class="combo-wrap">
+                        <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-sm-10 col-xs-10 ">
+                                    <h2 class="title d-flex">8 th Std Combos :-</h2>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                  <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
+                                </div>
+                            </div>
+                            &nbsp;
+                          <div class="complete-combos">
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo4.0.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ combo4.0.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+                                <div class="cc-txt">
+                                  <p>{{ combo4.0.title }}</p>
+                                  <span> &emsp;&emsp; {{ combo4.0.price }} &emsp;<strike>{{ combo4.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo4.0.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if combo4.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% for i in combo4|slice:"1:" %}
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ i.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+
+                                <div class="cc-txt">
+                                  <p>{{ i.title }}</p>
+                                  <span style="font-size:17px;"> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                  {% comment %} </div> {% endcomment %}
+                  <div class="combo-wrap">
+                        <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-sm-10 col-xs-10 ">
+                                    <h2 class="title d-flex">9 th Std Combos :-</h2>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                  <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
+                                </div>
+                            </div>
+                            &nbsp;
+                          <div class="complete-combos">
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo5.0.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ combo5.0.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+                                <div class="cc-txt">
+                                  <p>{{ combo5.0.title }}</p>
+                                  <span> &emsp;&emsp; {{ combo5.0.price }} &emsp;<strike>{{ combo5.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo5.0.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if combo5.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% for i in combo5|slice:"1:" %}
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ i.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+
+                                <div class="cc-txt">
+                                  <p>{{ i.title }}</p>
+                                  <span style="font-size:17px;"> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                  {% comment %} </div> {% endcomment %}
+                  <div class="combo-wrap">
+                        <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-sm-10 col-xs-10 ">
+                                    <h2 class="title d-flex">10 th Std Combos :-</h2>
+                                </div>
+                                <div class="col-sm-2 col-xs-2">
+                                  <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                </div>
+                            </div>
+                            &nbsp;
+                          <div class="complete-combos">
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' combo6.0.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ combo6.0.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+                                <div class="cc-txt">
+                                  <p>{{ combo6.0.title }}</p>
+                                  <span> &emsp;&emsp; {{ combo6.0.price }} &emsp;<strike>{{ combo6.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo6.0.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                              {% if combo6.0.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% for i in combo6|slice:"1:" %}
+                            <div class="cc-item">
+                              <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
+                                <div class="cc-img">
+                                  <span>
+                                    <img src="{{ i.img.url}}" alt="" title="">
+                                  </span>
+                                </div>
+
+                                <div class="cc-txt">
+                                  <p>{{ i.title }}</p>
+                                  <span style="font-size:17px;" > &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                </div>
+                              </a>
+                              <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                {% if i.id  in wishlisted_ids %}
+                                          <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                 {% else %}
+                                          <a href="#" class="cc-add-wishtlist "></a>
+                                 {% endif %}
+                            </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                  </div>
                 </div>
-                {% endfor %}
+               </div>
+               <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
             </div>
-        </div>
-    </div>
-    <div class="combo-wrap">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-10 col-xs-10 ">
-                    <h2 class="title d-flex">8 th Std Combos :-</h2>
-                </div>
-                <div class="col-sm-2 col-xs-2">
-                    <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
-                </div>
-            </div>
-            &nbsp;
-            <div class="complete-combos">
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' combo4.0.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ combo4.0.img.url}}" alt="" title="">
-                            </span>
-                        </div>
-                        <div class="cc-txt">
-                            <p>{{ combo4.0.title }}</p>
-                            <span> &emsp;&emsp; {{ combo4.0.price }} &emsp;<strike>{{ combo4.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo4.0.discount_per }}% off</span></span>
-                        </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if combo4.0.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
-                </div>
-                {% for i in combo4|slice:"1:" %}
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ i.img.url}}" alt="" title="">
-                            </span>
-                        </div>
-    
-                        <div class="cc-txt">
-                            <p>{{ i.title }}</p>
-                            <span> &emsp;&emsp; {{ i.price }} &emsp; <strike>{{ i.mrp }}</strike> &emsp; <span class="product-offer">{{ i.discount_per }}% off</span></span>
-                        </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if i.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="combo-wrap">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-10 col-xs-10 ">
-                    <h2 class="title d-flex">9 th Std Combos :-</h2>
-                </div>
-                <div class="col-sm-2 col-xs-2">
-                    <a href="/comboshowall" class="btn-view-all  ml-auto">Show All</a>
-                </div>
-            </div>
-            &nbsp;
-            <div class="complete-combos">
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' combo5.0.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ combo5.0.img.url}}" alt="" title="">
-                            </span>
-                        </div>
-                        <div class="cc-txt">
-                            <p>{{ combo5.0.title }}</p>
-                            <span> &emsp;&emsp; {{ combo5.0.price }} &emsp;<strike>{{ combo5.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo5.0.discount_per }}% off</span></span>
-                        </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if combo5.0.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
-                </div>
-                {% for i in combo5|slice:"1:" %}
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ i.img.url}}" alt="" title="">
-                            </span>
-                        </div>
-    
-                        <div class="cc-txt">
-                            <p>{{ i.title }}</p>
-                            <span> &emsp;&emsp; {{ i.price }} &emsp; <strike>{{ i.mrp }}</strike> &emsp; <span class="product-offer">{{ i.discount_per }}% off</span></span>
-                        </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if i.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="combo-wrap">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-10 col-xs-10 ">
-                    <h2 class="title d-flex">10 th Std Combos :-</h2>
-                </div>
-                <div class="col-sm-2 col-xs-2">
-                    <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
-                </div>
-            </div>
-            &nbsp;
-            <div class="complete-combos">
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' combo6.0.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ combo6.0.img.url}}" alt="" title="">
-                            </span>
-                        </div>
-                        <div class="cc-txt">
-                            <p>{{ combo6.0.title }}</p>
-                            <span> &emsp;&emsp; {{ combo6.0.price }} &emsp;<strike>{{ combo6.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo6.0.discount_per }}% off</span></span>
-                        </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if combo6.0.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
-                </div>
-                {% for i in combo6|slice:"1:" %}
-                <div class="cc-item">
-                    <a href="{% url 'Ecom:Productdetails' i.id  %}" class="cc-link">
-                        <div class="cc-img">
-                            <span>
-                                <img src="{{ i.img.url}}" alt="" title="">
-                            </span>
-                        </div>
-    
-                        <div class="cc-txt">
-                            <p>{{ i.title }}</p>
-                            <span> &emsp;&emsp; {{ i.price }} &emsp; <strike>{{ i.mrp }}</strike> &emsp; <span class="product-offer">{{ i.discount_per }}% off</span></span>
-                        </div>
-                    </a>
-                    <span class="ap-new-arrival" style="margin-left:10px;">New</span>
-                    {% if i.id in wishlisted_ids %}
-                    <a href="#" class="cc-add-wishtlist wishlisted"></a>
-                    {% else %}
-                    <a href="#" class="cc-add-wishtlist "></a>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
-</div>
 
 {% endblock %}
+
+                       

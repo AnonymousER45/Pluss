@@ -99,10 +99,11 @@
                     </form>
                     <hr class="ruler">
                        <div style="display:flex;align-items:center;justify-content:space-between">
-
+                    <div class="addwishlistdiv">
                     <label onclick="addToWishlistFunction({{ user.id }},{{ product.id }})">Add to WishList</label>
+                    </div>
                     <div class="ci-remove">
-                      <a href="{{request.path}}" class="ci-remove-link"><img src="{%static 'imgs/bin.png'%}" height="20px" onclick="deleteItemFromCart({{user.id}},{{item.Product.id}},this)"></a>
+                      <a href="{{request.path}}" class="ci-remove-link"><div class="recyclebin"><img src="{%static 'imgs/bin.png'%}" height="20px" onclick="deleteItemFromCart({{user.id}},{{item.Product.id}},this)"></div></a>
                     </div>
                     </div>
                   </div>
@@ -228,18 +229,19 @@
             </div>
             <div class="modal-body">
               <div class="container-fluid">
+                <div class="giftbox">
                 <img
                   src="{%static 'imgs/5209259.jpg'%}"
                   width="85%"
-                  height="40%"
+                  height="35%"
                   style="
                     padding-left: 20px;
                     margin: auto;
                     position: relative;
                     text-align: center;
                     margin-top:  -15px;
-                  "
-                />
+                  ">
+                </div>
                 <div class="gift-odrder" style="padding-top:0px">
                   <h2 class="cd-title" style="font-size:18px;margin-bottom:15px">Add Gift Message :-</h2>
                   <form class="gift-msg">
@@ -255,17 +257,17 @@
                     />
                     &ensp;<img
                       src="{%static 'imgs/gift.png'%}"
-                      height="40px"
-                      width="40px"
+                      height="35px"
+                      width="35px"
                       style="margin-top: 4px; float: right"
                     />
                     <label for="giftbag" style="font-size:16px">
                       Add Gift bag / Box <span>Charges - 30rs</span>
                     </label>
                   </form>
-                  <div style="text-align:center">
-                    <a href="#" class="save-details" data-dismiss="modal">Save Details</a>
-                  </div>
+                     <div style="text-align:center">
+                        <a href="#" class="save-details" data-dismiss="modal">Save Details</a>
+                      </div>
                 </div>
               </div>
             </div>
@@ -351,13 +353,17 @@
                   <p class="coupon-status">No Coupon Applied Yet</p> -->
                   <img src="{%static 'imgs/couponicon.png'%}" width="10%" height="10%" style="width: 15%; height: 60px;margin-top: -2px;">
                   <label id="test2" style="margin-left: 2%;">Apply Coupons</label>
-                  <img src="{% static 'imgs/forwardicon.png' %}" id ="forward" class="forward" width="8%" height="8%" style="height: 40px;width: 10%;margin-top: 5px;"> 
-                  <img src="{% static 'imgs/crosssincircle.png' %}" id ="cancel" onclick="cancel()" class="forward" width="8%" height="8%" style="height: 30px;
+                  <div class="forwarddiv">
+                  <img src="{% static 'imgs/forwardicon.png' %}" id ="forward" class="forward" width="8%" height="8%" style="height: 40px;width: 10%;margin-top: 5px !important ;"> 
+                  </div>
+                  <div class="crossdiv">
+                  <img src="{% static 'imgs/crosssincircle.png' %}" id ="cancel" class="cancelforward" onclick="cancel()" class="forward" width="8%" height="8%" style="height: 30px;
     width: 5%;
     margin-top: 11px;
     margin-right: 10px;
     display: none;
 }">
+</div>
                   
                 </div>
                 {% comment %} <div class="cd-item">
@@ -390,7 +396,9 @@
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-          <img src="{% static 'anim/discount.gif'%}" background="transparent" speed="1" style="width: 150px; height: 150px; margin: auto; position: relative; left: 150px;top: -11px;" >
+          <div class="anime" style="text-align:center">
+          <img src="{% static 'anim/discount.gif'%}" background="transparent" speed="1" style="width: 150px; height: 150px; " >
+          </div>
           <div class="cart-coupon">
       
               <input type="text" id="test3" name="Coupon" placeholder="Type the Coupon Code">

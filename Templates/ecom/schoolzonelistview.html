@@ -19,7 +19,7 @@
 {% endblock %}
 {% block content %}
 <div class="content-wrap">
-    <div class="listing-banner" style="background-image: url({% static 'images/schoolzone.png' %}); margin-left:20px;margin-right:20px;">
+    <div class="listing-banner schoollist"  style="background-image: url({% static 'images/schoolzone.png' %}); margin-left:20px;margin-right:20px;">
     </div>
             
             <div class="product-filter">
@@ -40,9 +40,9 @@
                                     <option value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>S.I.E.S High School</option>
                                     <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>6</option>
                                     </select>  {% endcomment %}
-
+                                    
                                     <div style="text-align:center">
-
+                                    <div class="schoollistfilter">
                                         <select style="margin:auto;max-width: 600px;" name="zone"  class="form-control" onfocus='this.size=6;' onblur='this.size=1;' onchange="this.size=1; this.blur(); $(this).closest('form').submit()">
                                             <option style="padding:1rem" value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>
                                             <option style="padding:1rem" value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>Fatima High School</option>
@@ -55,6 +55,7 @@
                                             <option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>New Deccan High School</option>
                                             
                                         </select>
+                                    </div>
                                     </div>
                                 </form>
                             </div>

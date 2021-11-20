@@ -32,7 +32,7 @@
                   <p class="wl-price">Rs {{ item.Product.price }}  <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
                   <p class="product-terms" style="padding-bottom: 14px;">Price inclusive of all Taxes</p>
                   <div class="wl-btn-wrap">
-                    <a href="#" class="btn-wl-move" style="float:unset;margin-right:5px;" onclick="moveToCart({{item.Product.id}})">Move to Cart</a>
+                    <a href="#" class="btn-wl-move" style="float:unset;margin-right:15px;" onclick="moveToCart({{item.Product.id}})">Move to Cart</a>
                     <a href="#" class="btn-wl-delete"  onclick="deleteFromWishlist({{item.Product.id}})">Delete</a>
                   </div>
                 </div>
