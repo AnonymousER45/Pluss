@@ -69,7 +69,7 @@
                             {% endif%}
                           </div>
                           <div class="products-cta">
-                            <a href={{ request.path }} onclick="addToCartFunction({{ user.id }},{{ product.id }})" class="btn-cart">Add to Cart</a>
+                            <a href={{ request.path }} onclick="addToCartFunction({{ user.id }},{{ product.id }})" class="btn-cart">Add to Cart</a> </div> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
                           	<!-- <a href="{% url 'Ecom:Productdetails' product.id  %}" class="btn-cart">Add to Cart</a> -->
                             <a href="/mycart" onclick="addToCartFunction({{ user.id }},{{ product.id }})" class="btn-buy-now">Buy Now</a>
                           </div>

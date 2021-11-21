@@ -20,7 +20,7 @@
   <title>PLUSCROWN PRIVATE LIMITED </title>
    {% endblock %} {% block content %}
 
-<div class="content-wrap">     
+<div class="content-wrap prddetl">     
   <div class="container-fluid" >
     <div class="myaccountbox" style="width:98rem;margin:auto;">
       <br>
@@ -29,7 +29,7 @@
       <hr class="ruler1">
      </div><br>
      <div class="payment-wrapper" style="margin-right:36px;">
-      <div class="row">
+      {% comment %} <div class="row">
         <div class="col-md-4 col-xs-6">
           <div class ="box">
           <a href="/myorders">
@@ -37,7 +37,7 @@
             <div class="col-md-4 col-xs-12 imgs">
               <img src="{% static 'imgs/orders.png'%}" width="100%" height="100%">
             </div>
-            <div class="col-md-8 col-xs-12 text-center">
+            <div class="col-md-8 col-xs-12 text-center txtmyords">
               <p>My Orders</p>
             </div>
           </div>
@@ -73,26 +73,67 @@
           </a>
         </div>
       </div>
-       </div>
-      {% comment %} <br> {% endcomment %}
+    </div> {% endcomment %}
+      
 
-      <div class="row">
-       
-        <div class="col-md-4 col-xs-6">
+    <div class="row"> 
+      <div class="col-md-4 col-xs-6">
+        <div class="box">
+          <a href="/myorders">
+            <div class="row">
+            <div class="col-md-4 col-xs-12 imgs">
+              <img src="{% static 'imgs/orders.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-12 text-center txtmyords">
+              <p>My Orders</p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div> 
+      <div class="col-md-4 col-xs-6">
+        <div class="box">
+          <a href="/personal_info">
+          <div class="row">
+            <div class="col-md-4 col-xs-12 imgs">
+              <img src="{% static 'imgs/profile.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-12 text-center3">
+              <p>Personal Information</p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-6">
+        <div class="box">
+          <a href="/addressbook">
+          <div class="row">
+            <div class="col-md-4 col-xs-12 imgs">
+              <img src="{% static 'imgs/addressbook.png'%}" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-xs-12 text-center">
+              <p>Address Book</p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div> 
+      <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/aboutus">
             <div class="row">
             <div class="col-md-4 col-xs-12 imgs">
               <img src="{% static 'imgs/aboutsus.png'%}" width="100%" height="100%">
             </div>
-            <div class="col-md-8 col-xs-12 text-center">
+            <div class="col-md-8 col-xs-12 text-center txtabtus">
               <p>About Us</p>
             </div>
           </div>
           </a>
         </div>
-        </div>
-        <div class="col-md-4 col-xs-6">
+      </div> 
+      <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/termsandcondition">
           <div class="row">
@@ -105,8 +146,8 @@
           </div>
           </a>
         </div>
-        </div>
-        <div class="col-md-4 col-xs-6">
+      </div>
+      <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/returnandexchange">
           <div class="row">
@@ -120,10 +161,11 @@
           </a>
         </div>
       </div>
-      </div>
-      {% comment %} <br> {% endcomment %}
+      {% comment %}</div>
+       <br> 
 
-      <div class="row">
+      <div class="row"> {% endcomment %}
+      
         <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/ordercancelation">

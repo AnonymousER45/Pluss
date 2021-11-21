@@ -3,7 +3,7 @@
 
 {% endblock %} {% block content %}
 
-<div class="content-wrap">
+<div class="content-wrap indx">
       <div class="home-slider-wrap">
         <div class="container-fluid">
          <div class="homeslider">
@@ -86,7 +86,7 @@
                         </a>
                         <div class="ap-desc">
                             <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
-                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">30% off</span></p>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
                         </div>
                         <span class="ap-new-arrival ap-trending">Trending</span>
                         {% if i.id  in wishlisted_ids %}
@@ -143,7 +143,7 @@
                             <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
                             <!--<p class="ap-title">-blue</p> -->
 
-                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">30% off</span></p>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
                         </div>
                         <span class="ap-new-arrival ap-trending">Trending</span>
                         {% if i.id  in wishlisted_ids %}
@@ -209,7 +209,7 @@
                             <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
 
 
-                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">30% off</span></p>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
                         </div>
                         <span class="ap-new-arrival ap-trending">Trending</span>
                         {% if i.id  in wishlisted_ids %}
@@ -266,7 +266,7 @@
                             <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
 
 
-                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">30% off</span></p>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
                         </div>
                         <span class="ap-new-arrival ap-trending">Trending</span>
                         {% if i.id  in wishlisted_ids %}
@@ -356,7 +356,7 @@
                             <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
 
 
-                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">30% off</span></p>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
                         </div>
                         <span class="ap-new-arrival ap-trending">Trending</span>
                         {% if i.id  in wishlisted_ids %}
@@ -411,7 +411,7 @@
                         </a>
                         <div class="ap-desc">
                             <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
-                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">30% off</span></p>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
                         </div>
                         <span class="ap-new-arrival ap-trending">Trending</span>
                         {% if i.id  in wishlisted_ids %}

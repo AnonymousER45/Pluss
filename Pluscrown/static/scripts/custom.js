@@ -74,7 +74,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     var minVal = 1,
-        maxVal = 20; // Set Max and Min values
+        maxVal = 200; // Set Max and Min values
     // Increase product quantity on cart page
     $(".increaseQty").on('click', function() {
         var $parentElm = $(this).parents(".qtySelector");
