@@ -319,6 +319,10 @@
                                                                                                                                                 /* z-index: 4; */
                                                                                                                                             }
                                                                                                                                             
+                                                                                                                                            .crt {
+                                                                                                                                                margin-top: 43px !important;
+                                                                                                                                            }
+                                                                                                                                            
                                                                                                                                             .dropdown-arrow-up {
                                                                                                                                                 margin-top: 8px;
                                                                                                                                                 border: solid #FFFFFF;
@@ -4999,9 +5003,9 @@
                                                                                                                                                     font-size: 17px;
                                                                                                                                                 }
                                                                                                                                                 .crossdiv img {
-                                                                                                                                                    margin-left: 264px;
+                                                                                                                                                    margin-left: 264px !important;
                                                                                                                                                     height: 28px !important;
-                                                                                                                                                    margin-top: 14px !important;
+                                                                                                                                                    margin-top: 13px !important;
                                                                                                                                                 }
                                                                                                                                                 .forward {
                                                                                                                                                     padding-top: 7px;
