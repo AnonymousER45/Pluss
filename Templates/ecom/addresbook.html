@@ -36,7 +36,7 @@
                           <label class="aw-name">{{address.name}}</label>
                              
                             <span style="padding-right: 1rem;">
-                              <a href="/edit_address/{{address.id}}" class="aw-edit"></a>&ensp; 
+                              <a href="/edit_addresss/{{address.id}}" class="aw-edit"></a>&ensp; 
                               <a onclick="deleteaddress({{address.id}})" href="#" class="aw-delete"></a>
                             </span>
                         </div>
@@ -102,6 +102,7 @@
         });
       //element.parentNode.parentNode.parentNode.parentNode.remove();
       console.log("Success")
+    }
     }
 </script>
    {% endblock %}

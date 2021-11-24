@@ -442,6 +442,11 @@ def showalldemo(request):
     
     return render(request,'ecom/produt-showalldemo.html')
 
+def search(request,keyword):
+    products = Product.objects.filter(desp__icontains=keyword)[:15]
+    key = keyword
+    param ={'product':products,'key':key}
+    return render(request,'ecom/search.html',param)
 
 def payment(request,order_id):
     return render(request,'ecom/payment.html')
@@ -483,7 +488,17 @@ def edit_address(request,id):
 
     return render(request,'ecom/edit_address2.html',context)
 
-    
+def edit_addresss(request,id):
+    context = {}
+    if request.user:
+        query_set = Address.objects.filter(id=id)
+        context['address'] = query_set
+        context['add_id'] = id
+        print(query_set)
+        print("djbjdbcj")
+
+    return render(request,'ecom/edit_address.html',context)
+   
 
 def ordercancelation(request):
     return render(request,'ecom/ordercancelation.html')

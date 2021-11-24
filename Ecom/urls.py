@@ -41,9 +41,11 @@ urlpatterns = [
     path("termsandcondition",views.termsandcondition,name="termsandcondition"),
     path("showalldemo",views.showalldemo,name="showalldemo"),
     path("edit_address/<int:id>",views.edit_address,name="edit_address"),
+    path("edit_addresss/<int:id>",views.edit_addresss,name="edit_addresss"),
     path("add_address",views.add_address,name="add_address"),
     path("addressbook",views.addressbook,name="addressbook"),
     path("personal_info",views.personal_info,name="personal_info"),
+    path("search/<slug:keyword>",views.search,name="search"),
 
 
 ]
