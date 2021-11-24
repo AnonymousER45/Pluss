@@ -4978,7 +4978,14 @@
                                                                                                                                                     text-align: center;
                                                                                                                                                 }
                                                                                                                                                 .selectoption-button {
-                                                                                                                                                    margin-right: 10px;
+                                                                                                                                                    margin-right: 15px;
+                                                                                                                                                }
+                                                                                                                                                .bindinghr1 {
+                                                                                                                                                    margin-bottom: 7px !important;
+                                                                                                                                                }
+                                                                                                                                                .bindinghr2 {
+                                                                                                                                                    margin-top: 0.02rem !important;
+                                                                                                                                                    margin-bottom: 2px !important;
                                                                                                                                                 }
                                                                                                                                                 .wl-title {
                                                                                                                                                     font-weight: 600;
@@ -5070,6 +5077,9 @@
                                                                                                                                                 .ap-title {
                                                                                                                                                     font-size: 12px;
                                                                                                                                                     margin-bottom: 0px !important;
+                                                                                                                                                }
+                                                                                                                                                .ap-title:focus {
+                                                                                                                                                    font-size: 12px;
                                                                                                                                                 }
                                                                                                                                                 .ap-new-arrival {
                                                                                                                                                     font-size: 11px;
@@ -5300,7 +5310,7 @@
                                                                                                                                                     margin-top: 60px !important;
                                                                                                                                                 }
                                                                                                                                                 .th-cart img {
-                                                                                                                                                    margin-left: 286px;
+                                                                                                                                                    margin-left: 295px;
                                                                                                                                                     margin-top: -28px;
                                                                                                                                                     max-height: 30px !important;
                                                                                                                                                 }

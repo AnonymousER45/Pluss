@@ -45,7 +45,7 @@
                                     <p class="product-terms">Price inclusive of all Taxes</p>
 
                                     {% if product.isBindable %}
-                                    <hr >
+                                    <hr class="bindinghr1">
                                     <div>
                                      
                                         <form style="display: flex;align-items:center">
@@ -54,7 +54,7 @@
                                         {% endif%}
                                     </div>
                                 </div>
-                               <hr style="margin-top:0.8rem">
+                               <hr class="bindinghr2" style="margin-top:0.8rem">
                                 <div class="product-details">
                                     <h2 class="product-title">Details :-</h2>
                                     <p>Publishing date: {{ product.pub_date }}</p>

@@ -15,11 +15,11 @@
                 <a href="/myaccount" class="th-login"> HEY {{ user.username }}</a>   
                 <div class ="deliver2">
                 {% if user.pincode == 421501 or user.pincode == 421502  or user.pincode == 421505 %} 
-                <div style="color: green;">Delivery available here. </div>
+                <div style="color: green;">Delivery available here. 
                 {% else %}  
                 <div style= "color: red;"> Delivery  not available here.</p> </div>
                  {% endif %} 
-              
+              </div>
               </div>
               
             {% comment %} {% else %}
