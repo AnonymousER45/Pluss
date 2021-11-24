@@ -160,7 +160,7 @@
             <div class="th-search th-search-mob" id="searchmob">
             	{% comment %} <form> {% endcomment %}
                 	<div class="th-search-wrap">
-                        <input type="text" name="Search" class="ths-text">
+                        <input type="text" name="Search" id="inputsearchid2" class="ths-text">
                         <input  value="Search" name="search" class="ths-btn" onclick="search()">
                     </div>
                 {% comment %} </form> {% endcomment %}
@@ -196,6 +196,7 @@
        $('#searchmob').hide();
       $('#closesearchbarimg').hide();
       $('#menu').show();
+      document.getElementById('inputsearchid2').value = '';
       $('#cartimg').show();
       $('#spanid1').show();
       $('#spanid2').show();
@@ -209,4 +210,17 @@
           window.location =`/search/${key}`
         }
       }
+
+
+    document.querySelector('#searchid').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      // code for enter
+      console.log("hiiiiii")
+      var key = $('#searchid').val();
+        if (key != ""){
+          window.location =`/search/${key}`
+        }
+    }
+});
+   
     </script>
