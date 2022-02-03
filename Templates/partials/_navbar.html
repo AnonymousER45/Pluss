@@ -1,67 +1,229 @@
 {% load static %}
 
 <div class="main">
-    <div class="top-head">
+	<div class="top-head">
     <div class="container-fluid">
-      <div class="th-wrap">
-          <div class="th-nav-wrap">
-            <a href="javascript:void(0)" class="th-menu"><i class="material-icons">menu</i></a>
-                <div class="th-nav" id="myTopnav">
-                  <ul class="thn-links">
-                      <li class="thn-main"><a href="{% url 'index' %}">Home</a> </li>
-                        <li class="thn-main"><a href="{% url 'Category2' %}">Stationary</a> 
+   	  <div class="th-wrap">
+   	  		<div class="th-nav-wrap">
+        		<a href="#" class="th-menu"><i class="material-icons">menu</i></a>
+                <div class="th-nav" id="myTopnav" style="top:38px !important;">
+                <ul class="thn-links">
+                      <li class="thn-main"><a href="/">Home</a> </li>
+                      <hr style="margin: 5px; border-color:#fff !important;">
+                        <!--<li class="thn-main"><a href="/schoolzonelistview?zone=all">School Zone</a>-->
                         </li>
-                        <li class="thn-main"><a href="{% url 'Category2' %}">Notebooks</a>
-                        </li>
-                        <li class="thn-main"><a href="javscript:void(0)">8-10th</a>
+                        <li class="thn-main"><a href="javscript:void(0)">5-7th class<i class="dropdown-arrow-down"></i></a>
                           <ul class="thn-subnav">
-                                <li><a href="{% url 'Category1' %}">8 th </a></li>
-                                  <li><a href="{% url 'Category1' %}">9 th</a></li>
-                                  <li><a href="{% url 'Category1' %}">10 th</a></li>
+                            <li><a href="/category1/11">5th Standard</a></li>
+                            <li><a href="/category1/12">6th Standard</a></li>
+                            <li><a href="/category1/13">7th Standard</a>
+                            <hr style="border-color:#fff !important;"></li>
                             </ul>
-                        </li><li class="thn-main"><a href="javscript:void(0)">11-12 th</a>
+                        </li>
+                        <li class="thn-main"><a href="javscript:void(0)">8-10th class<i class="dropdown-arrow-down"></i></a>
                           <ul class="thn-subnav">
-                                <li><a href="{% url 'Category1' %}">11</a></li>
-                                  <li><a href="{% url 'Category1' %}">12</a></li>
+                            <li><a href="/category1/1">8th Standard</a></li>
+                            <li><a href="/category1/2">9th Standard</a></li>
+                            <li><a href="/category1/5">10th Standard</a>
+                            <hr style="border-color:#fff !important;"></li>
+                            </ul>
+                        </li>
+                        <li class="thn-main"><a href="javscript:void(0)">11-12th class<i class="dropdown-arrow-down"></i></a>
+                          <ul class="thn-subnav">
+                                <li><a href="/category2/3">11th Standard</a></li>
+                                  <li><a href="/category2/4">12th Standard</a>
+                                  <hr style="border-color:#fff !important;"></li>
                           </ul>
                         </li>
-                        <li class="thn-main"><a href="{% url 'Category2' %}">Story Books</a>
-                        <li class="thn-main"><a href="{% url 'Category2' %}">Biography Books</a>
-                        <li class="thn-main"><a href="#">My order</a>
-                        <li class="thn-main"><a href="{% url 'wishlist' %}">My Whishlist</a>
-                        <li class="thn-main"><a href="#">my Account</a>
-                        <li class="thn-main"><a href="#">Settings</a>
-                        <li class="thn-main"><a href="{% url 'policies' %}">Privacy Policy</a>
-                        <li class="thn-main"><a href="{% url 'aboutus' %}">Customer Support</a>
+                        <li class="thn-main"><a href="javscript:void(0)">Competitive Exams<i class="dropdown-arrow-down"></i></a>
+                          <ul class="thn-subnav">
+                            <li><a href="/category3/6">Neet</a></li>
+                            <li><a href="/category3b/6">Jee</a></a></li>
+                            <li><a href="/category3c/6">Mh-Cet</a>
+                            <hr style="border-color:#fff !important;"></li>
+                            </ul>
+                        </li>
+                        <li class="thn-main"><a href="javscript:void(0)">Notebooks and All<i class="dropdown-arrow-down"></i></a>
+                          <ul class="thn-subnav">
+                            <li><a href="/category4/8">Notebooks</a></li>
+                            <li><a href="/category4/7">Stationary</a></a></li>
+                            <li><a href="/category4/7">Colours and Drawing Materials</a>
+                            <hr style="border-color:#fff !important;"></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="thn-main"><a href="/category3/6">Neet / Jee / Mh-Cet</a></li>-->
+                        <!--<li class="thn-main"><a href="/category4/8 ">Notebooks / Stationary  </a>-->
+                        <!--{% comment %} <hr style="border-color:#fff !important;"></li> {% endcomment %}-->
+                        {% comment %} <li class="thn-main"><a href="/category5/10">Story / Biography Books</a>
+                          <li class="thn-main"><a href="javscript:void(0)"> Science Stream <i class="dropdown-arrow-down"></i></a>
+                            <ul class="thn-subnav">
+                              <li><a href="/category6/14"> BSC IT</a></li>
+                              <li><a href="/category6/15"> BSC COMP</a></li>
+                              <li><a href="/category6/16"> BSC MATHS</a></li>
+                              <li><a href="/category6/17"> BSC PHYSICS</a></li>
+                              <li><a href="/category6/18"> BSC CHEMISTRY</a></li>
+                              <li><a href="/categryo6/19"> BSC BOTANY </a></li>
+                              <li><a href="/category6/20"> BSC ZOOLOGY</a></li>
+                              <hr class="nav-hr">
+                            </ul>
+                          </li>
+                          <li class="thn-main"><a href="javscript:void(0)">Commerce Stream<i class="dropdown-arrow-down"></i></a>
+                            <ul class="thn-subnav">
+                              <li><a href="/category7/21"> BCOM</a></li>
+                              <li><a href="/category7/22"> BMS</a></li>
+                              <li><a href="/category7/23"> BBI</a></li>
+                              <li><a href="/category7/24"> BAF</a></li>
+                              <li><a href="/category7/25"> BBA</a></li>
+                              <li><a href="/category7/26"> BCA </a></li>
+                              <li><a href="/category7/27"> BFM</a></li>
+                              <hr class="nav-hr">
+                            </ul>
+                          </li>
+                          <li class="thn-main"><a href="javscript:void(0)">Arts Stream <i class="dropdown-arrow-down"></i></a>
+                            <ul class="thn-subnav">
+                              <li><a href="/category8/28"> BA </a></li>
+                              <hr class="nav-hr">
+                            </ul>
+                          </li> {% endcomment %}
+                        <li class="thn-main"><a href="/requestbook">Request a Book</a>
+                        <hr style="border-color:#fff !important;">
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="thn-main"><a href="/myorders">My Orders </a></li>
+                        <li class="thn-main"><a href="/wishlist">My Whishlist</a></li>
+                        {% else %}
+                        <li class="thn-main"><a href="{% url 'Login' %}">My orders </a></li>
+                        <li class="thn-main"><a href="{% url 'Login' %}">My Whishlist</a></li>
+
+                        {% endif %}
+                        <li class="thn-main"><a href="/myaccount">My Account</a>
+                        <hr style="border-color:#fff !important;"></li>
+                        <li class="thn-main"><a href="/privacy">Privacy Policy</a>
+                        <li class="thn-main"><a href="/contactus">Contact Us</a>
+                        {% if user.is_authenticated %}
+                        <li class="thn-main"><a onclick="return confirm('Are you sure?')" href="{% url 'logout' %}" data-toggle="modal" data-target="#myModal">Logout</a>
+                        {% else %}
+                        <li class="thn-main"><a href="{% url 'Login' %}">Login </a>
+                        {% endif %}
                     </ul>
                 </div>
-          </div>
-          <div class="th-logo">
-              <a href="#"><img src="{% static 'imgs/logo.png' %}" alt="Bookso" title="Bookso"></a>
-            </div>
+       		</div>
+        	<div class="th-logo">
+            	<!--<a href="{% url 'Ecom:index' %}"> </a>-->
+            	<img src="{% static 'images/logo.jpeg' %}" alt="PLUSCROWN" id="logo" onclick="homehref()"title="PLUSCROWN">
+          	</div>
             <div class="th-search th-search-desk">
-              <form>
-                  <div class="th-search-wrap">
-                        <input type="text" name="Search" class="ths-text">
-                        <input type="submit" value="Search" name="search" class="ths-btn">
+            	<form>
+                	<div class="th-search-wrap">
+                        <!--<input type="text" name="Search" class="ths-text">-->
+                        <!--<input type="submit" value="Search" name="search" class="ths-btn">-->
+                        <input type="text" name="Search" id="inputsearchid2" class="ths-text">
+                        <input value="Search" name="search" class="ths-btn" onclick="search()">
+
                     </div>
                 </form>
             </div>
-            <a href="#" class="th-login">Login/Signup</a>
-            <a href="#" class="th-cart">
-              <img src="{% static 'imgs/cart.png' %}" alt="Cart" title="Cart">
-                <span>0</span>
-            </a>
-            <div class="th-search th-search-mob">
-              <form>
-                  <div class="th-search-wrap">
-                        <input type="text" name="Search" class="ths-text">
-                        <input type="submit" value="Search" name="search" class="ths-btn">
+            {% if user.is_authenticated %}
+                &ensp;
+              <div class="auth" style="text-align:center;">
+                <a href="/myaccount" class="th-login"> HEY {{ user.username }}</a>
+                <div class ="deliver">
+                {% if user.pincode == 421501 or user.pincode == 421502  or user.pincode == 421505 %} <div style="color: green;
+    ">Delivery available here. {% else %}  <div style= "color: red;
+    "> Delivery  not available here.</p> {% endif %}
+    </div>
+              </div>
+              </div>
+            {% else %}
+            &ensp;
+            &ensp;
+            <a href="{% url 'Login' %}" class="th-login">Login/Signup</a>
+            {% endif %}
+            <div class="th-searchicon">
+            <a href="#">
+             <img src="{% static 'images/search.png' %}" onclick="searchbartoggle()"></a>
+             </div>
+             {% if user.is_authenticated %}
+            <a href="/mycart" class="th-cart" id="cart">
+            	<img src="{% static 'imgs/cart.png' %}" id="cartimg" alt="Cart" title="Cart">
+                 <span id="spanid1">{{request.session.total_item }}</span>
+                 </a>
+                {% else %}
+                <a href="{% url 'Login' %}" class="th-cart" id="cart">
+            	<img src="{% static 'imgs/cart.png' %}" id="cartimg" alt="Cart" title="Cart">
+                <span id="spanid2">0</span> </a>{% endif %}
+
+
+            <div class="th-search th-search-mob" id="searchmob">
+            	<form>
+                	<div class="th-search-wrap">
+                        <!--<input type="text" name="Search" class="ths-text">-->
+                        <!--<input type="submit" value="Search" name="search" class="ths-btn">-->
+                        <input type="text" name="Search" id="inputsearchid2" class="ths-text">
+                        <input  value="Search" name="search" class="ths-btn" onclick="search()">
+
                     </div>
                 </form>
             </div>
-      </div>
+            <div class="closesearchtoggle" id="closesearchbar">
+                  <img src="{% static 'imgs/add.png' %}" id="closesearchbarimg" onclick="closesearchbartoggle()" >
+            </div>
+
       </div>
     </div>
+    </div>
 
-  
+
+
+     <script>
+    $(document).ready(function(){
+      $('')
+    })
+    function homehref(){
+        window.location = `/`
+
+    }
+    function searchbartoggle(){
+      $('#menu').hide();
+      $('#cartimg').hide();
+      $('#spanid1').hide();
+      $('#spanid2').hide();
+      $('#logo').hide();
+      $('#cart').hide();
+      //$('#searchmob').css('display','inline');
+      $('#searchmob').show();
+      $('#closesearchbarimg').show();
+    }
+
+    function closesearchbartoggle(){
+       $('#searchmob').hide();
+      $('#closesearchbarimg').hide();
+      $('#menu').show();
+      document.getElementById('inputsearchid2').value = '';
+      $('#cartimg').show();
+      $('#spanid1').show();
+      $('#spanid2').show();
+      $('#logo').show();
+      $('#cart').show();
+
+      }
+      function search(){
+        var key = $('#searchid').val();
+        if (key != ""){
+          window.location =`/search/${key}`
+        }
+      }
+
+
+    document.querySelector('#searchid').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      // code for enter
+      console.log("hiiiiii")
+      var key = $('#searchid').val();
+        if (key != ""){
+          window.location =`/search/${key}`
+        }
+    }
+});
+    </script>

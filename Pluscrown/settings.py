@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = 'is=)o)(94qb1vy9fmhjk3snuh1uwb1z(59fy_15v)7o+2t$ph+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','Swaraj.pythonanywhere.com','www.pluscrown.com']
 
 
 # Application definition
@@ -38,16 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   
-     #Apps
+
+    #Apps
     'Ecom',
     'Accounts',
 
     # Framework,
     'rest_framework',
     'Api',
+    'import_export',
 
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -73,6 +76,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                    'staticfiles': 'django.templatetags.static',
+                 },
         },
     },
 ]
@@ -123,7 +129,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -132,9 +137,11 @@ USE_TZ = True
 STATIC_ROOT= os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-       
-    os.path.join(BASE_DIR, 'Pluscrown/static')
+
+    os.path.join(BASE_DIR, 'Pluscrown/static'),
+
 ]
+
 
 #### media files(photo,logos)
 
@@ -149,7 +156,51 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
+
+SENDSMS_BACKEND = 'sendsms.backends.console.SmsBackend'
+
+JWT_AUTH = {
+'JWT_ENCODE_HANDLER':
+'rest_framework_jwt.utils.jwt_encode_handler',
+
+'JWT_DECODE_HANDLER':
+'rest_framework_jwt.utils.jwt_decode_handler',
+
+'JWT_PAYLOAD_HANDLER':
+'rest_framework_jwt.utils.jwt_payload_handler',
+
+'JWT_PAYLOAD_GET_USER_ID_HANDLER':
+'rest_framework_jwt.utils.jwt_get_user_id_from_payload_handler',
+
+'JWT_RESPONSE_PAYLOAD_HANDLER':
+'rest_framework_jwt.utils.jwt_response_payload_handler',
+
+'JWT_GET_USER_SECRET_KEY': None,
+'JWT_PUBLIC_KEY': None,
+'JWT_PRIVATE_KEY': None,
+'JWT_ALGORITHM': 'HS256',
+'JWT_VERIFY': True,
+'JWT_VERIFY_EXPIRATION': True,
+'JWT_LEEWAY': 0,
+'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+'JWT_AUDIENCE': None,
+'JWT_ISSUER': None,
+
+'JWT_ALLOW_REFRESH': False,
+'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=2),
+
+'JWT_AUTH_HEADER_PREFIX': 'JWT',
+'JWT_AUTH_COOKIE': None,
+
+}

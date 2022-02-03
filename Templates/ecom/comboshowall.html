@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="content-wrap cntus">
+
+
+                <div class="product-filter">
+                    
+                            <h2 class="title">Showing All Combo Products :-</h2>
+                        <div class="container-fluid">
+                        
+                        <div class="combo-wrap">
+                        <style> 
+                              .cc-item {
+                                 padding: 5px;
+                              }
+                              </style>
+                                
+                                        <div class="cc-item cc-item2">
+                                            <a href="#" class="cc-link">
+                                                <div class="cc-img">
+                                                    <span>
+                                                        <img src="{%static 'imgs/combos.jpg'%}" alt="" title="">
+                                                    </span>
+                                                </div>
+                                                <div class="cc-txt">
+                                                    <p>NAVNEET Digests For 12th Std English Medium</p>
+                                                    <p class="ap-price">Rs. 970.00 &ensp;<strike>1000.00</strike>&ensp; <span class="product-offer">30% off</span></p>
+                                                </div>
+                                            </a>
+                                            <span class="cc-new-arrival" style="margin-left:10px;">New</span>
+                                            <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                        </div>
+                                        
+                                        <div class="cc-item cc-item2">
+                                            <a href="#" class="cc-link">
+                                                <div class="cc-img">
+                                                    <span>
+                                                        <img src="{%static 'imgs/combos.jpg'%}" alt="" title="">
+                                                    </span>
+                                                </div>
+                                                <div class="cc-txt">
+                                                    <p>12th (Sci.)Textbooks & Digests Combo </p>
+                                                    <p class="ap-price">Rs. 970.00 &ensp;<strike>1000.00</strike>&ensp; <span class="product-offer">30% off</span></p>
+                                                </div>
+                                            </a>
+                                            <span class="cc-new-arrival" style="margin-left:10px;">New</span>
+                                            <a href="#" class="cc-add-wishtlist"></a>
+                                        </div>
+
+                                        <div class="cc-item cc-item2">
+                                            <a href="#" class="cc-link">
+                                                <div class="cc-img">
+                                                    <span>
+                                                        <img src="{%static 'imgs/combos.jpg'%}" alt="" title="">
+                                                    </span>
+                                                </div>
+                                                <div class="cc-txt">
+                                                    <p> Digests For  English Medium</p>
+                                                    <p class="ap-price">Rs. 870.00 &ensp;<strike>950.00</strike>&ensp; <span class="product-offer">30% off</span></p>
+                                                </div>
+                                            </a>
+                                            <span class="cc-new-arrival" style="margin-left:10px;">New</span>
+                                            <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            
+
+         
+    </div>
+  </div>
+ <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+</div>
+
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("pf-item");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+{% endblock %}

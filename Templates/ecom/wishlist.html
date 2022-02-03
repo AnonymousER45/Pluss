@@ -1,85 +1,93 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extrahead %}
-    <!-- Font Awesome -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--Font-->
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
-
-  
-  <!--Css--> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
-  <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  
-  <title>Bookso - Ecommerce Website</title>
 
 {% endblock %}
 {% block content %}
 
-  <div class="content-wrap">    
-    <div class="wishlist">
-      <div class="container-fluid"> 
-        <div class="wishlist-wrapper">
-          <h1 class="title">Wishlist</h1>  
+        <div class="main">
+
+  <div class="content-wrap prddetl">
+    <div class="wishlis">
+      <div class="container-fluid">
+        <div class="wishlist-wrapper" >
+              <div class="tab_container tab_container_white">
+
+                   <div id="tab1" class="tab_content">
+                             
+          <h1 class="title" style="margin-bottom:23px;"> <img src="{% static 'images/checklist.png'%}" height="5%" width="5%" style="margin-top:-20px; margin-bottom:-4px;">  Wishlist:- &nbsp;
+          </h1> 
+          
           <div class="wishlist-table">
-            <div class="wishlist-table-item">
-              <div class="ci-img">
-                <figure>
-                <img src="imgs/alchemist.jpeg">
-                </figure>
-              </div>
-              <div class="wl-desc">
-                <p class="wl-title">The Alchemist By Paul Coelho</p>
-                <p class="wl-price">Rs 320  <strike>Rs 375</strike>  <span class="wl-off">1% Off</span></p>
-                <div class="wl-btn-wrap">
-                  <a href="#" class="btn-wl-move">Move to Cart</a>
-                  <a href="#" class="btn-wl-delete">Delete</a>
+            {% if wishlist %}
+              {% for item in wishlist %}
+              <div class="wishlist-table-item" style="margin-top: -10px;">
+                <div class="ci-img">
+                  <figure>
+                  <img src="{{ item.Product.img.url }}">
+                  </figure>
+                </div>
+                <div class="wl-desc">
+                  <p class="wl-title" style="margin-top: -10px; padding-bottom: 17px;"> <a href="{% url 'Ecom:Productdetails' item.Product.id %}">{{ item.Product.title }}</a></p>
+                  <p class="wl-price">Rs {{ item.Product.price }}  <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
+                  <p class="product-terms" style="padding-bottom: 14px;">Price inclusive of all Taxes</p>
+                  <div class="wl-btn-wrap">
+                    <a href="#" class="btn-wl-move" style="float:unset;margin-right:15px;" onclick="moveToCart({{item.Product.id}})">Move to Cart</a>
+                    <a href="#" class="btn-wl-delete"  onclick="deleteFromWishlist({{item.Product.id}})">Delete</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="wishlist-table-item">
-              <div class="ci-img">
-                <figure>
-                <img src="imgs/alchemist.jpeg">
-                </figure>
-              </div>
-              <div class="wl-desc">
-                <p class="wl-title">The Alchemist By Paul Coelho</p>
-                <p class="wl-price">Rs 320  <strike>Rs 375</strike>  <span class="wl-off">1% Off</span></p>
-                <div class="wl-btn-wrap">
-                  <a href="#" class="btn-wl-move">Move to Cart</a>
-                  <a href="#" class="btn-wl-delete">Delete</a>
-                </div>
-              </div>
-            </div>
-            <div class="wishlist-table-item">
-              <div class="ci-img">
-                <figure>
-                <img src="imgs/alchemist.jpeg">
-                </figure>
-              </div>
-              <div class="wl-desc">
-                <p class="wl-title">The Alchemist By Paul Coelho</p>
-                <p class="wl-price">Rs 320  <strike>Rs 375</strike>  <span class="wl-off">1% Off</span></p>
-                <div class="wl-btn-wrap">
-                  <a href="#" class="btn-wl-move">Move to Cart</a>
-                  <a href="#" class="btn-wl-delete">Delete</a>
-                </div>
-              </div>
-            </div>
-          </div>   
-        </div>      
+              {% endfor %}
+            {% comment %} {% else %}
+            <!-- <h1 class="ec-title">Your Wishlist is Empty</h2> -->
+              <div class="wishlist-table-item"></div>
+                <p class="ec-txt">Your Wishlist is Empty</p>
+              </div> {% endcomment %}
+            {% endif %}
+            
+          </div>
+          </div>
+          </div>
+        </div>
       </div>
   </div>
-
 </div>
-</div>      
+</div>
 <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
 </div>
- 
+<script>
+  function moveToCart(product_id){
+      user_id = document.getElementById('user_id').value
+      $.ajax({
+          type: 'POST',
+          url: '/django/api/add_to_cart/',
+          data: { 
+              "id": user_id,
+              "product_id": product_id,
+              "is_binding": "False"
+          },
+          success: function(msg){
+              console.log('Item Moved to Cart');
+              deleteFromWishlist(product_id);
+              window.location = '/mycart'
+          }
+      });
+    }
+  function deleteFromWishlist(product_id){
+    user_id = document.getElementById('user_id').value
+      $.ajax({
+          type: 'POST',
+          url: '/django/api/remove_from_wishlist/',
+          data: { 
+              "id": user_id,
+              "product_id": product_id
+          },
+          success: function(msg){
+              console.log('Item Deleted from wishlist');
+              window.location = '/wishlist'
+          }
+      });
+  }
+</script>
+
 {% endblock %}

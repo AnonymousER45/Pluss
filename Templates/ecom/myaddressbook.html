@@ -1,0 +1,139 @@
+{% extends 'base.html' %} {% load static %} {% block extrahead %}
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!--Css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css'%}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css'%}"/>
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css'%}" />
+  <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+
+  <title>PLUSCROWN</title>
+{% endblock %} {% block content %}
+
+    <div class="content-wrap content-wrap-cart">
+      <div class="cart-menu">
+        <ul class="cm-list">
+          <li><a href="/mycart">Order<br> Confirmation</a></li>
+          <li class="active"><a href="#">Address</a></li>
+          <li><a href="#">Payment</a></li>
+        </ul>
+      </div>
+      <div class="cart">
+        <div class="container-fluid">
+        <div class="address-wrapper">
+          <div class="address-details">
+            <div class="">
+              <lottie-player src="{%static 'anim/65322delivery.json'%}" background="transparent"  speed="1"  style="width: 300px; height: 300px;margin: auto; position: relative;" loop autoplay></lottie-player>
+            </div>
+            <div class="cart-title-wrap">
+              <h1 class="title">Delivery Ad dress</h1>
+              <p class="da-subtitle">We will deliver your Order to this Address <span>(Click on the block containing the address yo want to select)</span></p>
+            </div>
+            <div class="addresses-wrap">
+              <div class="row">
+                {% for address in addresses %}
+                <div class="col-md-6">
+                  <div class="aw-item">
+                    <div class="row">
+                      <div class="col-md-4" onclick="toggleCheck()">
+                        <input type="checkbox" class="chk" name="checkbox" id="checkbox{{forloop.counter}}" {% if address.isdeafault %}checked{% endif %} style="margin: 20px 0 0 10px;">
+                        <img src="{%static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 30px;" >
+                      </div>
+                      <div class="col-md-8">
+                        <p>
+                          <label class="aw-name">{{address.name}}</label>
+                            <a href="/editaddress" class="aw-edit"></a>
+                            <a href="/delete address" class="aw-delete"></a>
+                        </p>
+                        <p class="aw-add">{{address.line1}}, <span>{{address.line2}}, </span> <span>{{address.line13}},</span> <span>{{address.city}} - {{address.addpincode}}</span></p>
+                        <p class="aw-phone">Phone: {{adress.number}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                
+              </div>
+            </div>
+              <br><br>
+              <a href="/payment" class="confirm-order">Confirm Order</a>
+              <!-- link below button to delivery-address.html -->
+              <a href="#"><img class="cross-modal" src="{%static 'imgs/location-1.png'%}" height="8%" width="8%" style="margin-top: -20px;"></a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="services">
+          <div class="container-fluid">
+              <div class="col-xs-12  col-md-4">
+                  <div class="ser-item">
+                      <div class="si-icon">
+                          <img src="{%static 'imgs/free-shipping.png'%}" alt=""  itle="">
+                        </div>
+                        <div class="si-txt">
+                          <h2>Free Shipping</h2>
+                            <p>We offer free shipping  for order over Rs. 200.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <div class="ser-item">
+                      <div class="si-icon">
+                          <img src="{%static 'imgs/24-7-service.png'%}" alt=""  itle="">
+                        </div>
+                        <div class="si-txt">
+                          <h2>Top - Notch Support</h2>
+                            <p>Any Questions? Our Supportt Team is only a click away.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12  col-md-4">
+                  <div class="ser-item">
+                      <div class="si-icon">
+                          <img src="{%static 'imgs/secure-payment.png'%}" alt=""  itle="">
+                        </div>
+                        <div class="si-txt">
+                          <h2>Secure Payments</h2>
+                            <p>Your Payment information is processed Securely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <a href="#" id="scroll" style="display: none;"><img src="{%static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+    </div>
+
+
+</div>
+  <script>
+    function toggleCheck(){
+      $('input.chk').on('change', function() {
+      $('input.chk').not(this).prop('checked', false);  
+    });
+
+    
+      // $(":checkbox").attr("checked", false);
+      // element.checked = true
+    //   $(input[type='checkbox']).on('change', function() {
+    //     $('#checkbox').not(this).prop('checked', false);  
+    // });
+    }
+  </script>
+  <!--Script-->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+ <script type="text/javascript" src="{%static 'slick/slick.min.js'%}"></script>
+  <script src="{%static 'scripts/custom.js'%}"></script>
+{% endblock %}

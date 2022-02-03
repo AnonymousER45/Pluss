@@ -1,0 +1,617 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+ <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Font-->
+      <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <!--Css-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <title>PLUSCROWN</title>
+
+{% endblock %}
+{% block content %}
+
+<div class="content-wrap">
+               <div class="listing-banner" style="background-image: url({{ cat.0.cat_ban.url }});">
+                  <div class="container-fluid">
+                     <div class="lb-wrap">
+                        <!--<h1>12th Standard</h1>-->
+                     </div>
+                  </div>
+               </div>
+               <div class="product-tabs">
+                  <ul class="tabs">
+                     <li class="active" rel="tab1">First Year</li>
+                     <li rel="tab2">Second Year</li>
+                     <li rel="tab3">Third Year</li>
+                  </ul>
+                  <div class="tab_container">
+                     <h3 class="d_active tab_drawer_heading" rel="tab1">First Year</h3>
+                     <div id="tab1" class="tab_content">
+                        <div class="combo-wrap">
+                          <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Complete Combos :-</h2>
+                                     &ensp;
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              &nbsp;
+                           <div class="complete-combos">
+                              <div class="cc-item">
+                                <a href="#" class="cc-link">
+                                  <div class="cc-img">
+                                    <span>
+                                      <img src="{{ combo1.0.img.url}}" alt="" title="">
+                                    </span>
+                                  </div>
+                                  <div class="cc-txt">
+                                    <p>{{ combo1.0.title }}</p>
+                                    <span> &emsp;&emsp; {{ combo1.0.price }} &emsp;<strike>{{ combo1.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
+                                  </div>
+                                </a>
+                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                              </div>
+                              {% for i in combo1|slice:"1:" %}
+                              <div class="cc-item">
+                                <a href="#" class="cc-link">
+                                  <div class="cc-img">
+                                    <span>
+                                      <img src="{{ i.img.url}}" alt="" title="">
+                                    </span>
+                                  </div>
+
+                                  <div class="cc-txt">
+                                    <p>{{ i.title }}</p>
+                                    <span> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                  </div>
+                                </a>
+                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                <a href="#" class="cc-add-wishtlist"></a>
+                              </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">TextBook :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                           
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{textbook1.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ textbook1.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ textbook1.0.price }} <strike>{{ textbook1.0.mrp }}</strike> <span class="product-offer">{{ textbook1.0.discount_per }}%% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in textbook1|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Digest :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              
+                              &nbsp;
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{digest1.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ digest1.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ digest1.0.price }} <strike>{{ digest1.0.mrp }}</strike> <span class="product-offer">{{ digest1.0.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in digest1|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                         
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Helping Hands :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{ helping1.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ helping1.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ helping1.0.price }} <strike>{{ helping1.0.mrp }}</strike> <span class="product-offer">{{ helping1.0.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in helping1|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- #tab1 -->
+                     <h3 class="tab_drawer_heading" rel="tab2">Second Year</h3>
+                     <div id="tab2" class="tab_content">
+                        <div class="combo-wrap">
+                          <div class="container-fluid">
+                            <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Complete Combos :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              &nbsp;
+                            <div class="complete-combos">
+                              <div class="cc-item">
+                                <a href="#" class="cc-link">
+                                  <div class="cc-img">
+                                    <span>
+                                      <img src="{{ combo2.0.img.url}}" alt="" title="">
+                                    </span>
+                                  </div>
+                                  <div class="cc-txt">
+                                    <p>{{ combo2.0.title }}</p>
+                                    <span> &emsp;&emsp; {{ combo2.0.price }} &emsp;<strike>{{ combo2.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo2.0.discount_per }}% off</span></span>
+                                  </div>
+                                </a>
+                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                <a href="#" class="cc-add-wishtlist wishlisted"></a>
+                              </div>
+                              {% for i in combo2|slice:"1:" %}
+                              <div class="cc-item">
+                                <a href="#" class="cc-link">
+                                  <div class="cc-img">
+                                    <span>
+                                      <img src="{{ i.img.url}}" alt="" title="">
+                                    </span>
+                                  </div>
+
+                                  <div class="cc-txt">
+                                    <p>{{ i.title }}</p>
+                                    <span> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                  </div>
+                                </a>
+                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                <a href="#" class="cc-add-wishtlist"></a>
+                              </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">TextBook :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{textbook2.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ textbook2.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ textbook2.0.price }} <strike>{{ textbook2.0.mrp }}</strike> <span class="product-offer">{{ textbook2.0.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in textbook2|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Digest :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{digest2.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ digest2.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ digest2.0.price }} <strike>{{ digest2.0.mrp }}</strike> <span class="product-offer">{{ digest2.0.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in digest2|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                        
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Helping Hands :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{ helping2.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ helping2.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ helping2.0.price }} <strike>{{ helping2.0.mrp }}</strike> <span class="product-offer">{{ helping2.0.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in helping2|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <!-- #tab2 -->
+                     <h3 class="tab_drawer_heading" rel="tab3">Third Year</h3>
+                     <div id="tab3" class="tab_content">
+                         <div class="container-fluid">
+                              <div class="input-group">
+                 <select class="custom-select2" id="inputGroupSelect04" style="float: right;">
+                  
+                  <option selected><a href="/category9/28">Hindi</a></option>
+                  <option value="1"><a href="/category9/29">English</a></option>
+                  <option value="2"><a href="/category9/30">Marathi</a></option>
+                  <option value="3"><a href="/category9/31">History</a></option>
+                  <option value="1"><a href="/category9/32">Geography</a></option>
+                  <option value="2"><a href="/category9/33">Sanskrit</a></option>
+                  <option value="3"><a href="/category9/34">Literature</a></option>
+
+                  </select>
+  
+                  </div>
+                </div>
+                            <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Complete Combos :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              &nbsp;
+                            <div class="complete-combos">
+                              <div class="cc-item">
+                                <a href="#" class="cc-link">
+                                  <div class="cc-img">
+                                    <span>
+                                      <img src="{{ combo1.0.img.url}}" alt="" title="">
+                                    </span>
+                                  </div>
+                                  <div class="cc-txt">
+                                    <p>{{ combo1.0.title }}</p>
+                                    <span> &emsp;&emsp; {{ combo1.0.price }} &emsp;<strike>{{ combo1.0.mrp }}</strike> &emsp; <span class="product-offer">{{ combo1.0.discount_per }}% off</span></span>
+                                  </div>
+                                </a>
+                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                <a href="#" class="product-add-wishtlist wishlisted"></a>
+                              </div>
+                              {% for i in combo1|slice:"1:" %}
+                              <div class="cc-item">
+                                <a href="#" class="cc-link">
+                                  <div class="cc-img">
+                                    <span>
+                                      <img src="{{ i.img.url}}" alt="" title="">
+                                    </span>
+                                  </div>
+
+                                  <div class="cc-txt">
+                                    <p>{{ i.title }}</p>
+                                    <span> &emsp;&emsp; {{ i.price }}  &emsp; <strike>{{ i.mrp }}</strike> &emsp;    <span class="product-offer">{{ i.discount_per }}% off</span></span>
+                                  </div>
+                                </a>
+                                <span class="ap-new-arrival" style="margin-left:10px;">New</span>
+                                <a href="#" class="product-add-wishtlist"></a>
+                              </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">TextBook :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{textbook3.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ textbook3.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ textbook3.0.price }} <strike>{{ textbook3.0.mrp }}</strike> <span class="product-offer">{{ textbook3.0.discount_per }}%% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in textbook3|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Digest :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{digest3.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ digest3.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ digest3.0.price }} <strike>{{ digest3.0.mrp }}</strike> <span class="product-offer">{{ digest3.0.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in digest3|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                        <div class="all-products">
+                           <div class="container-fluid">
+                              <div class="row">
+                                 <div class="col-sm-10 col-12 ">
+                                     <h2 class="title">Helping Hands :-</h2>
+                                 </div>
+                                 <div class="col-sm-2 col-12">
+                                     <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                                 </div>
+                              </div>
+                              <div class="prosliders">
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{ helping3.0.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ helping3.0.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ helping3.0.price }} <strike>{{ helping3.0.mrp }}</strike> <span class="product-offer">{{ helping3.0.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist wishlisted"></a>
+                                 </div>
+                                 {% for i in helping3|slice:"1:" %}
+                                 <div class="ap-item">
+                                    <a href="#">
+                                       <figure class="ap-img">
+                                          <img src="{{i.img.url}}" alt="" title="">
+                                       </figure>
+                                    </a>
+                                    <div class="ap-desc">
+                                       <a href="#" class="ap-title">{{ i.title }}</a>
+                                       <!--<p class="ap-title">-blue</p>-->
+                                       <p class="ap-price">Rs.{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{ i.discount_per }}% off</span></p>
+                                    </div>
+                                    <span class="ap-new-arrival">New</span>
+                                    <a href="#" class="product-add-wishtlist"></a>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <!-- #tab3 -->
+                  </div>
+                  <!-- .tab_container -->
+               </div>
+               <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+            </div>
+
+{% endblock %}

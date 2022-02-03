@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% load static %}  {% block content %}
+<div class="content-wrap emycrt">
+                <div class="cart" style="margin-bottom: 14px;margin-top: 5px;">
+                    <div class="container-fluid">
+                        <div class="cart">
+                            <div class="container-fluid">
+                                <div class="cart-wrap">
+                                    <div class="cart-title-wrap">
+                                        <h2 class="title"> <img src="{% static 'images/mycart.png'%}" height="7%" width="7%"> My Cart :-</h2>
+                                    </div>
+                                    <div class="empty-cart">
+                                        <figure>
+                                            <img src="{% static 'images/empty-cart.png'%}" width="50%" height="50%" style="margin-top: -90px;" title="">
+                                        </figure>
+                                        <h3 class="ec-title">Your Cart is Empty</h3>
+                                        <p class="ec-txt">You have Products in your Wishlist waiting to be Yours!!</p><br>
+                                        <a href="{% url 'Ecom:index' %}" class="continue-shopping">Continue shopping</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="scroll" style="display: none;"><img src="imgs/back-to-top.png" alt="Back to Top" title="Back to Top"></a>
+        </div>
+{% endblock %}

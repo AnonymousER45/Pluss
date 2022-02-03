@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Customer, Address
+from . models import Customer, Address,OTP,OTPmail,Pincode,Coupon,Attendance
 from .forms import CustomerCreationForm
 from django.contrib.auth.admin import UserAdmin
 from django.forms import TextInput
@@ -21,14 +21,14 @@ class CustomerAdmin(UserAdmin):
     )
 
     list_display = ['id', 'username', 'first_name', 'last_name',
-                    'phone_number', 'email', 'is_staff', 'is_superuser' ]
+                    'phone_number', 'email', 'is_staff', 'is_superuser','pincode' ]
     search_fields = ('email', 'username')
     ordering = ('email',)
     list_filter = ['groups',]
     formfield_overrides = {
         models.IntegerField: {'widget': TextInput(attrs={'size':'20'})},
     }
-    
+
 
 """
 class CustomerAdmin(UserAdmin):
@@ -42,7 +42,7 @@ class CustomerAdmin(UserAdmin):
         (None, {
             "fields": (
                 ('email','password', 'username', 'phone_number', 'is_staff', 'is_superuser','groups' )
-                
+
             ),
         }),
     )
@@ -52,15 +52,24 @@ class CustomerAdmin(UserAdmin):
     formfield_overrides = {
         models.IntegerField: {'widget': TextInput(attrs={'size':'20'})},
     }
- """   
+ """
 
 class AddressAdmin(admin.ModelAdmin):
     list_display = ("id","customer_id", "name","city","line1","line2","line3","addtype","addpincode")
     list_filter = ['addtype','addpincode','city']
 
 
+class AttendanceAdmin(admin.ModelAdmin):
+    emp_id = Customer.objects.filter(is_staff=True)
+    list_filter = ['date','emp_id']
+
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Address, AddressAdmin)
- 
-    
+admin.site.register(Attendance,AttendanceAdmin)
+admin.site.register(OTP)
+admin.site.register(OTPmail)
+admin.site.register(Pincode)
+admin.site.register(Coupon)
+
+
 

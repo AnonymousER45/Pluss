@@ -1,0 +1,117 @@
+{% extends 'base.html' %} {% load static %} {% block extrahead %}
+
+  <title>PLUSCROWN PRIVATE LIMITED </title>
+   {% endblock %} {% block content %}
+   <div class="content-wrap ">
+     <div class="container-fluid">
+        <div class="address-wrapper">
+          <div class="address-detail">
+            <!--<div class="">
+              <lottie-player src="anim/65322delivery.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;margin: auto; position: relative;" loop autoplay></lottie-player>
+            </div> -->
+            <div class="cart-title-wra">
+            <div class="tab_container" style="background-color: white; width: 100%; padding: 15px; border: .75px solid grey;">
+              <h1 class="title"><img src="{% static 'images/deliverytruck.png' %}" height="5%" width="5%" style="margin-top:-7px;"> Delivery Address :-</h1>
+              <!-- <p class="da-subtitle">We will deliver your Order to this Address <span>(Click on the block containing the address yo want to select)</span></p> -->
+              <hr class="deliverybookruler">
+
+              <div class="addresss-wrap">
+              <div class="row" style="margin-top:3rem">
+                {% for address in addresses %}
+                <div class="col-md-6">
+                  <div class="aw-item">
+                    <div class="row">
+
+                      <div class="col-md-4">
+                        <div style="text-align:center; margin-top: -12px;">
+                          <label>
+                            <input type="checkbox" class="chk" name="checkbox" id="checkbox{{address.id}}"{% if address.isdeafault %}checked{% endif %} {% if address.addpincode == 421501 or   address.addpincode == 421502  or address.addpincode == 421505 %} {% else %}disabled {% endif %} style="margin: 20px 0 0 10px; height: 20px;width: 20px;">
+                            <img src="{% static 'imgs/building.png' %}" width="100%" style="margin-top: 6px;max-height: 250px;max-width:250px" >
+                          </label>
+                        {% comment %} <img src="{%static 'imgs/building.png' %}" width="100%" height="100%" style="margin-top: 30px;" > {% endcomment %}
+                      </div>
+                      </div>
+                      <div class="col-md-8  col-xs-10">
+                        <div style="display: flex;align-items:center;justify-content:space-between;">
+                          <label class="aw-name">{{address.name}}</label>
+
+                            <span style="padding-right: 1rem;">
+                              <a href="/edit_addresss/{{address.id}}" class="aw-edit"></a>&ensp;
+                              <a onclick="deleteaddress({{address.id}})" href="#" class="aw-delete"></a>
+                            </span>
+                        </div>
+                        <p class="aw-avail">{% if address.addpincode == 421501 or address.addpincode == 421502  or address.addpincode == 421505 %} <p class="aw-avail">Delivery available here.</p> {% else %}  <p class="aw-notavail"> Delivery  not available here.</p> {% endif %}
+                        <p class="aw-add">{{address.line1}}, <span>{{address.line2}}, </span> <span>{{address.line3}},</span> <span>{{address.city}} - {{address.addpincode}}</span></p>
+                        <p class="aw-phone">Phone: {{address.number}}</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% empty %}
+                                <div class="empty-cart">
+                                        <figure>
+                                            <img src="{% static 'images/emptyaddress.png'%}" width="100%" height="100%" style="margin-top: -90px;" title="">
+                                        </figure>
+                                        <br>
+                                        <h3 class="ec-title"> Please Add Address</h3>
+                                    </div>
+
+                {% endfor %}
+
+              </div>
+              {% comment %} <div style="text-align:center;margin-top: 15px">
+                <a href="#" class="confirm-order">Confirm Order</a>
+              </div> {% endcomment %}
+              <!-- link below button to delivery-address.html -->
+              <a href="/add_address"><img class="cross-modal" src="{% static 'imgs/location-1.png' %}" height="12%" width="12%" style="margin-top: 2px;"></a>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png' %}" alt="Back to Top" title="Back to Top"></a>
+    </div>
+</div>
+
+<script>
+{% comment %} function deleteaddress(address_id){
+      confirm('Are you sure you want to delete this?');
+      $.ajax({
+            type: 'POST',
+            url: '/django/api/remove_address/',
+            data: {
+                "add_id": address_id,
+            },
+            success: function(msg){
+            alert('Address Deleted Successfully');
+            location.reload();
+            }
+        });
+      //element.parentNode.parentNode.parentNode.parentNode.remove();
+      console.log("Success")
+
+
+    } {% endcomment %}
+     function deleteaddress(address_id){
+      var r = confirm('Are you sure you want to delete this?');
+      if ( r == true){
+      $.ajax({
+            type: 'POST',
+            url: '/django/api/remove_address/',
+            data: {
+                "add_id": address_id,
+            },
+            success: function(msg){
+            //alert('Address Deleted Successfully');
+            location.reload();
+            }
+        });
+      //element.parentNode.parentNode.parentNode.parentNode.remove();
+      console.log("Success")
+    }
+    }
+</script>
+   {% endblock %}

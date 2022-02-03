@@ -1,0 +1,125 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="content-wrap cntus">
+                <div class="container-fluid">
+                  
+                    <div class="payment-wrapper">
+                      
+                        <div class="tab_container tab_container_white">
+                      
+                            <div id="tab2" class="tab_content">
+                                <h2 class="title-left" style="margin-top: 14px; margin-bottom:14px;"><img src="{% static 'imgs/secure-payment.png'%}" height="30px" width="30px"> Personal Information :-</h2>
+
+                                <hr class="presonalinforuler">
+                                <br>
+                                <form class="new-address">
+                                    <div class="col-xs-12">
+                                        <input type="text" name="phone" placeholder="Phone Number" readonly="readonly">
+                                        <span class="fa fa-pencil field-icon" data-toggle="modal" data-target="#myModal"></span>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <input type="text" name="name" placeholder="Name">
+                                        <!-- <span class="fa fa-pencil field-icon"></span> -->
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <input type="text" name="email" placeholder="Email Address" disabled="disabled">
+                                        <!-- <span class="fa fa-pencil field-icon"></span> -->
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <input id="password-field" type="password" name="Password" placeholder="Password">
+                                        <span class="fa fa-pencil field-icon" data-toggle="modal" data-target="#myModal1"></span>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <input type="text" name="birthday" placeholder="Birthday(dd/mm/yy)" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
+                                        <!-- <span class="fa fa-pencil field-icon"></span> -->
+                                    </div>
+                                    <div class="col-xs-12 gender-tab">
+                                        <label class="gender-title">Gender</label>
+                                        <input type="radio" name="addresstype" value="home"> Male
+                                        <!-- <label class="select-add-type"> Male</label> -->
+                                        <input type="radio" name="addresstype" value="office"> Female
+                                        <!-- <label class="select-add-type"> Female</label> -->
+                                    </div>
+                                    <div class="col-xs-12 login-button" style="margin-top:-8px;">
+                                        <input type="submit" name="signup" value="Save Details">
+                                    </div>
+                                </form>
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <div style="text-align:right">
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="otp-wrap">
+                                                    <h3 class="cd-title">Enter Phone Number</h3>
+                                                    <form id="otp_form">
+                                                        <input type="text" name="phone" placeholder="Enter Phone Number">
+                                                        <div style="text-align:right">
+                                                        <a href="#">Resend OTP</a>
+                                                        </div>
+
+                                                        <div class="login-button">
+                                                            <input type="submit" value="Proceed">
+                                                        </div>
+                                                    </form>
+
+                                                    <script>
+                                                      $('#otp_form').submit(function(e){
+                                                        e.preventDefault()
+                                                        $('.otp-wrap').show();
+                                                        $('[name="phone"]').attr('disabled',true);
+
+                                                      })
+                                                    </script>
+
+                                                </div>
+                                                <div class="otp-wrap" style="display:none">
+                                                    <h3 class="cd-title">Enter OTP for New Phone Number</h3>
+                                                        <input type="text" name="otp" placeholder="Enter otp-wrap">
+
+                                                    <form>
+                                                        <div class="login-button">
+                                                            <input type="submit" name="sendotp" value="Send OTP for Varification">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="myModal1" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <div class="otp-wrap">
+                                                    <h3 class="cd-title">Change Password</h3>
+                                                    <form class="change-passwd">
+                                                        <div class="col-xs-12">
+                                                            <input id="password-field2" type="password" name="Password" placeholder="Enter Current Password">
+                                                            <span toggle="#password-field2" class="fa fa-eye-slash fa-fw field-icon toggle-password"></span>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <input id="password-field3" type="password" name="Password" placeholder="Enter New Password">
+                                                            <span toggle="#password-field3" class="fa fa-eye-slash fa-fw field-icon toggle-password"></span>
+                                                        </div>
+                                                        <div class="login-button">
+                                                            <input type="submit" name="sendotp" value="Save Changes">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+            </div>
+
+    {% endblock %}

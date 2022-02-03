@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="content-wrap">
+      {% comment %} <div class="cart-menu">
+        <ul class="cm-list">
+          <li><a href="#">Order<br>Confirmation</a></li>
+          <li><a href="#">Address</a></li>
+          <li class="active"><a href="#">Payment</a></li>
+        </ul>
+      </div> {% endcomment %}
+      <br>
+      <br>
+      <div class="cart" style="max-width:800px;">
+        <div class="container-fluid">
+          <div class="order-successful-popup">
+            <figure>
+                <a href="/">
+              <img src="{% static 'imgs/order-placed.jpg'%}"></a>
+            </figure>
+            <p class="order-failed" style="padding-bottom: 23px;margin-top: -12px;"><span>Order Failed , Please Try again Later.... </span></p>
+          </div>
+
+        </div>
+        <br>
+          <br>
+      </div>
+      <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+    </div>
+    <script>
+         var timer = setTimeout(function() {
+             window.location='/'
+         }, 3000);
+    </script>
+
+
+</div>
+{% endblock %}

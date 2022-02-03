@@ -1,0 +1,624 @@
+5
+{% extends 'base.html' %} {% load static %} {% block extrahead %}
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!--Css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+{% endblock %} {% block content %}
+
+    <div class="content-wrap  crt mycrt" style="margin-top:-18px;">
+      <div class="cart-menu">
+        <ul class="cm-list">
+          <li class="active"><a href="#">Order<br>Confirmation</a></li>
+          <li><a href="#">Address</a></li>
+          <li><a href="#">Payment</a></li>
+        </ul>
+      </div>
+      <div class="cart">
+        <div class="container-fluid">
+          <div class="cart-wrap">
+            <div class="cart-title-wrap">
+              <h1 class="title"> <img src="{%static 'images/mycart.png' %}" height="7%" width="7%"> MyCart :-</h1>
+            </div>
+
+            <div class="cart-items-wrap">
+              {% for item in products %}
+
+                <div class="cart-item">
+                  <div class="ci-img">
+                    <figure>
+                    <img src="{{ item.Product.img.url }}">
+                    </figure>
+                  </div>
+                  <div class="ci-name-quantity" style="padding:0">
+                    <div class="ci-name"><p style="font-size: 22px;"><a href="{% url 'Ecom:Productdetails' item.Product.id  %}">{{ item.Product.title }}</a></p></div>
+                    <p class="wl-price" style="padding-top: 0px;
+    margin-bottom: 0px;
+}">Rs {{ item.Product.price }} <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
+                    <p class="product-terms" style="padding-bottom: 14px;">Price inclusive of all Taxes</p>
+                    <div class="ci-quantity">
+                      <div class="qtySelector text-center">
+                        <i class="fa fa-minus decreaseQty"></i>
+                        <input type="text" class="qtyValue" value="{{item.product_quan}}" />
+                        <i class="fa fa-plus increaseQty"></i>
+                      </div>
+                    </div>
+
+<!--                  <--  <form class="select-gift" style="margin-top: 20px;-->
+<!--    margin-bottom: -10px;"> -->
+<!--                      {% if item.is_gift %}-->
+<!--                        <div style="display:flex;align-items:center;">-->
+<!--                          <div style="margin-right: 10px">-->
+<!--                              <label >-->
+<!--                              <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift1" onclick="giftchange{{ forloop.counter }}()" checked=true>-->
+<!--                                Send this item as a Gift{{ forloop.counter }}-->
+<!--                              </label>-->
+<!--                            </div>-->
+<!--                          <div>-->
+<!--                          <div id="gift{{ forloop.counter }}" >-->
+<!--                            <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">-->
+<!--                          </div>-->
+<!--                          <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal"style="    margin-top: -10px; margin-bottom: 12px;-->
+<!--" >-->
+<!--                            <img class="" src="{%static 'imgs/gift.png'%}" height="50px" style="    margin-top: -10px;">-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      {% else %}-->
+<!--                       <div style="display:flex;align-items:center;">-->
+<!--                          <div style="margin-right: 10px">-->
+<!--                            <label >-->
+<!--                            <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift{{ forloop.counter }}" onclick="giftchange{{ forloop.counter }}()">-->
+<!--                              Send this item as a Gift-->
+<!--                            </label>-->
+<!--                          </div>-->
+<!--                          <div>-->
+<!--                        <div id="gift{{ forloop.counter }}" >-->
+<!--                          <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">-->
+<!--                        </div>-->
+<!--                        <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal{{ forloop.counter }}" style="display:none;">-->
+<!--                          <img class="" src="{%static 'imgs/gift.png'%}" height="30px" style="    margin-top: -10px;" >-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                          </div>-->
+<!--                      {% endif %}-->
+
+                      <!-- <div style="margin-top: -40px;margin-left: 180px;">
+
+                      </div>
+                      <div>
+
+                      </div> -->
+                    <!--</form>-->
+                    <hr class="ruler" style="margin-top: 36px;">
+                       <div style="display:flex;align-items:center;justify-content:space-between">
+                    <div class="addwishlistdiv">
+                        <!--<a href="#" onclick=addtoWishlistFunction({{ user.id }},{{ product.id }}) >Add to WishList </a>-->
+                    <label onclick=addToWishlistFunction({{ user.id }},{{ item.Product.id }})>Add to WishList</label>
+                    </div>
+                    <div class="ci-remove">
+                      <a href="{{request.path}}" class="ci-remove-link"><div class="recyclebin"><img src="{%static 'imgs/bin.png'%}" height="20px" onclick="deleteItemFromCart({{user.id}},{{item.Product.id}},this)"></div></a>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="item-remove-add-link">
+              <a href="/" class="add-more-link"><i class="fa fa-plus" aria-hidden="true"></i> Add More Products</a>
+              <a href={{request.path}} class="remove-item" onclick="removeAllFromCart({{user.id}})">Remove All</a>
+            </div>
+            <div class="order-confirm text-center ">
+              <a href="#" onclick=proceedToConfirm({{cart_total_price}}) class="confirm-order" data-toggle="modal" data-target="#confirm-order-modal">Proceed to Confirm</a>
+            </div><br>
+          </div>
+          <!-- <div class="cart-details">
+            <div class="card-details-wrap">
+              <div class="gift-odrder">
+                <form>
+                  <input type="checkbox" name="gift" value="Gift">
+                  <label for="gift"> This Order contains gift</label>
+                </form>
+              </div>
+              <div class="order-details">
+                <h2 class="cd-title">Order Details</h2>
+                <div>
+                  <div class="cd-item">
+                    <p>Cart Total</p>
+                    <p>Rs 1200.00</p>
+                  </div>
+                  <div class="cd-item">
+                    <p>Cart Savings</p>
+                    <p>- Rs 200.00</p>
+                  </div>
+                  <div class="cd-item">
+                    <p>Coupon Savings</p>
+                    <p>0</p>
+                  </div>
+                  <div class="cd-item">
+                    <p>Delivery</p>
+                    <p class="del-charges">Free</p>
+                  </div>
+                  <div class="cd-item">
+                    <p>Gift</p>
+                    <p>Rs 50</p>
+                  </div>
+                </div>
+                <div class="order-total">
+                  <div class="cd-item">
+                    <p>Amount</p>
+                    <p>Rs 1030</p>
+                  </div>
+                </div>
+                <div class="cart-coupon">
+                  <h2 class="cd-title">Apply Coupon</h2>
+                  <form>
+                    <input type="text" name="Coupon" placeholder="Type the Coupon Code">
+                    <input type="submit" name="Apply" value="Apply">
+                  </form>
+                  <p class="coupon-status">No Coupon Applied Yet</p>
+                </div>
+                <div class="cd-item">
+                  <p>Coupon savings</p>
+                  <p>- Rs 100</p>
+                </div>
+                <div class="order-total">
+                  <div class="cd-item">
+                    <p class="total-amt">Total Amount</p>
+                    <p class="total-amt">Rs. 900.00</p>
+                  </div>
+                </div>
+                <div class="order-confirm">
+                   <a href="#" class="confirm-order">Confirm Order</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cart-details">
+            <div class="card-details-wrap">
+              <div class="gift-odrder">
+                <h2 class="cd-title">Add Gift Message</h2>
+                <form class="gift-msg">
+                  <textarea placeholder="Type Your Message"></textarea>
+                  <input type="text" name="from" placeholder="From:">
+                </form>
+                <h2 class="cd-title">Add-ons</h2>
+                <form class="gift-addons">
+                  <input type="checkbox" name="giftbag" value="giftbag">
+                  <label for="giftbag" > Add Gift bag / Box<span>Charges - 30rs</span></label>
+                </form>
+                <figure class="gift-img">
+                  <img src="imgs/gift.png" alt="" title="">
+                </figure>
+                <a href="#" class="save-details">Save Details</a>
+              </div>
+            </div>
+          </div> -->
+
+
+        </div>
+      </div>
+      <a href="#" id="scroll" style="display: none;"><img src="{%static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+    </div>
+
+
+</div>
+  {% for item in products %}
+  <div class="modal fade" tabindex="-1" role="dialog" id="gift-modal{{ forloop.counter }}">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="height: 49px">
+              <h4 class="modal-title">
+                Gift Details {{ forloop.counter }}
+                <button
+                  type="button"
+                  class="close cross-modal"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  {% comment %} style="margin-top: -10px" {% endcomment %}
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </h4>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="giftbox">
+                <img
+                  src="{%static 'imgs/5209259.jpg'%}"
+                  width="85%"
+                  height="35%"
+                  style="
+                    padding-left: 20px;
+                    margin: auto;
+                    position: relative;
+                    text-align: center;
+                    margin-top:  -15px;
+                  ">
+                </div>
+                <div class="gift-odrder" style="padding-top:0px">
+                  <h2 class="cd-title" style="font-size:18px;margin-bottom:15px">Add Gift Message :-</h2>
+                  <form class="gift-msg">
+                    <textarea name="gift_message{{forloop.counter}}" placeholder="Type Your Message"></textarea>
+                    <input type="text" name="from{{forloop.counter}}" placeholder="From:" />
+                  </form>
+                  <form class="gift-addons">
+                    <input
+                      type="checkbox"
+                      name="giftbag{{forloop.counter}}"
+                      value="giftbag"
+                      style="margin-top: 6px; height:20px;width:15px;"
+                    />
+                    &ensp;<img
+                      src="{%static 'imgs/gift.png'%}"
+                      height="35px"
+                      width="35px"
+                      style="margin-top: 4px; float: right"
+                    />
+                    <label for="giftbag" style="font-size:16px">
+                      Add Gift bag / Box <span>Charges - 30rs</span>
+                    </label>
+                  </form>
+                     <div style="text-align:center">
+                        <a href="#" class="save-details" data-dismiss="modal">Save Details</a>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+<!-- <div class="modal fade" tabindex="-1" role="dialog" id="gift-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Gift Details
+          <button type="button" class="close cross-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <img src="{%static 'imgs/5209259.jpg'%}" width="85%" height="85%"style="margin: auto; position: relative;text-align: center;">
+          <div class="gift-odrder">
+            <h2 class="cd-title">Add Gift Message</h2>
+            <form class="gift-msg">
+              <textarea placeholder="Type Your Message"></textarea>
+              <input type="text" name="from" placeholder="From:">
+            </form>
+            <h2 class="cd-title">Add-ons</h2>
+            <form class="gift-addons">
+              <input type="checkbox" name="giftbag" value="giftbag">
+              <label for="giftbag" > Add Gift bag / Box &nbsp;
+                <img src="{%static 'imgs/gift.png'%}" height="10%" width="10%" style="margin-top: -5px;">
+                <span>Charges - 30rs</span>
+              </label>
+            </form>
+            <a href="#" class="save-details">Save Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="confirm-order-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Confirm Order
+          <button type="button" class="close cross-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="order-details">
+                <hr style="margin-top: -34px; margin-bottom:6px;">
+                <h2 class="cd-title">Order Details</h2>
+                <hr style="margin-top: 1px;margin-top: 4px;">
+                <div>
+                  <div class="cd-item">
+                    <p>Cart Total</p>
+                    <p>Rs {{cart_total_mrp}}</p>
+                  </div>
+                  <div class="cd-item">
+                    <p>Cart Savings</p>
+                    <p>- Rs {{cart_total_savings}}</p>
+                  </div>
+                  <!--<div class="cd-item">-->
+                  <!--  <p>Coupon Savings</p>-->
+                  <!--  <p id="test4">0</p>-->
+                  <!--</div>-->
+                  <div class="cd-item">
+                    <p>Delivery</p>
+                    <p class="del-charges">Free</p>
+                  </div>
+                  <!--<div class="cd-item">-->
+                  <!--  <p>Gift</p>-->
+                  <!--  <p class="gift-charges">Rs 0</p>-->
+                  <!--</div>-->
+                </div>
+<!--                <div class="coupon-box" data-toggle="modal" data-target="#coupon-modal" style="height=5rem;">-->
+                  <!-- <h2 class="cd-title">Apply Coupon</h2>
+<!--                  <form>-->
+<!--                    <input type="text" name="Coupon" placeholder="Type the Coupon Code">-->
+<!--                    <input type="submit" name="Apply" value="Apply">-->
+<!--                  </form>-->
+<!--                  <p class="coupon-status">No Coupon Applied Yet</p> -->
+<!--                  <img src="{%static 'imgs/couponicon.png'%}" width="10%" height="10%" style="width: 15%; height: 60px;margin-top: -2px;">-->
+<!--                  <label id="test2" style="margin-left: 2%;">Apply Coupons</label>-->
+<!--                  <div class="forwarddiv">-->
+<!--                  <img src="{% static 'imgs/forwardicon.png' %}" id ="forward" class="forward frwdimg" width="8%" height="8%" style="height: 40px;width: 10%;margin-top: -48px;">-->
+<!--                  </div>-->
+<!--                  <div class="crossdiv">-->
+<!--                  <img src="{% static 'imgs/crosssincircle.png' %}" id ="cancel" class="cancelforward" onclick="cancel()" class="forward" width="8%" height="8%" style="height: 30px;-->
+<!--    width: 5%;-->
+<!--    margin-top: -44px;-->
+<!--    margin-left: 482px;-->
+<!--    display: none;-->
+<!--}">-->
+<!--</div>-->
+
+<!--                </div>-->
+                <!--{% comment %} <div class="cd-item">-->
+                <!--  <p>Coupon savings</p>-->
+                <!--  <p>- Rs 0</p>-->
+                <!--</div> {% endcomment %}-->
+                <div class="order-total">
+                  <div class="cd-item">
+                    <p class="total-amt">Total Amount</p>
+                    <p class="total-amt">Rs. {{cart_total_price}}</p>
+                  </div>
+                  <hr style="margin-top: 1px;">
+                </div>
+                <div class="order-confirm" style="text-align:center">
+                   <a href="/myaddressbook" onclick="createOrder({{user.id}})" class="confirm-order">Confirm Order</a>
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="coupon-modal">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" style="margin:15px">
+      <div class="modal-header">
+        <h4 class="modal-title">Apply Coupons
+          <button type="button" class="close cross-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="anime" style="text-align:center">
+          <img src="{% static 'anim/discount.gif'%}" background="transparent" speed="1" style="width: 150px; height: 150px; " >
+          </div>
+          <div class="cart-coupon">
+
+              <input type="text" id="test3" name="Coupon" placeholder="Type the Coupon Code">
+              <button id="applybtn" name="Apply">Apply</button>
+
+            <p id="test1">No Coupon Applied Yet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+
+  function save_details() {
+    $('')
+  }
+
+    function giftchange1(){
+      var check1 = document.getElementById('selectgift1');
+      if(check1.checked == false){
+        document.getElementById('gift1').style.display = "block";
+        document.getElementById('gift11').style.display = "none";
+      }else if(check1.checked == true){
+        document.getElementById('gift1').style.display = "none";
+        document.getElementById('gift11').style.display = "block";
+      }
+    }
+
+
+
+    function giftchange2(){
+      var check2 = document.getElementById('selectgift2');
+
+      if(check2.checked == false){
+        document.getElementById('gift2').style.display = "block";
+        document.getElementById('gift22').style.display = "none";
+      }else if(check2.checked == true){
+        document.getElementById('gift2').style.display = "none";
+        document.getElementById('gift22').style.display = "block";
+      }
+    }
+
+    function giftchange3(){
+      var check3 = document.getElementById('selectgift3');
+
+      if(check3.checked == false){
+        document.getElementById('gift3').style.display = "block";
+        document.getElementById('gift33').style.display = "none";
+      }else if(check3.checked == true){
+        document.getElementById('gift3').style.display = "none";
+        document.getElementById('gift33').style.display = "block";
+      }
+    }
+
+    function wishList(product_id){
+      window.location = '/mycart'
+      addToWishList(product_id);
+    }
+
+    function addToWishlistFunction(user_id,product_id){
+        console.log('wishlist');
+        // console.log(user_id);
+        console.log(product_id);
+        $.ajax({
+                type: 'POST',
+                url: '/django/api/add_to_wishlist/',
+                data: {
+                    "product_id": product_id,
+                    "id": user_id,
+                },
+                success: function(data) {
+                    alert("Item added to wishlist");
+                }
+            });
+
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/django/api/add_to_wishlist/',
+        //     data: {
+        //         "id": user_id,
+        //         "product_id": product_id,
+        //     },
+        //     success: function(msg){
+        //         console.log('Item Added to wishlist');
+        //     }
+        // });
+    }
+    function deleteItemFromCart(user_id,product_id,element){
+      var r = confirm('Are you sure you want to delete this?');
+      if (r == true){
+      $.ajax({
+            type: 'POST',
+            url: '/django/api/remove_from_cart/',
+            data: {
+                "id": user_id,
+                "product_id": product_id
+            },
+            success: function(msg){
+            //alert('Deleted from Cart');
+            }
+        });
+      element.parentNode.parentNode.parentNode.parentNode.remove();
+      console.log("Success")
+      }
+
+    }
+
+    function removeAllFromCart(user_id){
+      var r = confirm('Are you sure you want to delete all items?');
+      if (r == true){
+      $.ajax({
+            type: 'POST',
+            url: '/django/api/empty_cart/',
+            data: {
+                "id": user_id,
+            },
+            success: function(msg){
+            console.log('Deleted All items from Cart');
+            }
+      });
+      const collection = document.querySelectorAll('.cart-item');
+      for (let i = 0; i < collection.length; i++) {
+          collection[i].remove();
+        }
+      }
+    }
+
+    function proceedToConfirm(cart_total_price){
+      console.log("proceedToConfirm");
+      {% for item in products %}
+        console.log("{{forloop.counter}}");
+       if (document.getElementsByName("selectgift{{forloop.counter}}")[0].checked){
+        var giftPrice = 50;
+        console.log("dsgvdhg {{forloop.counter}}");
+        var msg = document.getElementsByName("gift_message{{forloop.counter}}")[0];
+        var from_ = document.getElementsByName("from{{forloop.counter}}")[0];
+        if (document.getElementsByName('giftbag{{forloop.counter}}')[0].checked){
+          giftPrice = giftPrice +30;
+          console.log(giftPrice);
+        }
+        }
+        else{
+         var giftPrice = 0;
+       }
+
+      document.getElementsByClassName("gift-charges")[0].innerText = "Rs "+giftPrice;
+      // total = Number(document.getElementsByClassName("total-cart-price")[0].innerText.split(" ")[1])+giftPrice;
+      total = cart_total_price + giftPrice
+      document.getElementsByClassName("total-cart-price")[0].innerText = "Rs "+total.toFixed(2);
+      document.getElementsByClassName("total-amt")[1].innerText = "Rs "+total.toFixed(2);
+      {% endfor %}
+    }
+
+    function createOrder(user_id){
+      console.log(user_id)
+      let isgift = false;
+      let gift_box = false;
+      let msg = ''
+      let from_ = ''
+      if (document.getElementsByName("selectgift")[0].checked){
+        isgift = true;
+        msg = document.getElementsByClassName("gift-msg")[0].firstElementChild.value;
+        from_ = document.getElementsByClassName("gift-msg")[0].lastElementChild.value;
+        if (document.getElementsByName('giftbag')[0].checked){
+          gift_box = true;
+        }
+      }
+    }
+      /*
+      $.ajax({
+            type: 'POST',
+            url: '/django/api/partial_order/',
+            data: {
+              "id": user_id,
+              "isgift": isgift,
+              "gift_message": msg,
+              "gift_from": from_,
+              "gift_box": gift_box
+              },
+            success: function(data){
+              removeAllFromCart(user_id);
+              var link = document.querySelectorAll(".confirm-order")[1];
+              link.setAttribute("href",`/myaddressbook/${data.id}`);
+              // alert(`/myaddressbook/${data.order_id}`)
+              // window.location = `/myaddressbook/${data.order_id}`;
+            // alert('successful');
+            }
+        });
+        */
+
+  </script>
+  <script>
+$(document).ready(function(){
+  $("#applybtn").click(function(){
+    var str = $("#test3").val();
+  	if(str == "First100"){
+    $("#test1").text("Coupon Applied successfully");
+    $('#coupon-modal').hide();
+    $("#test2").text("Coupon Applied successfully");
+    $("#test4").text("- Rs {{cart_total_savings}}");
+    console.log("dbhchjzxbjzx")
+    $('#forward').hide();
+    $('#cancel').show();
+    } else{
+    $("#test1").text("NO Coupon Applied");
+    console.log("dbhc1616hjzxbjzx")
+    }
+  });
+
+});
+
+function cancel(){
+
+  location.reload();
+}
+
+</script>
+
+{% endblock %}

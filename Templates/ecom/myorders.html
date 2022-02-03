@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %} {% load ecom_filters %}  {% block content %}
+        <div class="main">
+
+            <div class="content-wrap cntus">
+                <div class="container-fluid">
+
+                    <div class="payment-wrapper">
+
+                        <div class="tab_container tab_container_white">
+                            <div id="tab1" class="tab_content">
+                            <br>
+                                <h2 class="title-center" style="text-align:left"><img src="{% static 'imgs/orders.png'%}" width="50px" height="50px"> My Orders :-</h2>
+                                <hr class="orderruler">
+                                <div class="selectoption-button">
+                                    <div class="input-grou" style="text-align:right; padding-top:5px;">
+                                        <select style="margin:auto;max-width: 279px;" class="custom-select" id="inputGroupSelect04" style="margin-left: 0;">
+
+                                            <option selected>Monthly</option>
+                                            <option value="1">Quaterly</option>
+                                            <option value="2">Half-Yearly</option>
+                                            <option value="3">Yearly</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+
+
+                               {% for order in orders %}
+                                <div class="filled-orders">
+                                    <div class="fo-item">
+                                        <p class="order-number">Order ID : {{order.id}}</p>
+                                        <div>
+                                            <a href="{% url 'Ecom:orders_details' order.id %}" class="fo-wrap">
+                                                <span class="fo-img">
+                                                    <img src="{{ order.products | img }}" alt="" title="">
+                                                </span>
+                                                <span class="fo-del-status">
+                                                    <p class="order-title" style="font-size: 24px;"><b> {{ order.products|truncatechars:30 }} </b></p>
+                                                    <p class="fods-title"> {{ order.get_order_status_display }} </p>
+                                                    {% if order.order_completed %}
+                                                      <p>Delivered on <span>{{order.date_of_delivery | date}}</span></p>
+                                                    {% else %}
+                                                      <p>To be Delivered on <span>{{order.date_of_delivery}}</span></p>
+                                                    {% endif %}
+                                               </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% empty %}
+                                <div class="empty-cart">
+                                        <figure>
+                                            <img src="{% static 'images/emptyorder.png'%}" width="100%" height="100%" style="margin-top: -90px;" title="">
+                                        </figure>
+                                        <br>
+                                        <h3 class="ec-title">No Orders Placed</h3>
+                                        <br>
+                                        <a href="{% url 'Ecom:index' %}" class="continue-shopping">Continue shopping</a>
+                                    </div>
+
+                            {% endfor %}
+
+
+                            </div>
+                        </div>
+                        <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+{% endblock %}

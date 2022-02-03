@@ -6,5 +6,6 @@ from .models import Customer
 class CustomerCreationForm(UserCreationForm):
   class Meta:
         model = Customer
-        feilds = "__all__"
+        fields = ("username", "phone_number", "email", "password", "pincode")
         exclude = ()
+
