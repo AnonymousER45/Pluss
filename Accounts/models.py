@@ -10,17 +10,10 @@ Address_type = (
     ('W', 'Office/Work'),
     ('O', 'Other')
 )
-Gender_type = (
-    ('M','MALE'),
-    ('F','FEMAlE'),
-    ('O','Other')
-    )
 # Custom User Which Can Login using Email address and password
 class Customer(AbstractUser):
     phone_number = models.IntegerField(null=True, blank=True)
     pincode = models.IntegerField(blank=False,null=False,default=421501)
-    dob = models.DateTimeField(blank=True,default = datetime.now)
-    gender = models.CharField(max_length=8,blank=True,choices=Gender_type,default='Other')
     # email address is Unique for every user
     email = models.CharField(max_length=50,blank=False,null=False,unique=True)
 

@@ -20,7 +20,7 @@
   <title>PLUSCROWN PRIVATE LIMITED </title>
    {% endblock %} {% block content %}
 
-<div class="content-wrap prddetl">
+<div class="content-wrap prddetl">     
   <div class="container-fluid" >
     <div class="myaccountbox" style="width:98rem;margin:auto;">
       <br>
@@ -74,11 +74,10 @@
         </div>
       </div>
     </div> {% endcomment %}
+      
 
-
-    <div class="row">
+    <div class="row"> 
       <div class="col-md-4 col-xs-6">
-        {% if user.is_authenticated %}
         <div class="box">
           <a href="/myorders">
             <div class="row">
@@ -91,21 +90,7 @@
           </div>
           </a>
         </div>
-        {% else %}
-        <div class="box">
-          <a href="{% url 'Login' %}">
-            <div class="row">
-            <div class="col-md-4 col-xs-12 imgs">
-              <img src="{% static 'imgs/orders.png'%}" width="100%" height="100%">
-            </div>
-            <div class="col-md-8 col-xs-12 text-center txtmyords">
-              <p>My Orders</p>
-            </div>
-          </div>
-          </a>
-        </div>
-        {% endif %}
-      </div>
+      </div> 
       <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/personal_info">
@@ -121,7 +106,6 @@
         </div>
       </div>
       <div class="col-md-4 col-xs-6">
-        {% if user.is_authenticated %}
         <div class="box">
           <a href="/addressbook">
           <div class="row">
@@ -134,21 +118,7 @@
           </div>
           </a>
         </div>
-        {% else %}
-        <div class="box">
-          <a href="{% url 'Login' %}">
-          <div class="row">
-            <div class="col-md-4 col-xs-12 imgs">
-              <img src="{% static 'imgs/addressbook.png'%}" width="100%" height="100%">
-            </div>
-            <div class="col-md-8 col-xs-12 text-center">
-              <p>Address Book</p>
-            </div>
-          </div>
-          </a>
-        </div>
-        {% endif %}
-      </div>
+      </div> 
       <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/aboutus">
@@ -162,7 +132,7 @@
           </div>
           </a>
         </div>
-      </div>
+      </div> 
       <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/termsandcondition">
@@ -192,10 +162,10 @@
         </div>
       </div>
       {% comment %}</div>
-       <br>
+       <br> 
 
       <div class="row"> {% endcomment %}
-
+      
         <div class="col-md-4 col-xs-6">
         <div class="box">
           <a href="/ordercancelation">
@@ -225,7 +195,6 @@
         </div>
         </div>
         <div class="col-md-4 col-xs-6">
-        {% if user.is_authenticated %}
         <div class="box">
           <a href="{% url 'logout' %}">
             <div class="row">
@@ -238,24 +207,10 @@
             </div>
           </a>
         </div>
-        {% else %}
-        <div class="box">
-          <a href="{% url 'Login' %}">
-            <div class="row">
-              <div class="col-md-4 col-xs-12 imgs2">
-                &ensp;<img src="{% static 'imgs/logout.png'%}" width="100%" height="100%">
-              </div>
-              <div class="col-md-8 col-xs-12 text-center5">
-                <p>Login</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        {% endif %}
         </div>
       </div>
      </div>
-    </div>
+    </div>                   
   </div>
   <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
 </div>

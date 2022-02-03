@@ -1,0 +1,5 @@
+success: function(data){
+    removeAllFromCart(user_id);
+    window.location = `/payment/${data.order_id}`;              
+  // alert('successful');
+  }

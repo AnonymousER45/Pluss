@@ -1,0 +1,212 @@
+{% extends 'base.html' %} {% load static %} {% block extrahead %}
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!--Css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css'%}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css'%}"/>
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/reset.css'%}" />
+  <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+
+  <title>Bookso - Ecommerce Website</title>
+{% endblock %} {% block content %}
+
+    <div class="content-wrap">
+      <div class="cart-menu">
+        <ul class="cm-list">
+          <li><a href="/mycart">Order<br>Confirmation</a></li>
+          <li><a href="/myaddressbook">Address</a></li>
+          <li class="active"><a href="#">Payment</a></li>
+        </ul>
+      </div>
+      <div class="cart">
+        <div class="container-fluid">
+          <div class="order-successful-popup">
+            <!-- <figure>
+              <img src="imgs/order-placed.jpg">
+            </figure>
+            <p class="orde r-success"><span>Order Placed Successfully, Your Order no is E133967347</span></p>-->
+            <br>
+            <h3>Select the Payment Mode for Placing Order :-</h3>
+            <img src="{% static 'imgs/payments.png'%}" width="60%" height="60%" style="padding: 5%; padding-bottom:-10px">
+            <div class="button">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div>
+                            <a href="/orderplaced" class="button">
+                                <button class="btn btn-css">
+                                    <img src="{% static 'imgs/online payment.jpeg'%}" width="20%" height="20%">&nbsp;&nbsp; Online Payment
+                                </button>
+                            </a>    
+                            <br><br>
+                            <a class="button" style="margin-bottom:20px;">
+                                <button class="btn btn-css" data-toggle="modal" data-target="#myModal">
+                                    <img src="{% static 'imgs/paymentmethod.png'%}" width="20%" height="20%" >&nbsp;&nbsp; Cash On Delivery
+                                </button>
+                            </a>
+                            <br>
+                            <br>
+                        </div> 
+                    </div>
+                    <br>
+                    </div>
+                </div>
+          </div>
+
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">Gift Details
+                             <button type="button" class="close cross-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </h4>
+                     </div>
+                    <div class="modal-body">
+                        <div>
+                            <img src="{% static 'imgs/cod.jpg'%}" width="100%" height="100%">
+                            <h6 class="text-center"><label>You are willing to pay in cash at the time of delivery.</label></h6>
+                            <div class="cod-wrap">
+                                <h3 class="cd-title">Enter Phone Number</h3>
+                                <form>
+                                    <input type="text" name="phone" placeholder="Enter Phone Number">
+                                    &nbsp;&nbsp;<a href ="#" style=" display:flex;justify-content: flex-end;" ><label class="select-add-type">Resend OTP</label></a>
+                                    <div class="sendotp-button-wrap">
+                                       <div class="login-button sendotp-button" data-toggle="modal" data-target="#myModal1" onclick="generateOtp()" >
+                                        Send OTP for Verification
+                                    </div>
+                                    </div>
+
+                                </form>
+
+                                <!--<div class="otp-wrap">-->
+                                <!--    <h3 class="cd-title">Enter OTP for New Phone Number</h3>-->
+                                <!--    <form>-->
+                                <!--        <input type="text" name="otp" placeholder="Enter otp-wrap">-->
+                                <!--        <div class="login-button">-->
+                                <!--            <a href="/orderplaced"-->
+                                <!--            <input type="submit" name="otp" value="Proceed">-->
+                                <!--                </a>-->
+                                <!--        </div>-->
+                                <!--    </form>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">Gift Details
+                             <button type="button" class="close cross-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </h4>
+                     </div>
+                    <div class="modal-body">
+                        <div class="otp-wrap">
+                                    <h3 class="cd-title">Enter OTP for New Phone Number</h3>
+                                    <form>
+                                        <input class="otp-input" type="text" name="otp" placeholder="Enter otp-wrap" >
+                                        <a href="#"><div class="login-button sendotp-button " onclick="verifyOTP()">
+                                            Proceed
+                                        </div></a>
+                                    </form>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+      </div>
+      <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
+    </div>
+
+
+</div>
+
+
+  <!--Script-->
+  <script>
+  function generateOtp(){
+      number= document.getElementsByName('phone')[0].value
+      $.ajax({ 
+            type: 'POST', 
+            url: '/django/api/generate_otp/', 
+            data: {  
+                "number": number, 
+            }, 
+            success: function(msg){ 
+                alert('Otp sent'); 
+            },
+            error: function(msg){
+                alert('Otp is not Send');
+            }
+        }); 
+    }
+    function verifyOTP(){
+        number= document.getElementsByName('phone')[0].value
+        otp = document.getElementsByName('otp')[0].value
+        $.ajax({ 
+            type: 'PUT', 
+            url: '/django/api/check_otp/', 
+            data: {  
+                "number": number,
+                "otp": otp,
+            }, 
+            success: function(data){ 
+                console.log(data);
+                if (data.checkStatus == true){
+                    alert('Otp Verified Successfully');
+                    //order_id = window.location.href.split('/').slice(-1)
+                    order_id = window.location.href.split('/').slice(-1)[0].replace('#','')
+                    window.location = `/orderplaced/${order_id}`
+
+                }
+                else {
+                    alert('please enter valid otp')
+                }
+                 
+            },
+            error: function(data){
+                console.log(data);
+                alert('Otp is incorrrect');
+            }
+        }); 
+    }
+
+    function completeorder(){
+        order_id=242
+        $.ajax({ 
+            type: 'PUT', 
+            url: '/django/api/complete_order/', 
+            data: {  
+                "order_id": order_id
+            },
+            success: function(data){
+
+            } 
+        });
+    }
+
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="{% static 'slick/slick.min.js'%}"></script>
+  <script src="{% static 'scripts/custom.js'%}"></script>
+{% endblock %}

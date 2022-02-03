@@ -50,7 +50,7 @@
                 {{ form.pincode }}
               </div>
               <div class="col-xs-12">
-                <input type="checkbox" style="margin-right: 5px;" name="deafaultadd"> I  agree with the Privacy Policy and Terms & Conditions.
+                {{ form.term }} I  agree with the Privacy Policy and Terms & Conditions.
               </div>
               <div class="col-xs-12 login-button">
                 <input type="submit" name="signup" value="Sign UP">
@@ -79,8 +79,8 @@
 
   var form_fields = document.getElementsByTagName('input');
   if (form_fields.length >= placeholders.length) {
-    for (var i = 6; i <= 10; i++) {
-      form_fields[i].placeholder = placeholders[i - 6];
+    for (var i = 5; i <= 10; i++) {
+      form_fields[i].placeholder = placeholders[i - 5];
     }
   }
 
@@ -96,8 +96,8 @@
   }
 
 
-  passwordTogglers[0].addEventListener('click', () => { TogglePasswordVisibility(form_fields[9], passwordTogglers[0]) });
-  passwordTogglers[1].addEventListener('click', () => { TogglePasswordVisibility(form_fields[10], passwordTogglers[1]) });
+  passwordTogglers[0].addEventListener('click', () => { TogglePasswordVisibility(form_fields[8], passwordTogglers[0]) });
+  passwordTogglers[1].addEventListener('click', () => { TogglePasswordVisibility(form_fields[9], passwordTogglers[1]) });
 
 
 

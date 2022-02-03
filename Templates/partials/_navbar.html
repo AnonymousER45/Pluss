@@ -121,7 +121,10 @@
                         <input type="text" name="Search" id="inputsearchid2" class="ths-text">
                         <input value="Search" name="search" class="ths-btn" onclick="search()">
 
-                    </div>
+                        {% comment %} <input type="text" name="Search" id="searchid" class="ths-text">
+                        <input value="search"  class="ths-btn" onclick="search()"> {% endcomment %}
+                    
+</div>
                 </form>
             </div>
             {% if user.is_authenticated %}
@@ -164,7 +167,10 @@
                         <input  value="Search" name="search" class="ths-btn" onclick="search()">
 
                     </div>
-                </form>
+                {% comment %} </form> {% endcomment %}
+            </div>
+            <div class="closesearchtoggle" id="closesearchbar">
+                  <img src="{% static 'imgs/add.png' %}" id="closesearchbarimg" onclick="closesearchbartoggle()" >
             </div>
             <div class="closesearchtoggle" id="closesearchbar">
                   <img src="{% static 'imgs/add.png' %}" id="closesearchbarimg" onclick="closesearchbartoggle()" >

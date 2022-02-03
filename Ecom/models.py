@@ -79,15 +79,6 @@ tax_CHOICE = (
     ('24','24'),
     ('28','28'),
 )
-
-Return_Choices =(
-    ("1", "Poor product quality"),
-    ("2", "Product received is damaged"),
-    ("3", "Product & Shipping box both are damaged"),
-    ("4", "Product received is different"),
-    ("5", "Other"),
-)
-
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(verbose_name="category")
@@ -143,7 +134,7 @@ class Product(models.Model):
 
 
     class meta:
-        ordering :('-dateadded',)
+        ordering = ['-dateadded',]
 
     def __str__(self):
         return self.title
@@ -161,23 +152,22 @@ class Cart(models.Model):
     def __str__(self):
         return self.user_id.username
 
-class CartProduct(models.Model):
-    user = models.ForeignKey(Customer, on_delete=models.CASCADE, default=1)
-    Product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    product_quan = models.IntegerField(default=1)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
 
-    # is_binding = models.BooleanField(default=False)
-    # gift_message = models.CharField(max_length=255,default="  ",null=True,blank=True)
-    # is_gift = models.BooleanField(default=False)
+class CartProduct(models.Model): 
+    user = models.ForeignKey(Customer, on_delete=models.CASCADE, default=1) 
+    Product = models.ForeignKey(Product, on_delete=models.CASCADE) 
+    product_quan = models.IntegerField(default=1) 
 
-    # gift_from = models.CharField(max_length=20,default="  ",null=True,blank=True)
-    # gift_box = models.BooleanField(default=False)
+    is_binding = models.BooleanField(default=False)
+    gift_message = models.CharField(max_length=255,default="  ",null=True,blank=True) 
+    is_gift = models.BooleanField(default=False)
 
-
-    def __str__(self):
+    gift_from = models.CharField(max_length=20,default="  ",null=True,blank=True) 
+    gift_box = models.BooleanField(default=False) 
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE) 
+ 
+    def __str__(self): 
         return self.user.username + self.Product.title
-
 
 ##whishlist
 ##Cart Related Stuff
@@ -194,7 +184,7 @@ class WishlistProduct(models.Model):
     wishlist = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.username + self.Product.title
+        return self.userx.username + self.Product.title
 
 class ProductUnavailable(models.Model):
     Products = models.ForeignKey(Product,on_delete=models.CASCADE)
@@ -242,45 +232,19 @@ class EcomOrder(models.Model):
     contact_name = models.CharField(max_length=25)
     contact_no = models.CharField(max_length=10)
 
-    def __str__(self):
-        return str(self.id)
+    # def order_status_verbose(self):
+    #     return dict(Order_Status_Choice)[self.order_status]
 
     #order_handled_by = models.ForeignKey(Customer,limit_choices_to={'is_staff': True}, on_delete=models.DO_NOTHING,blank=True,null=True,related_name='order_Handled_by_User')
 
-
-class Exchange_return(models.Model):
-    return_exchange_option = (
-        ("1","Return"),
-        ("2", "Exchnage"),
-    )
-    #order_id = models.ForeignKey(EcomOrder, on_delete=models.CASCADE)
-    orderplacedby = models.ForeignKey(Customer,on_delete=models.CASCADE,related_name='orderplacedbyuser',default=1)
-    option = models.CharField(choices=return_exchange_option,max_length=20)
-    reason = models.CharField(choices=Return_Choices,max_length=20)
-    comment = models.CharField(max_length=25,default="",null=True, blank=True)
-
-
-
 class Refund_bankdetails(models.Model):
-    returnid = models.ForeignKey(Exchange_return, on_delete=models.CASCADE,default="0")
     recipent_name = models.CharField(max_length=20)
     account_number = models.CharField(max_length=15)
     ifsc_code = models.CharField(max_length=10)
     updated_datetime = models.DateTimeField(auto_now=True)
-    refund_completed = models.BooleanField(default=False, blank=True)
-
-    def __str__(self):
-        return self.returnid
-
 
 
 class Refund_upidetails(models.Model):
-    returnid = models.ForeignKey(Exchange_return, on_delete=models.CASCADE,default="0")
     recipent_name = models.CharField(max_length=20)
     recipent_upi_id = models.CharField(max_length=15)
     updated_datetime = models.DateTimeField(auto_now=True)
-    refund_completed = models.BooleanField(default=False, blank=True)
-
-    def __str__(self):
-        return self.returnid
-

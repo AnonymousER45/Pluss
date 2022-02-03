@@ -16,6 +16,7 @@
   <!-- Custom StyleSheet -->
   <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  {% comment %} <link rel="stylesheet" href="{% static 'css/new_style.css' %}" /> {% endcomment %}
 
   <title>PLUSCROWN PRIVATE LIMITED </title>
   {% endblock %} {% block content %}
@@ -27,21 +28,21 @@
            <div class="hs-item">
              <div class="hs-content">
                 <a href="#">
-                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                <img src="{% static 'imgs/banner.png' %}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
                 </a>
              </div>
            </div>
            <div class="hs-item">
             <div class="hs-content">
               <a href="#">
-              <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+              <img src="{% static 'imgs/banner.png' %}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
               </a>
             </div>
            </div>
            <div class="hs-item">
              <div class="hs-content">
                 <a href="#">
-                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                <img src="{% static 'imgs/banner.png' %}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
                 </a>
              </div>
            </div>
@@ -63,20 +64,20 @@
               </h2>
               <div class="prosliders">
                 <div class="ap-item">
-                	<a href="{% url 'Ecom:Productdetails' product1.0.id  %}">
+                	<a href="{% url 'Ecom:Productdetails' product.0.id  %}">
                   	<figure class="ap-img">
-                  	 <img src="{{product1.0.img.url}}" alt="" title="">
+                  	 <img src="{{product.0.img.url}}" alt="" title="">
                     </figure>
                   </a>
                   <div class="ap-desc">
-                    <a href="{% url 'Ecom:Productdetails' product1.0.id  %}" class="ap-title">{{ product1.0.title }}</a>
+                    <a href="{% url 'Ecom:Productdetails' product.0.id  %}" class="ap-title">{{ product.0.title }}</a>
                     <p class="ap-title">-blue</p>
-                    <p class="ap-price">Rs.  {{ product1.0.price }} <strike>{{ product1.0.mrp }} <span class="product-offer"> {{ product1.0.discount_per }} %off</span></p>
+                    <p class="ap-price">Rs.  {{ product.0.price }} <strike>{{ product.0.mrp }} <span class="product-offer"> {{ product.0.discount_per }} %off</span></p>
                   </div>
                   <span class="ap-new-arrival">New</span>
                   <a href="#" class="product-add-wishtlist"></a>
            			</div>
-                 {% for i in product1|slice:"1:" %}
+                 {% for i in product|slice:"1:" %}
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' i.id  %}">
                 	<figure class="ap-img">
@@ -103,20 +104,20 @@
               </h2>
               <div class="prosliders">
                 <div class="ap-item">
-                	<a href="{% url 'Ecom:Productdetails' product2.0.id  %}">
+                	<a href="{% url 'Ecom:Productdetails' product.0.id  %}">
                   	<figure class="ap-img">
-                  	 <img src="{{product2.0.img.url}}" alt="" title="">
+                  	 <img src="{{product.0.img.url}}" alt="" title="">
                     </figure>
                   </a>
                   <div class="ap-desc">
-                    <a href="{% url 'Ecom:Productdetails' product2.0.id  %}" class="ap-title">{{ product2.0.title }}</a>
+                    <a href="{% url 'Ecom:Productdetails' product.0.id  %}" class="ap-title">{{ product.0.title }}</a>
                     <p class="ap-title">-blue</p>
-                    <p class="ap-price">Rs.  {{ product2.0.price }} <strike>{{ product2.0.mrp }} <span class="product-offer"> {{ product2.0.discount_per }} %off</span></p>
+                    <p class="ap-price">Rs.  {{ product.0.price }} <strike>{{ product.0.mrp }} <span class="product-offer"> {{ product.0.discount_per }} %off</span></p>
                   </div>
                   <span class="ap-new-arrival">New</span>
                   <a href="#" class="product-add-wishtlist"></a>
            			</div>
-                 {% for i in product2|slice:"1:" %}
+                 {% for i in product|slice:"1:" %}
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' i.id  %}">
                 	<figure class="ap-img">
@@ -149,20 +150,20 @@
               </h2>
               <div class="prosliders">
                 <div class="ap-item">
-                	<a href="{% url 'Ecom:Productdetails' product3.0.id  %}">
+                	<a href="{% url 'Ecom:Productdetails' product.0.id  %}">
                   	<figure class="ap-img">
-                  	 <img src="{{product3.0.img.url}}" alt="" title="">
+                  	 <img src="{{product.0.img.url}}" alt="" title="">
                     </figure>
                   </a>
                   <div class="ap-desc">
-                    <a href="{% url 'Ecom:Productdetails' product3.0.id  %}" class="ap-title">{{ product3.0.title }}</a>
+                    <a href="{% url 'Ecom:Productdetails' product.0.id  %}" class="ap-title">{{ product.0.title }}</a>
                     <p class="ap-title">-blue</p>
-                    <p class="ap-price">Rs.  {{ product3.0.price }} <strike>{{ product3.0.mrp }} <span class="product-offer"> {{ product3.0.discount_per }} %off</span></p>
+                    <p class="ap-price">Rs.  {{ product.0.price }} <strike>{{ product.0.mrp }} <span class="product-offer"> {{ product.0.discount_per }} %off</span></p>
                   </div>
                   <span class="ap-new-arrival">New</span>
                   <a href="#" class="product-add-wishtlist"></a>
            			</div>
-                 {% for i in product3|slice:"1:" %}
+                 {% for i in product|slice:"1:" %}
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' i.id  %}">
                 	<figure class="ap-img">
@@ -190,18 +191,18 @@
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' product.0.id  %}">
                   	<figure class="ap-img">
-                  	 <img src="{{product4.0.img.url}}" alt="" title="">
+                  	 <img src="{{product.0.img.url}}" alt="" title="">
                     </figure>
                   </a>
                   <div class="ap-desc">
-                    <a href="{% url 'Ecom:Productdetails' product4.0.id  %}" class="ap-title">{{ product4.0.title }}</a>
+                    <a href="{% url 'Ecom:Productdetails' product.0.id  %}" class="ap-title">{{ product.0.title }}</a>
                     <p class="ap-title">-blue</p>
-                    <p class="ap-price">Rs.  {{ product4.0.price }} <strike>{{ product4.0.mrp }} <span class="product-offer"> {{ product4.0.discount_per }} %off</span></p>
+                    <p class="ap-price">Rs.  {{ product.0.price }} <strike>{{ product.0.mrp }} <span class="product-offer"> {{ product.0.discount_per }} %off</span></p>
                   </div>
                   <span class="ap-new-arrival">New</span>
                   <a href="#" class="product-add-wishtlist"></a>
            			</div>
-                 {% for i in product4|slice:"1:" %}
+                 {% for i in product|slice:"1:" %}
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' i.id  %}">
                 	<figure class="ap-img">
@@ -271,12 +272,12 @@
                   <div class="ap-desc">
                     <a href="{% url 'Ecom:Productdetails' product.0.id  %}" class="ap-title">{{ product.0.title }}</a>
                     <p class="ap-title">-blue</p>
-                    <p class="ap-price">Rs.  {{ product5.0.price }} <strike>{{ product5.0.mrp }} <span class="product-offer"> {{ product5.0.discount_per }} %off</span></p>
+                    <p class="ap-price">Rs.  {{ product.0.price }} <strike>{{ product.0.mrp }} <span class="product-offer"> {{ product.0.discount_per }} %off</span></p>
                   </div>
                   <span class="ap-new-arrival">New</span>
                   <a href="#" class="product-add-wishtlist"></a>
            			</div>
-                 {% for i in product5|slice:"1:" %}
+                 {% for i in product|slice:"1:" %}
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' i.id  %}">
                 	<figure class="ap-img">
@@ -305,18 +306,18 @@
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' product.0.id  %}">
                   	<figure class="ap-img">
-                  	 <img src="{{product6.0.img.url}}" alt="" title="">
+                  	 <img src="{{product.0.img.url}}" alt="" title="">
                     </figure>
                   </a>
                   <div class="ap-desc">
-                    <a href="{% url 'Ecom:Productdetails' product6.0.id  %}" class="ap-title">{{ product6.0.title }}</a>
+                    <a href="{% url 'Ecom:Productdetails' product.0.id  %}" class="ap-title">{{ product.0.title }}</a>
                     <p class="ap-title">-blue</p>
-                    <p class="ap-price">Rs.  {{ product6.0.price }} <strike>{{ product6.0.mrp }} <span class="product-offer"> {{ product6.0.discount_per }} %off</span></p>
+                    <p class="ap-price">Rs.  {{ product.0.price }} <strike>{{ product.0.mrp }} <span class="product-offer"> {{ product.0.discount_per }} %off</span></p>
                   </div>
                   <span class="ap-new-arrival">New</span>
                   <a href="#" class="product-add-wishtlist"></a>
            			</div>
-                 {% for i in product6|slice:"1:" %}
+                 {% for i in product|slice:"1:" %}
                 <div class="ap-item">
                 	<a href="{% url 'Ecom:Productdetails' i.id  %}">
                 	<figure class="ap-img">
@@ -336,7 +337,7 @@
             </div>
         </div>
 
-
+        
        <div class="shop-by-brands">
          <div class="container-fluid">
            <h2 class="title">Shop By Brand</h2>

@@ -56,7 +56,7 @@ $(function() {
 
 
 $(document).ready(function() {
-    var maxL = 17;
+    var maxL = 22;
     $('.ap-title').each(function() {
         var text = $(this).text();
         if (text.length > maxL) {
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     var minVal = 1,
-        maxVal = 200; // Set Max and Min values
+        maxVal = 20; // Set Max and Min values
     // Increase product quantity on cart page
     $(".increaseQty").on('click', function() {
         var $parentElm = $(this).parents(".qtySelector");
@@ -150,7 +150,7 @@ $(document).ready(function() {
                 }
             },
             {
-                breakpoint: 769,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
@@ -159,7 +159,7 @@ $(document).ready(function() {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                 }
             }
@@ -178,57 +178,9 @@ $(document).ready(function() {
         slidesToScroll: 1,
         autoplay: false,
         responsive: [{
-                breakpoint: 1201,
+                breakpoint: 1200,
                 settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 1025,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 769,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-    $('.complete-combos2').slick({
-        dots: false,
-        arrows: true,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: false,
-        responsive: [{
-                breakpoint: 1201,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 1025,
-                settings: {
-                    slidesToShow: 2,
                     slidesToScroll: 1,
                 }
             },

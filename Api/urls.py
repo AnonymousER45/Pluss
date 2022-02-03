@@ -29,7 +29,6 @@ urlpatterns = [
     # Customer Login
     path('customer_login/', views.customer_login),
     path('user_details/', views.user_details),
-    path('user_details2/', views.user_details2),
 
      # User change password
     path('change_password/', views.change_password),
@@ -56,9 +55,6 @@ urlpatterns = [
     path('get_home_banners/',views.get_home_banners),
 
     path('search/',views.search),
-    path('search2/',views.search2),
-    path('search3/',views.search3),
-
 
     #get categories
     path('get_category/',views.get_Category),
@@ -74,6 +70,7 @@ urlpatterns = [
 
     #get_cart_details
     path('get_cart_details/',views.get_cart_details),
+    path('update_gift_msg/',views.update_gift_msg),
 
     #add address
     path('add_address/',views.add_address),
@@ -109,12 +106,8 @@ urlpatterns = [
     path('place_order/',views.place_order),
     path('complete_order/',views.complete_order),
     path('get_order_details/',views.get_order_details),
-
-    path('returnexchangeorder/',views.RETURNEXCHNAGE_order),
-    path('refund_bankdetails/',views.Refund_bankdetails),
-    path('refund_upidetails/',views.Refund_upidetails),
-
-
+    #coded for web
+    path('partial_order/',views.partial_order),
 
     path('get_todays_order/',views.get_order),
     path('get_pending_order/',views.get_pending_order),
@@ -131,10 +124,5 @@ urlpatterns = [
     #attendance
     path('mark_present/',views.mark_present),
     path('signoff/',views.signoff_for_the_day),
-
-
-    path('online_pay/',views.start_onlinepayment, name="start_onlinepayment"),
-    path('handlepayment/',views.handlepayment, name="handlepayment"),
-    path('handlepayments/',views.handlepayments, name="handlepayments"),
 
 ]
