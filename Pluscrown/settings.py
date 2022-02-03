@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import datetime
+from pickle import FALSE
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'is=)o)(94qb1vy9fmhjk3snuh1uwb1z(59fy_15v)7o+2t$ph+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = FALSE
 
-ALLOWED_HOSTS = ['localhost','Swaraj.pythonanywhere.com','www.pluscrown.com']
+ALLOWED_HOSTS = ['localhost','Swaraj.pythonanywhere.com','www.pluscrown.com','http://18.204.19.8/']
 
 
 # Application definition
