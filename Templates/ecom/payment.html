@@ -38,17 +38,18 @@
                                             </a>
                                             <br>
                                             <br>
+                                            <div class="securepayment" style="margin-top:1px; text-align: center;">
+                               <img src="{% static 'images/SecurePayment.png'%}" style="margin-left :-210px; margin-top:4px;" width=250%>
+                            </div>
                                         </div>
                                     </div>
                                     <br>
                                 </div>
                             </div>
-                        
+
                         </div>
-                        <div style="margin-top:10px;margin-bottom:10px;">
-                               <img src="{% static 'images/SecurePayment.png'%}" width=100%> 
-                            </div>
- 
+
+
                     </div>
                     <style>
                     .modal {
@@ -70,25 +71,25 @@
                                         <h6 class="text-center"style="color:brown;"><label >You are willing to pay in cash at the time of delivery.</label></h6>
                                         </div>
                                         <div class="cod-wrap">
-                                            <div  style="max-width: 400px;margin: 20px auto;"> 
+                                            <div  style="max-width: 400px;margin: 20px auto;">
                                             <h3 class="cd-title" style="font-size:16px;"><b>Enter Phone Number :-</b></h3>
                                             <form>
-                                                
+
                                                 <input type="text" name="phone" placeholder="Enter Phone Number" id="number" >
                                                 <br>
-                                        
+
                                                  <div style="text-align: right;">
                                                     {% comment %}
                                                     <label >
-                                                        <input type="checkbox" name="resend"> 
+                                                        <input type="checkbox" name="resend">
                                                         Resend OTP</label>{% endcomment %}
-                                                    </div> 
+                                                    </div>
                                                 <div class="login-button" style="padding-top:10px; ">
                                                     <div style="text-align:center;">
                                                     <input type="button" name="sendotp" value="Send OTP for Verification" onclick="generateOtp()" style="width: 230px; font-size: 15px; text-align: center;">
                                                     </div>
                                                 </div>
-                                                
+
                                             </form>
                                             </div>
                                             <div class="otp-wrap" id="otp" style="display: none">
@@ -138,7 +139,7 @@
                                 <button class="btn btn-css">
                                     <img src="{% static 'imgs/online payment.jpeg'%}" width="20%" height="20%">&nbsp;&nbsp; Online Payment
                                 </button>
-                            </a>    
+                            </a>
                             <br><br>
                             <a class="button" style="margin-bottom:20px;">
                                 <button class="btn btn-css" data-toggle="modal" data-target="#myModal">
@@ -147,7 +148,7 @@
                             </a>
                             <br>
                             <br>
-                        </div> 
+                        </div>
                     </div>
                     <br>
                     </div>
@@ -235,33 +236,33 @@
   <script>
   function generateOtp(){
       number= document.getElementsByName('phone')[0].value
-      $.ajax({ 
-            type: 'POST', 
-            url: '/django/api/generate_otp/', 
-            data: {  
-                "number": number, 
-            }, 
-            success: function(msg){ 
+      $.ajax({
+            type: 'POST',
+            url: '/django/api/generate_otp/',
+            data: {
+                "number": number,
+            },
+            success: function(msg){
                 document.getElementById("otp").style.display = "none";
                 //document.getElementById("number").disabled = "true";
-                alert('Otp is not sent'); 
+                alert('Otp is not sent');
             },
             error: function(msg){
                 alert('Otp is not Send');
             }
-        }); 
+        });
     }
     function verifyOTP(){
         number= document.getElementsByName('phone')[0].value
         otp = document.getElementsByName('otp')[0].value
-        $.ajax({ 
-            type: 'PUT', 
-            url: '/django/api/check_otp/', 
-            data: {  
+        $.ajax({
+            type: 'PUT',
+            url: '/django/api/check_otp/',
+            data: {
                 "number": number,
                 "otp": otp,
-            }, 
-            success: function(data){ 
+            },
+            success: function(data){
                 console.log(data);
                 if (data.checkStatus == true){
                     alert('Otp Verified Successfully');
@@ -273,31 +274,31 @@
                 else {
                     alert('please enter valid otp')
                 }
-                 
+
             },
             error: function(data){
                 console.log(data);
                 alert('Otp is incorrrect');
             }
-        }); 
+        });
     }
 
     function onlinepayment(){
         order_id = window.location.href.split('/').slice(-1)[0].replace('#','')
-        window.location = `/orderplaced/${order_id}`
+        window.location = `/online_payments/${order_id}`
 
     }
     function completeorder(){
         order_id=242
-        $.ajax({ 
-            type: 'PUT', 
-            url: '/django/api/complete_order/', 
-            data: {  
+        $.ajax({
+            type: 'PUT',
+            url: '/django/api/complete_order/',
+            data: {
                 "order_id": order_id
             },
             success: function(data){
 
-            } 
+            }
         });
     }
 

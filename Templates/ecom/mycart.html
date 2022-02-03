@@ -11,7 +11,7 @@
 
   <!--Css-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  
+
 {% endblock %} {% block content %}
 
     <div class="content-wrap  crt mycrt" style="margin-top:-18px;">
@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="cart-wrap">
             <div class="cart-title-wrap">
-              <h1 class="title"> <img src="{% static 'images/mycart.png '%}" height="7%" width="7%" /> MyCart :-</h1>
+              <h1 class="title"> <img src="{%static 'images/mycart.png' %}" height="7%" width="7%"> MyCart :-</h1>
             </div>
-          
+
             <div class="cart-items-wrap">
               {% for item in products %}
-                
+
                 <div class="cart-item">
                   <div class="ci-img">
                     <figure>
@@ -39,7 +39,7 @@
                     </figure>
                   </div>
                   <div class="ci-name-quantity" style="padding:0">
-                    <div class="ci-name"><p style="font-size: 22px;"><a href="#">{{ item.Product.title }}</a></p></div>
+                    <div class="ci-name"><p style="font-size: 22px;"><a href="{% url 'Ecom:Productdetails' item.Product.id  %}">{{ item.Product.title }}</a></p></div>
                     <p class="wl-price" style="padding-top: 0px;
     margin-bottom: 0px;
 }">Rs {{ item.Product.price }} <strike>Rs {{ item.Product.mrp }}</strike>  <span class="wl-off">{{ item.Product.discount_per }}% Off</span></p>
@@ -51,56 +51,58 @@
                         <i class="fa fa-plus increaseQty"></i>
                       </div>
                     </div>
-                    <form class="select-gift" style="margin-top: 20px;
-    margin-bottom: -10px;">
-                      {% if item.is_gift %}
-                        <div style="display:flex;align-items:center;">
-                          <div style="margin-right: 10px">
-                              <label >
-                              <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift1" onclick="giftchange{{ forloop.counter }}()" checked=true>
-                                Send this item as a Gift{{ forloop.counter }}
-                              </label>
-                            </div>
-                          <div>
-                          <div id="gift{{ forloop.counter }}" >
-                            <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">
-                          </div>
-                          <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal"style="    margin-top: -10px; margin-bottom: 12px;
-" >
-                            <img class="" src="{%static 'imgs/gift.png'%}" height="50px" style="    margin-top: -10px;">
-                            </div>
-                          </div>
-                        </div>
-                      {% else %}
-                       <div style="display:flex;align-items:center;">
-                          <div style="margin-right: 10px">
-                            <label >
-                            <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift{{ forloop.counter }}" onclick="giftchange{{ forloop.counter }}()">
-                              Send this item as a Gift
-                            </label>
-                          </div>
-                          <div>
-                        <div id="gift{{ forloop.counter }}" >
-                          <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">
-                        </div>
-                        <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal{{ forloop.counter }}" style="display:none;">
-                          <img class="" src="{%static 'imgs/gift.png'%}" height="30px" style="    margin-top: -10px;" >
-                          </div>
-                        </div>
-                          </div>
-                      {% endif %}
-                     
+
+<!--                  <--  <form class="select-gift" style="margin-top: 20px;-->
+<!--    margin-bottom: -10px;"> -->
+<!--                      {% if item.is_gift %}-->
+<!--                        <div style="display:flex;align-items:center;">-->
+<!--                          <div style="margin-right: 10px">-->
+<!--                              <label >-->
+<!--                              <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift1" onclick="giftchange{{ forloop.counter }}()" checked=true>-->
+<!--                                Send this item as a Gift{{ forloop.counter }}-->
+<!--                              </label>-->
+<!--                            </div>-->
+<!--                          <div>-->
+<!--                          <div id="gift{{ forloop.counter }}" >-->
+<!--                            <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">-->
+<!--                          </div>-->
+<!--                          <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal"style="    margin-top: -10px; margin-bottom: 12px;-->
+<!--" >-->
+<!--                            <img class="" src="{%static 'imgs/gift.png'%}" height="50px" style="    margin-top: -10px;">-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      {% else %}-->
+<!--                       <div style="display:flex;align-items:center;">-->
+<!--                          <div style="margin-right: 10px">-->
+<!--                            <label >-->
+<!--                            <input type="checkbox"  name="selectgift{{ forloop.counter }}" value="SelectGift" id="selectgift{{ forloop.counter }}" onclick="giftchange{{ forloop.counter }}()">-->
+<!--                              Send this item as a Gift-->
+<!--                            </label>-->
+<!--                          </div>-->
+<!--                          <div>-->
+<!--                        <div id="gift{{ forloop.counter }}" >-->
+<!--                          <img class="" src="{%static 'imgs/giftOutline.png' %}" height="50px">-->
+<!--                        </div>-->
+<!--                        <div id="gift{{ forloop.counter }}{{ forloop.counter }}" data-toggle="modal" data-target="#gift-modal{{ forloop.counter }}" style="display:none;">-->
+<!--                          <img class="" src="{%static 'imgs/gift.png'%}" height="30px" style="    margin-top: -10px;" >-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                          </div>-->
+<!--                      {% endif %}-->
+
                       <!-- <div style="margin-top: -40px;margin-left: 180px;">
-  
+
                       </div>
                       <div>
-  
+
                       </div> -->
-                    </form>
-                    <hr class="ruler">
+                    <!--</form>-->
+                    <hr class="ruler" style="margin-top: 36px;">
                        <div style="display:flex;align-items:center;justify-content:space-between">
                     <div class="addwishlistdiv">
-                    <label onclick="addToWishlistFunction({{ user.id }},{{ product.id }})">Add to WishList</label>
+                        <!--<a href="#" onclick=addtoWishlistFunction({{ user.id }},{{ product.id }}) >Add to WishList </a>-->
+                    <label onclick=addToWishlistFunction({{ user.id }},{{ item.Product.id }})>Add to WishList</label>
                     </div>
                     <div class="ci-remove">
                       <a href="{{request.path}}" class="ci-remove-link"><div class="recyclebin"><img src="{%static 'imgs/bin.png'%}" height="20px" onclick="deleteItemFromCart({{user.id}},{{item.Product.id}},this)"></div></a>
@@ -200,7 +202,7 @@
               </div>
             </div>
           </div> -->
-          
+
 
         </div>
       </div>
@@ -331,45 +333,45 @@
                     <p>Cart Savings</p>
                     <p>- Rs {{cart_total_savings}}</p>
                   </div>
-                  <div class="cd-item">
-                    <p>Coupon Savings</p>
-                    <p id="test4">0</p>
-                  </div>
+                  <!--<div class="cd-item">-->
+                  <!--  <p>Coupon Savings</p>-->
+                  <!--  <p id="test4">0</p>-->
+                  <!--</div>-->
                   <div class="cd-item">
                     <p>Delivery</p>
                     <p class="del-charges">Free</p>
                   </div>
-                  <div class="cd-item">
-                    <p>Gift</p>
-                    <p class="gift-charges">Rs 0</p>
-                  </div>
+                  <!--<div class="cd-item">-->
+                  <!--  <p>Gift</p>-->
+                  <!--  <p class="gift-charges">Rs 0</p>-->
+                  <!--</div>-->
                 </div>
-                <div class="coupon-box" data-toggle="modal" data-target="#coupon-modal" style="height=5rem;">
+<!--                <div class="coupon-box" data-toggle="modal" data-target="#coupon-modal" style="height=5rem;">-->
                   <!-- <h2 class="cd-title">Apply Coupon</h2>
-                  <form>
-                    <input type="text" name="Coupon" placeholder="Type the Coupon Code">
-                    <input type="submit" name="Apply" value="Apply">
-                  </form>
-                  <p class="coupon-status">No Coupon Applied Yet</p> -->
-                  <img src="{%static 'imgs/couponicon.png'%}" width="10%" height="10%" style="width: 15%; height: 60px;margin-top: -2px;">
-                  <label id="test2" style="margin-left: 2%;">Apply Coupons</label>
-                  <div class="forwarddiv">
-                  <img src="{% static 'imgs/forwardicon.png' %}" id ="forward" class="forward frwdimg" width="8%" height="8%" style="height: 40px;width: 10%;margin-top: -48px;"> 
-                  </div>
-                  <div class="crossdiv">
-                  <img src="{% static 'imgs/crosssincircle.png' %}" id ="cancel" class="cancelforward" onclick="cancel()" class="forward" width="8%" height="8%" style="height: 30px;
-    width: 5%;
-    margin-top: -44px;
-    margin-left: 482px;
-    display: none;
-}">
-</div>
-                  
-                </div>
-                {% comment %} <div class="cd-item">
-                  <p>Coupon savings</p>
-                  <p>- Rs 0</p>
-                </div> {% endcomment %}
+<!--                  <form>-->
+<!--                    <input type="text" name="Coupon" placeholder="Type the Coupon Code">-->
+<!--                    <input type="submit" name="Apply" value="Apply">-->
+<!--                  </form>-->
+<!--                  <p class="coupon-status">No Coupon Applied Yet</p> -->
+<!--                  <img src="{%static 'imgs/couponicon.png'%}" width="10%" height="10%" style="width: 15%; height: 60px;margin-top: -2px;">-->
+<!--                  <label id="test2" style="margin-left: 2%;">Apply Coupons</label>-->
+<!--                  <div class="forwarddiv">-->
+<!--                  <img src="{% static 'imgs/forwardicon.png' %}" id ="forward" class="forward frwdimg" width="8%" height="8%" style="height: 40px;width: 10%;margin-top: -48px;">-->
+<!--                  </div>-->
+<!--                  <div class="crossdiv">-->
+<!--                  <img src="{% static 'imgs/crosssincircle.png' %}" id ="cancel" class="cancelforward" onclick="cancel()" class="forward" width="8%" height="8%" style="height: 30px;-->
+<!--    width: 5%;-->
+<!--    margin-top: -44px;-->
+<!--    margin-left: 482px;-->
+<!--    display: none;-->
+<!--}">-->
+<!--</div>-->
+
+<!--                </div>-->
+                <!--{% comment %} <div class="cd-item">-->
+                <!--  <p>Coupon savings</p>-->
+                <!--  <p>- Rs 0</p>-->
+                <!--</div> {% endcomment %}-->
                 <div class="order-total">
                   <div class="cd-item">
                     <p class="total-amt">Total Amount</p>
@@ -400,10 +402,10 @@
           <img src="{% static 'anim/discount.gif'%}" background="transparent" speed="1" style="width: 150px; height: 150px; " >
           </div>
           <div class="cart-coupon">
-      
+
               <input type="text" id="test3" name="Coupon" placeholder="Type the Coupon Code">
               <button id="applybtn" name="Apply">Apply</button>
-             
+
             <p id="test1">No Coupon Applied Yet</p>
           </div>
         </div>
@@ -417,7 +419,7 @@
   function save_details() {
     $('')
   }
-    
+
     function giftchange1(){
       var check1 = document.getElementById('selectgift1');
       if(check1.checked == false){
@@ -461,17 +463,32 @@
     }
 
     function addToWishlistFunction(user_id,product_id){
+        console.log('wishlist');
+        // console.log(user_id);
+        console.log(product_id);
         $.ajax({
-            type: 'POST',
-            url: '/django/api/add_to_wishlist/',
-            data: { 
-                "id": user_id,
-                "product_id": product_id,
-            },
-            success: function(msg){
-                console.log('Item Added to wishlist');
-            }
-        });
+                type: 'POST',
+                url: '/django/api/add_to_wishlist/',
+                data: {
+                    "product_id": product_id,
+                    "id": user_id,
+                },
+                success: function(data) {
+                    alert("Item added to wishlist");
+                }
+            });
+
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/django/api/add_to_wishlist/',
+        //     data: {
+        //         "id": user_id,
+        //         "product_id": product_id,
+        //     },
+        //     success: function(msg){
+        //         console.log('Item Added to wishlist');
+        //     }
+        // });
     }
     function deleteItemFromCart(user_id,product_id,element){
       var r = confirm('Are you sure you want to delete this?');
@@ -479,7 +496,7 @@
       $.ajax({
             type: 'POST',
             url: '/django/api/remove_from_cart/',
-            data: { 
+            data: {
                 "id": user_id,
                 "product_id": product_id
             },
@@ -499,7 +516,7 @@
       $.ajax({
             type: 'POST',
             url: '/django/api/empty_cart/',
-            data: { 
+            data: {
                 "id": user_id,
             },
             success: function(msg){
@@ -570,12 +587,12 @@
               var link = document.querySelectorAll(".confirm-order")[1];
               link.setAttribute("href",`/myaddressbook/${data.id}`);
               // alert(`/myaddressbook/${data.order_id}`)
-              // window.location = `/myaddressbook/${data.order_id}`;              
+              // window.location = `/myaddressbook/${data.order_id}`;
             // alert('successful');
             }
         });
         */
-    
+
   </script>
   <script>
 $(document).ready(function(){
@@ -594,7 +611,7 @@ $(document).ready(function(){
     console.log("dbhc1616hjzxbjzx")
     }
   });
-  
+
 });
 
 function cancel(){

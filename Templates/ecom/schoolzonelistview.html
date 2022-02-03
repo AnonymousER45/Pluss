@@ -21,9 +21,9 @@
 <div class="content-wrap indx">
     <div class="listing-banner schoollist"  style="background-image: url({% static 'images/schoolzone.png' %}); margin-left:20px;margin-right:20px;">
     </div>
-            
+
             <div class="product-filter">
-                   
+
                 <div class="container-fluid">
 
                     <div class="selectoption-button">
@@ -31,29 +31,29 @@
                                 <form action="" method="get">
 
                                     {% comment %} <select name="zone" onchange="$(this).closest('form').submit()" class="custom-select2" id="inputGroupSelect04" style="margin-left: 0;">
-                                        
+
                                     <option value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>form-control
-                                    <option value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>Fatima High SChool</option>
-                                    <option value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>Fr. agnel Multipurposr School</option>
-                                    <option value="3"  {% if request.GET.zone  == "3"%} selected {% endif %}>Gurukul Grand Union School</option>
-                                    <option value="4"  {% if request.GET.zone  == "4"%} selected {% endif %}>R.C.T P.M.M Rotary School</option>
-                                    <option value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>S.I.E.S High School</option>
-                                    <option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>6</option>
+                                    <option value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>1st School</option>
+                                    <option value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>2nd School</option>
+                                    <option value="3"  {% if request.GET.zone  == "3"%} selected {% endif %}>3rd School</option>
+                                    <option value="4"  {% if request.GET.zone  == "4"%} selected {% endif %}>4th School</option>
+                                    <option value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>5th School</option>
+                                    <!--<option value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>6</option>-->
                                     </select>  {% endcomment %}
-                                    
+
                                     <div style="text-align:center">
                                     <div class="schoollistfilter">
                                         <select style="margin:auto;max-width: 600px;" name="zone"  class="form-control" onfocus='this.size=6;' onblur='this.size=1;' onchange="this.size=1; this.blur(); $(this).closest('form').submit()">
                                             <option style="padding:1rem" value="all" {% if request.GET.zone  == "all" %} selected {% endif %}>All</option>
-                                            <option style="padding:1rem" value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>Fatima High School</option>
-                                            <option style="padding:1rem" value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>Fr.Agnel Multipurpose School</option>
-                                            <option style="padding:1rem" value="3"  {% if request.GET.zone  == "3"%} selected {% endif %}>Gurukul Grand Union School</option>
-                                            <option style="padding:1rem" value="4"  {% if request.GET.zone  == "4"%} selected {% endif %}>R.C.T P.M.M Rotary School</option>
-                                            <option style="padding:1rem" value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>S.I.E.S High School</option>
-                                            <option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhausaheb Paranjape School</option>
-                                            <option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhagini Mandal High School</option>
-                                            <option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>New Deccan High School</option>
-                                            
+                                            <option style="padding:1rem" value="1" {% if request.GET.zone  == "1"%} selected {% endif %}>1st School</option>
+                                            <option style="padding:1rem" value="2"  {% if request.GET.zone  == "2"%} selected {% endif %}>2nd School</option>
+                                            <option style="padding:1rem" value="3"  {% if request.GET.zone  == "3"%} selected {% endif %}>3rd School</option>
+                                            <option style="padding:1rem" value="4"  {% if request.GET.zone  == "4"%} selected {% endif %}>4th School</option>
+                                            <option style="padding:1rem" value="5"  {% if request.GET.zone  == "5"%} selected {% endif %}>5th School</option>
+                                            <!--<option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhausaheb Paranjape School</option>-->
+                                            <!--<option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>Bhagini Mandal High School</option>-->
+                                            <!--<option style="padding:1rem" value="6"  {% if request.GET.zone  == "6"%} selected {% endif %}>New Deccan High School</option>-->
+
                                         </select>
                                     </div>
                                     </div>
@@ -61,54 +61,54 @@
                             </div>
                     </div>
                    <!-- {{ value|default_if_none:"nothing" }} -->
-                        
-                        {% if request.GET.zone  == "all" %} 
+
+                        {% if request.GET.zone  == "all" %}
                         <div class="row">
 
                             <div class="col-md-6">
                                 <div class="container-fluid">
                                     <div class="ob-wrp2">
-                                        <a href="/category10/36" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/40.png' %}" alt="" title=""> </a>
+                                        <a href="#" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/13.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="container-fluid">
                                     <div class="ob-wrp2">
-                                        <a href="/category10/37" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/39.png' %}" alt="" title=""> </a>
+                                        <a href="#" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/14.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="container-fluid">
                                     <div class="ob-wrp2">
-                                        <a href="/category10/35" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/43.png' %}" alt="" title=""> </a>
+                                        <a href="#" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/15.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="container-fluid">
-                                    <div class="ob-wrp2">
-                                        <a href="/category10/38" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/41.png' %}" alt="" title=""> </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="container-fluid">
-                                    <div class="ob-wrp2">
-                                        <a href="/category10/39" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/42.png' %}" alt="" title=""> </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <!--<div class="col-md-6">-->
+                            <!--    <div class="container-fluid">-->
+                            <!--        <div class="ob-wrp2">-->
+                            <!--            <a href="/category10/38" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/41.png' %}" alt="" title=""> </a>-->
+                            <!--        </div>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--<div class="col-md-6">-->
+                            <!--    <div class="container-fluid">-->
+                            <!--        <div class="ob-wrp2">-->
+                            <!--            <a href="/category1 0/3 9" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/42.png' %}" alt="" title=""> </a>-->
+                            <!--        </div>-->
+                            <!--    </div>-->
+                            <!--</div>-->
                         </div>
-                        {% elif request.GET.zone  == "1" %} 
+                        {% elif request.GET.zone  == "1" %}
                         <div class="row">
                             <div class="col-md-3">
                             </div>
                             <div class="col-md-6">
                                 <div class="container-fluid">
                                     <div class="ob-wrp2">
-                                        <a href="/category10/36" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/40.png' %}" alt="" title=""> </a>
+                                        <a href="#" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/13.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
@@ -122,62 +122,62 @@
                             <div class="col-md-6">
                                 <div class="container-fluid">
                                     <div class="ob-wrp2">
-                                        <a href="/category10/37" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/39.png' %}" alt="" title=""> </a>
+                                        <a href="#" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/14.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                             </div>
                         </div>
-                            
-                        {% elif request.GET.zone  == "3" %} 
+
+                        {% elif request.GET.zone  == "3" %}
                         <div class="row">
                             <div class="col-md-3">
                             </div>
                             <div class="col-md-6">
                                 <div class="container-fluid">
                                     <div class="ob-wrp2">
-                                        <a href="/category10/35" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/43.png' %}" alt="" title=""> </a>
+                                        <a href="#" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/15.png' %}" alt="" title=""> </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                             </div>
                         </div>
-                            
-                                        
-                        {% elif request.GET.zone  == "4" %} 
-                        <div class="row">
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="container-fluid">
-                                    <div class="ob-wrp2">
-                                       
-                                        <a href="/category10/38" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/41.png' %}" alt="" title=""> </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                            </div>
-                        </div>
-                        
-                        {% elif request.GET.zone  == "5" %} 
-                        <div class="row">
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="container-fluid">
-                                    <div class="ob-wrp2">
-                                      
-                                        <a href="/category10/39" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/42.png' %}" alt="" title=""> </a>
-         </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                            </div>
-                        </div>                           
-                        {% endif %}    
+
+
+         <!--               {% elif request.GET.zone  == "4" %}-->
+         <!--               <div class="row">-->
+         <!--                   <div class="col-md-3">-->
+         <!--                   </div>-->
+         <!--                   <div class="col-md-6">-->
+         <!--                       <div class="container-fluid">-->
+         <!--                           <div class="ob-wrp2">-->
+
+         <!--                               <a href="/category10/38" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/41.png' %}" alt="" title=""> </a>-->
+         <!--                           </div>-->
+         <!--                       </div>-->
+         <!--                   </div>-->
+         <!--                   <div class="col-md-3">-->
+         <!--                   </div>-->
+         <!--               </div>-->
+
+         <!--               {% elif request.GET.zone  == "5" %}-->
+         <!--               <div class="row">-->
+         <!--                   <div class="col-md-3">-->
+         <!--                   </div>-->
+         <!--                   <div class="col-md-6">-->
+         <!--                       <div class="container-fluid">-->
+         <!--                           <div class="ob-wrp2">-->
+
+         <!--                               <a href="/category10/3 9" > <img width="100%" style="max-height: 800px;aspect-ratio: 6/2;" src="{% static 'images/42.png' %}" alt="" title=""> </a>-->
+         <!--</div>-->
+         <!--                       </div>-->
+         <!--                   </div>-->
+         <!--                   <div class="col-md-3">-->
+         <!--                   </div>-->
+         <!--               </div>-->
+         {% endif %}
 
                 </div>
             </div>
@@ -185,4 +185,3 @@
 </div>
 {% endblock %}
 
-                       

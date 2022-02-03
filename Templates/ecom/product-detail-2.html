@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="content-wrap prddetl">
-               
+
 
                 <div class="product-desc-slider">
                     <div class="container-fluid">
@@ -11,10 +11,27 @@
                             <div class="product-slider">
                                 <div class="product-wrap">
                                     <div class='slider-for'>
+                                        <!--<div class="ps-item"><img src="{{ product.img.url }}" alt="" title=""></div>-->
+                                        {% if product.img.url == null %}
+                                        <div class="ps-item"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                        {% else %}
                                         <div class="ps-item"><img src="{{ product.img.url }}" alt="" title=""></div>
+                                        {% endif %}
+                                        {% if product.img1.url == null %}
                                         <div class="ps-item"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                        {% else %}
+                                        <div class="ps-item"><img src="{{ product.img1.url }}" alt="" title=""></div>
+                                        {% endif %}
+                                        {% if product.img2.url == null %}
                                         <div class="ps-item"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                        {% else %}
+                                        <div class="ps-item"><img src="{{ product.img.url }}" alt="" title=""></div>
+                                        {% endif %}
+                                        {% if product.img3.url == null %}
                                         <div class="ps-item"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                        {% else %}
+                                        <div class="ps-item"><img src="{{ product.img3.url }}" alt="" title=""></div>
+                                        {% endif %}
                                     </div>
                                     <div class="product-icons">
                                         <span class="product-new"><span>New</span></span>
@@ -26,10 +43,27 @@
                                     </div>
                                 </div>
                                 <div class='slider-nav'>
+                                    {% if product.img.url == null %}
+                                    <div class="ps-thumb"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                    {% else %}
                                     <div class="ps-thumb"><img src="{{ product.img.url }}" alt="" title=""></div>
+                                    {% endif %}
+                                    {% if product.img1.url == null %}
                                     <div class="ps-thumb"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                    {% else %}
+                                    <div class="ps-thumb"><img src="{{ product.img1.url }}" alt="" title=""></div>
+                                    {% endif %}
+                                    {% if product.img2.url == null %}
                                     <div class="ps-thumb"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                    {% else %}
+                                    <div class="ps-thumb"><img src="{{ product.img2.url }}" alt="" title=""></div>
+                                    {% endif %}
+                                    {% if product.img3.url == null %}
                                     <div class="ps-thumb"><img src="{% static 'imgs/oxford-student-atlas-for-india-original-imafbqkrgcehb55r.jpeg'%}" alt="" title=""></div>
+                                    {% else %}
+                                    <div class="ps-thumb"><img src="{{ product.img3.url }}" alt="" title=""></div>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>
@@ -44,15 +78,16 @@
                                     <br>
                                     <p class="product-terms">Price inclusive of all Taxes</p>
 
-                                    {% if product.isBindable %}
+                                    {% comment %} {% if product.isBindable %}
                                     <hr class="bindinghr1">
                                     <div>
-                                     
+
                                         <form style="display: flex;align-items:center">
                                             <label class="add-book">Add Book Binding &ensp;</label><input style="height: 25px;width: 25px;margin-bottom:12px" type="checkbox">
                                         </form>
-                                        {% endif%}
+
                                     </div>
+                                    {% endif%} {% endcomment %}
                                 </div>
                                <hr class="bindinghr2" style="margin-top:0.8rem">
                                 <div class="product-details">
@@ -63,26 +98,26 @@
                                     <p>Any Other Detail</p>
                                 </div>
                                 <div class="products-cta">
-                                     
+
                                     <a href={{ request.path }} onclick="addToCartFunction({{ user.id }},{{ product.id }})" class="btn-cart">Add to Cart</a>
-                                    
+
                                     <a href="/mycart" onclick="buynowFunction({{ user.id }},{{ product.id }})" class="btn-buy-now">Buy Now</a>
-                                   
+
                                 </div>
                                 <hr >
                                 <div class="product-details">
                                     <h2 class="product-title">Product Description :- </h2>
                                     <div class="content hideContent">
                                         <p>{{ product.desp }}</p>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                        <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> -->
                                     </div>
                                 </div>
-                                <hr>
+                                <hr style="margin-top: ">
                             </div>
                         </div>
                     </div>
                 </div>
-   
+
         <div class="all-products">
         <div class="container-fluid">
           <div class="row">
@@ -137,70 +172,70 @@
         </div>
     </div>
 
-        <div class="all-products">
-        <div class="container-fluid">
-          <div class="row">
-            
-            <div class="col-sm-10 col-xs-10 ">
-              <h2 class="title">Recently Viewed :-</h2>
-            </div>
-            <div class="col-sm-2 col-xs-2">
-              <a href="/showall" class="btn-view-all  ml-auto">Show All</a>
-            </div>
-            &nbsp;
-          </div>
-            <div class="prosliders">
+    <!--    <div class="all-products">-->
+    <!--    <div class="container-fluid">-->
+    <!--      <div class="row">-->
 
-                <div class="ap-item">
-                    <a href="{% url 'Ecom:Productdetails' products.0.id  %}">
-                        <figure class="ap-img">
-                            <img src="{{products.0.img.url}}" alt="" title="">
-                        </figure>
-                    </a>
-                    <div class="ap-desc">
-                        <a href="{% url 'Ecom:Productdetails' products.0.id  %}" class="ap-title">{{ products.0.title }}</a>
-                        <p class="ap-price">{{ products.0.price }}  <strike>{{ products.0.mrp }}</strike> <span class="product-offer">({{ products.0.discount_per }}% off)</span></p>
-                    </div>
-                    <span class="ap-new-arrival">New</span>
-                    {% if product.0.id  in wishprod_ids %}
-                        <a href="#" class="product-add-wishtlist wishlisted"></a>
-                    {% else %}
-                        <a href="#" class="product-add-wishtlist"></a>
-                    {% endif %}
-                </div>
+    <!--        <div class="col-sm-10 col-xs-10 ">-->
+    <!--          <h2 class="title">Recently Viewed :-</h2>-->
+    <!--        </div>-->
+    <!--        <div class="col-sm-2 col-xs-2">-->
+    <!--          <a href="/showall" class="btn-view-all  ml-auto">Show All</a>-->
+    <!--        </div>-->
+    <!--        &nbsp;-->
+    <!--      </div>-->
+    <!--        <div class="prosliders">-->
 
-                {% for i in products|slice:"1:" %}
-                <div class="ap-item">
-                    <a href="{% url 'Ecom:Productdetails' i.id  %}">
-                        <figure class="ap-img">
-                            <img src="{{i.img.url}}" alt="" title="">
-                        </figure>
-                    </a>
-                    <div class="ap-desc">
-                        <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
-                        <p class="ap-price">{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">({{i.discount_per}}% off)</span></p>
-                    </div>
-                    <span class="ap-new-arrival">New</span>
-                    {% if i.id  in wishprod_ids %}
-                            <a href="#" class="product-add-wishtlist wishlisted"></a>
-                    {% else %}
-                        <a href="#" class="product-add-wishtlist"></a>
-                    {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
+    <!--            <div class="ap-item">-->
+    <!--                <a href="{% url 'Ecom:Productdetails' products.0.id  %}">-->
+    <!--                    <figure class="ap-img">-->
+    <!--                        <img src="{{products.0.img.url}}" alt="" title="">-->
+    <!--                    </figure>-->
+    <!--                </a>-->
+    <!--                <div class="ap-desc">-->
+    <!--                    <a href="{% url 'Ecom:Productdetails' products.0.id  %}" class="ap-title">{{ products.0.title }}</a>-->
+    <!--                    <p class="ap-price">{{ products.0.price }}  <strike>{{ products.0.mrp }}</strike> <span class="product-offer">({{ products.0.discount_per }}% off)</span></p>-->
+    <!--                </div>-->
+    <!--                <span class="ap-new-arrival">New</span>-->
+    <!--                {% if product.0.id  in wishprod_ids %}-->
+    <!--                    <a href="#" class="product-add-wishtlist wishlisted"></a>-->
+    <!--                {% else %}-->
+    <!--                    <a href="#" class="product-add-wishtlist"></a>-->
+    <!--                {% endif %}-->
+    <!--            </div>-->
+
+    <!--            {% for i in products|slice:"1:" %}-->
+    <!--            <div class="ap-item">-->
+    <!--                <a href="{% url 'Ecom:Productdetails' i.id  %}">-->
+    <!--                    <figure class="ap-img">-->
+    <!--                        <img src="{{i.img.url}}" alt="" title="">-->
+    <!--                    </figure>-->
+    <!--                </a>-->
+    <!--                <div class="ap-desc">-->
+    <!--                    <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>-->
+    <!--                    <p class="ap-price">{{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">({{i.discount_per}}% off)</span></p>-->
+    <!--                </div>-->
+    <!--                <span class="ap-new-arrival">New</span>-->
+    <!--                {% if i.id  in wishprod_ids %}-->
+    <!--                        <a href="#" class="product-add-wishtlist wishlisted"></a>-->
+    <!--                {% else %}-->
+    <!--                    <a href="#" class="product-add-wishtlist"></a>-->
+    <!--                {% endif %}-->
+    <!--                </div>-->
+    <!--            {% endfor %}-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
         <a href="#" id="scroll" style="display: none;"><img src="{% static 'imgs/back-to-top.png'%}" alt="Back to Top" title="Back to Top"></a>
     </div>
-  
+
 <script>
     function addToCartFunction(user_id,product_id){
         $.ajax({
             type: 'POST',
             url: '/django/api/add_to_cart/',
-            data: { 
+            data: {
                 "id": user_id,
                 "product_id": product_id,
                 "is_binding": "False"
@@ -217,7 +252,7 @@
         $.ajax({
             type: 'POST',
             url: '/django/api/add_to_cart/',
-            data: { 
+            data: {
                 "id": user_id,
                 "product_id": product_id,
                 "is_binding": "False"

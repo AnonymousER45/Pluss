@@ -44,10 +44,10 @@
             <div class="container-fluid">
                 <div class="row">
                      <div class="col-sm-10 col-xs-10 ">
-                        <h2 class="title d-flex">New Arrivals :-</h2>
+                        <h2 class="title d-flex">12th Standard Textbooks :-</h2>
                     </div>
                     <div class="col-sm-2 col-xs-2">
-                        <a href="/showall" class="btn-view-all  ml-auto">Show All</a>
+                        <a href="/showall/8" class="btn-view-all  ml-auto">Show All</a>
                     </div>
                     &nbsp;
                     </div>
@@ -75,7 +75,7 @@
                         {% else %}
                             <a href="#" class="product-add-wishtlist"></a>
                         {% endif %}
-                        
+
                     </div>
                     {% for i in product1|slice:"1:" %}
                     <div class="ap-item">
@@ -104,11 +104,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10 col-xs-10 ">
-                        <h2 class="title d-flex">Deals of the Day :-</h2>
+                        <h2 class="title d-flex">11th Standard Textbooks :-</h2>
 
                     </div>
                     <div class="col-sm-2 col-xs-2">
-                        <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                        <a href="/showall/7" class="btn-view-all  ml-auto">Show All</a>
                     </div>
                     &nbsp;
                 </div>
@@ -166,15 +166,14 @@
             </div>
         </div>
 
-
         <div class="all-products">
             <div class="container-fluid">
             <div class="row">
                     <div class="col-sm-10 col-xs-10 ">
-                        <h2 class="title d-flex">Story Tellers :-</h2>
+                        <h2 class="title d-flex">10th Standard Textbooks :-</h2>
                     </div>
                     <div class="col-sm-2 col-xs-2">
-                        <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                        <a href="/showall/6" class="btn-view-all  ml-auto">Show All</a>
                     </div>
                     &nbsp;
                 </div>
@@ -227,10 +226,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10 col-xs-10 ">
-                        <h2 class="title">Biography Books :-</h2>
+                        <h2 class="title">9th Standard Textbooks :-</h2>
                     </div>
                     <div class="col-sm-2 col-xs-2">
-                        <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                        <a href="/showall/5" class="btn-view-all  ml-auto">Show All</a>
                     </div>
                     &nbsp;
                 </div>
@@ -323,7 +322,7 @@
                         <h2 class="title d-flex">Notebooks :-</h2>
                     </div>
                     <div class="col-sm-2 col-xs-2">
-                        <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                        <a href="/showall/21" class="btn-view-all  ml-auto">Show All</a>
                     </div>
                     &nbsp;
                 </div>
@@ -377,7 +376,7 @@
                         <h2 class="title">Stationary :-</h2>
                     </div>
                     <div class="col-sm-2 col-xs-2">
-                        <a href="/showalldemo" class="btn-view-all  ml-auto">Show All</a>
+                        <a href="/showall/20" class="btn-view-all  ml-auto">Show All</a>
                     </div>
                     &nbsp;
                 </div>
@@ -425,6 +424,350 @@
             </div>
         </div>
 
+        <div class="all-products">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-10 col-xs-10 ">
+                        <h2 class="title">JEE :-</h2>
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <a href="/showall/15" class="btn-view-all  ml-auto">Show All</a>
+                    </div>
+                    &nbsp;
+                </div>
+
+                <div class="prosliders">
+                    <div class="ap-item">
+                        <a href="{% url 'Ecom:Productdetails' product7.0.id  %}">
+                        <figure class="ap-img">
+                            <img src="{{product7.0.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                           <a href="#" class="ap-title">{{ product7.0.title }}</a>
+
+
+                            <p class="ap-price">Rs. {{ product7.0.price }} <strike>{{ product7.0.mrp }}</strike> <span class="product-offer">{{ product7.0.discount_per }}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival">New</span>
+                        {% if product7.0.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% for i in product7|slice:"1:" %}
+                    <div class="ap-item">
+                        <a href="{% url 'Ecom:Productdetails' i.id  %}">
+                        <figure class="ap-img">
+                            <img src="{{i.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                            <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival ap-trending">Trending</span>
+                        {% if i.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="home-slider-wrap">
+        <div class="container-fluid">
+         <div class="homeslider">
+           <div class="hs-item">
+             <div class="hs-content">
+                <a href="#">
+                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                </a>
+             </div>
+           </div>
+           <div class="hs-item">
+            <div class="hs-content">
+              <a href="#">
+              <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+              </a>
+            </div>
+           </div>
+           <div class="hs-item">
+             <div class="hs-content">
+                <a href="#">
+                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                </a>
+             </div>
+           </div>
+           <div class="hs-item">
+             <div class="hs-content">
+               <a href="#">
+                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                </a>
+             </div>
+           </div>
+         </div>
+         </div>
+         </div>
+
+        <div class="all-products">
+            <div class="container-fluid">
+            <div class="row">
+                    <div class="col-sm-10 col-xs-10 ">
+                        <h2 class="title d-flex">8 th Standard Textbooks :-</h2>
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <a href="/showall/4" class="btn-view-all  ml-auto">Show All</a>
+                    </div>
+                    &nbsp;
+                </div>
+                <div class="prosliders">
+                    <div class="ap-item">
+                    	<a href="{% url 'Ecom:Productdetails' product8.0.id  %}">
+                    	<figure class="ap-img">
+	                    	<img src="{{product8.0.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                           <a href="{% url 'Ecom:Productdetails' product8.0.id  %}" class="ap-title">{{ product8.0.title }}</a>
+                            <p class="ap-price">Rs. {{ product8.0.price }} <strike>{{ product8.0.mrp }}</strike> <span class="product-offer">{{ product8.0.discount_per }}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival">New</span>
+                        {% if product8.0.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% for i in product8|slice:"1:" %}
+                    <div class="ap-item">
+                    	<a href="{% url 'Ecom:Productdetails' i.id  %}">
+                    	<figure class="ap-img">
+	                    	<img src="{{i.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                            <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
+
+
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival ap-trending">Trending</span>
+                        {% if i.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="all-products">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-10 col-xs-10 ">
+                        <h2 class="title">7th Standard Textbooks :-</h2>
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <a href="/showall/3" class="btn-view-all  ml-auto">Show All</a>
+                    </div>
+                    &nbsp;
+                </div>
+
+                <div class="prosliders">
+                    <div class="ap-item">
+                        <a href="{% url 'Ecom:Productdetails' product9.0.id  %}">
+                        <figure class="ap-img">
+                            <img src="{{product9.0.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                           <a href="#" class="ap-title">{{ product9.0.title }}</a>
+
+
+                            <p class="ap-price">Rs. {{ product9.0.price }} <strike>{{ product9.0.mrp }}</strike> <span class="product-offer">{{ product9.0.discount_per }}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival">New</span>
+                        {% if product9.0.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% for i in product9|slice:"1:" %}
+                    <div class="ap-item">
+                        <a href="{% url 'Ecom:Productdetails' i.id  %}">
+                        <figure class="ap-img">
+                            <img src="{{i.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                            <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival ap-trending">Trending</span>
+                        {% if i.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="home-slider-wrap">
+        <div class="container-fluid">
+         <div class="homeslider">
+           <div class="hs-item">
+             <div class="hs-content">
+                <a href="#">
+                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                </a>
+             </div>
+           </div>
+           <div class="hs-item">
+            <div class="hs-content">
+              <a href="#">
+              <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+              </a>
+            </div>
+           </div>
+           <div class="hs-item">
+             <div class="hs-content">
+                <a href="#">
+                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                </a>
+             </div>
+           </div>
+           <div class="hs-item">
+             <div class="hs-content">
+               <a href="#">
+                <img src="{{ banner.0.homeban1.url }}" alt="The Schools Knick Knacks" title="The Schools Knick Knacks">
+                </a>
+             </div>
+           </div>
+         </div>
+         </div>
+         </div>
+
+        <div class="all-products">
+            <div class="container-fluid">
+            <div class="row">
+                    <div class="col-sm-10 col-xs-10 ">
+                        <h2 class="title d-flex">6th Standard Textbooks :-</h2>
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <a href="/showall/2" class="btn-view-all  ml-auto">Show All</a>
+                    </div>
+                    &nbsp;
+                </div>
+                <div class="prosliders">
+                    <div class="ap-item">
+                    	<a href="{% url 'Ecom:Productdetails' product10.0.id  %}">
+                    	<figure class="ap-img">
+	                    	<img src="{{product10.0.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                           <a href="{% url 'Ecom:Productdetails' product10.0.id  %}" class="ap-title">{{ product10.0.title }}</a>
+                            <p class="ap-price">Rs. {{ product10.0.price }} <strike>{{ product10.0.mrp }}</strike> <span class="product-offer">{{ product10.0.discount_per }}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival">New</span>
+                        {% if product10.0.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% for i in product10|slice:"1:" %}
+                    <div class="ap-item">
+                    	<a href="{% url 'Ecom:Productdetails' i.id  %}">
+                    	<figure class="ap-img">
+	                    	<img src="{{i.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                            <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
+
+
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival ap-trending">Trending</span>
+                        {% if i.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="all-products">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-10 col-xs-10 ">
+                        <h2 class="title">5th Standard Textbooks :-</h2>
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <a href="/showall/1" class="btn-view-all  ml-auto">Show All</a>
+                    </div>
+                    &nbsp;
+                </div>
+
+                <div class="prosliders">
+                    <div class="ap-item">
+                        <a href="{% url 'Ecom:Productdetails' product11.0.id  %}">
+                        <figure class="ap-img">
+                            <img src="{{product11.0.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                           <a href="#" class="ap-title">{{ product11.0.title }}</a>
+
+
+                            <p class="ap-price">Rs. {{ product11.0.price }} <strike>{{ product11.0.mrp }}</strike> <span class="product-offer">{{ product11.0.discount_per }}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival">New</span>
+                        {% if product11.0.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% for i in product11|slice:"1:" %}
+                    <div class="ap-item">
+                        <a href="{% url 'Ecom:Productdetails' i.id  %}">
+                        <figure class="ap-img">
+                            <img src="{{i.img.url}}" alt="" title="">
+                        </figure>
+                        </a>
+                        <div class="ap-desc">
+                            <a href="{% url 'Ecom:Productdetails' i.id  %}" class="ap-title">{{ i.title }}</a>
+                            <p class="ap-price">Rs. {{ i.price }} <strike>{{ i.mrp }}</strike> <span class="product-offer">{{i.discount_per}}% off</span></p>
+                        </div>
+                        <span class="ap-new-arrival ap-trending">Trending</span>
+                        {% if i.id  in wishlisted_ids %}
+                            <a href="#" class="product-add-wishtlist wishlisted"></a>
+                        {% else %}
+                          <a href="#" class="product-add-wishtlist"></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 
         <div class="shop-by-brands">
                     <div class="container-fluid">
