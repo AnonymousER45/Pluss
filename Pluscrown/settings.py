@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'is=)o)(94qb1vy9fmhjk3snuh1uwb1z(59fy_15v)7o+2t$ph+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = FALSE
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','Swaraj.pythonanywhere.com','www.pluscrown.com','http://18.204.19.8/']
+ALLOWED_HOSTS = ['localhost','Swaraj.pythonanywhere.com','www.pluscrown.com','http://3.95.153.173/','3.95.153.173']
 
 
 # Application definition
